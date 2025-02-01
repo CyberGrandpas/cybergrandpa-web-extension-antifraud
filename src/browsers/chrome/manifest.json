@@ -1,24 +1,39 @@
 {
   "manifest_version": 3,
+  "__chrome__name": "CyberGrandpa - Chrome",
+  "__firefox__name": "CyberGrandpa - Firefox",
+  "__opera__name": "CyberGrandpa - Opera",
   "name": "CyberGrandpa Cross-Browser CyberSecurity Extension",
   "version": "1.0.0",
   "description": "A cross-browser compatible web extension boilerplate for safety online",
   "background": {
-    "service_worker": "background.js",
+    "__chrome|opera__service_worker": "background.js",
+    "__firefox__scripts": ["background.js"],
     "type": "module"
   },
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
-      "16": "icons/icon16.png",
-      "48": "icons/icon48.png",
-      "128": "icons/icon128.png"
+      "16": "assets/icon16.png",
+      "48": "assets/icon48.png",
+      "128": "assets/icon128.png"
     }
   },
-  "permissions": [],
+  "permissions": [
+    "storage"
+  ],
+  "__chrome__host_permissions": [],
+  "__firefox__host_permissions": [],
+  "__opera__host_permissions": [],
   "icons": {
-    "16": "icons/icon16.png",
-    "48": "icons/icon48.png",
-    "128": "icons/icon128.png"
-  }
+    "16": "assets/icon16.png",
+    "48": "assets/icon48.png",
+    "128": "assets/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["contentScript.js"]
+    }
+  ]
 }
