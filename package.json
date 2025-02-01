@@ -1,7 +1,7 @@
 {
   "name": "cybergrandpa-cross-browser-extension",
   "version": "1.0.0",
-  "description": "Cross-browser extension boilerplate",
+  "description": "A cross-browser compatible web extension boilerplate for safety online",
   "scripts": {
     "build": "echo \"Add build script here\" && exit 0",
     "build:chrome": "echo \"Add Chrome build script here\" && exit 0"
