@@ -3,6 +3,7 @@ const CopyPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ZipPlugin = require('zip-webpack-plugin');
+const sveltePreprocess = require('svelte-preprocess');
 
 const browser = process.env.BROWSER || 'chrome';
 const isProduction = process.env.NODE_ENV === 'production';
@@ -23,15 +24,34 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.svelte$/,
+        use: {
+          loader: 'svelte-loader',
+          options: {
+            compilerOptions: {
+              dev: !isProduction,
+            },
+            emitCss: true,
+            hotReload: !isProduction,
+            preprocess: sveltePreprocess({
+              sourceMap: !isProduction,
+              scss: {
+                prependData: '@import "./src/shared/styles/_variables.scss";',
+              },
+              typescript: {
+                tsconfigFile: './tsconfig.json',
+              },
+            }),
+          },
+        },
+      },
+      {
         test: /\.[jt]sx?$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
           options: {
-            presets: [
-              '@babel/preset-env',
-              '@babel/preset-typescript',
-            ],
+            presets: ['@babel/preset-env', '@babel/preset-typescript'],
           },
         },
       },
@@ -64,21 +84,22 @@ module.exports = {
         use: {
           loader: 'wext-manifest-loader',
           options: {
-            usePackageJSONVersion: true,
+            browser,
           },
         },
       },
     ],
   },
   resolve: {
-    extensions: ['.ts', '.js', '.json'],
+    extensions: ['.ts', '.js', '.svelte'],
+    mainFields: ['svelte', 'browser', 'module', 'main'],
     alias: {
       '@': path.resolve(__dirname, 'src'),
     },
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/shared/popup.html',
+      template: './src/shared/popup/popup.html',
       filename: 'popup.html',
       chunks: ['popup'],
     }),
@@ -91,10 +112,12 @@ module.exports = {
           from: `src/browsers/${browser}/manifest.json`,
           to: 'manifest.json',
           transform(content) {
-            return Buffer.from(JSON.stringify({
-              ...JSON.parse(content.toString()),
-              version: process.env.npm_package_version,
-            }));
+            return Buffer.from(
+              JSON.stringify({
+                ...JSON.parse(content.toString()),
+                version: process.env.npm_package_version,
+              })
+            );
           },
         },
         {

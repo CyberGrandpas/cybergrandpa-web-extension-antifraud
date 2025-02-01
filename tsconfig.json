@@ -13,9 +13,14 @@
     "paths": {
       "@/*": ["src/*"]
     },
-    "types": ["chrome", "node"],
-    "lib": ["esnext", "dom", "dom.iterable"]
+    "types": ["chrome", "node", "svelte"],
+    "lib": ["esnext", "dom", "dom.iterable"],
+    "typeRoots": [
+      "./node_modules/@types",
+      "./src/types"
+    ]
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts"],
-  "exclude": ["node_modules", "dist"]
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.svelte", "popup.ts"],
+  "exclude": ["node_modules", "dist"],
+  "extends": "@tsconfig/svelte/tsconfig.json"
 }
