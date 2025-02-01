@@ -21,7 +21,7 @@ src/
 ├── shared/           # Shared code between browsers
 │   ├── popup.html
 │   ├── popup.ts
-│   ├── popup.css
+│   ├── popup.scss
 │   ├── background.ts
 │   └── contentScript.ts
 └── browsers/        # Browser-specific manifests

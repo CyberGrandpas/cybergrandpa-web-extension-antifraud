@@ -1,5 +1,5 @@
 import browser from 'webextension-polyfill';
-import './popup.css';
+import './popup.scss';
 
 document.addEventListener('DOMContentLoaded', async () => {
   // Example: Get data from storage

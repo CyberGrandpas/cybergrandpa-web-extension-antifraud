@@ -40,7 +40,15 @@ module.exports = {
         use: [
           MiniCssExtractPlugin.loader,
           'css-loader',
-          'sass-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              implementation: require('sass'),
+              sassOptions: {
+                outputStyle: isProduction ? 'compressed' : 'expanded',
+              },
+            },
+          },
         ],
       },
       {
