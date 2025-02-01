@@ -1,6 +1,6 @@
-# Cross-Browser Extension Boilerplate
+# CyberGrandpa Cross-Browser CyberSecurity Extension
 
-A cross-browser compatible web extension boilerplate, initially supporting Chrome Manifest V3.
+A cross-browser compatible web extension boilerplate for safety online, initially supporting Chrome Manifest V3. 
 
 ## Project Structure
 
@@ -21,11 +21,11 @@ src/
 1. Clone this repository
 2. Install dependencies:
    ```bash
-   npm install
+   pnpm install
    ```
 3. Build for Chrome:
    ```bash
-   npm run build:chrome
+   pnpm run build:chrome
    ```
 
 ## Loading the Extension in Chrome

@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Cross Browser Extension",
+  "name": "CyberGrandpa Cross-Browser CyberSecurity Extension",
   "version": "1.0.0",
-  "description": "A cross-browser compatible extension",
+  "description": "A cross-browser compatible web extension for safety online",
   "background": {
     "service_worker": "background.js",
     "type": "module"
