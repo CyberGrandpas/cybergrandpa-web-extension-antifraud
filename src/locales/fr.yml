@@ -7,6 +7,6 @@ popup:
   title: Titre de pop-up
   hello: Halo!
 options:
-  title: Options Titre
+  title: Titre de Options
 wizard:
-  title: Magicien Titre
+  title: Titre de Magicien
