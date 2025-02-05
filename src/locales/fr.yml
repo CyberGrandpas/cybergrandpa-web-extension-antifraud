@@ -17,10 +17,10 @@ popup:
   protectionStatus: Statut de Protection
   realTimeProtection: Protection en temps réel
   tools: Outils
-  scanPage: Scannez la page
-  scan: Scan
+  scanPage: Scanner la page
+  scan: Scanner
   settings: Paramètres
-  wizard: Paramètres de l'assistant
+  wizard: Assistant
 options:
   title: Options
 wizard:
