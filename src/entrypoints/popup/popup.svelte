@@ -2,7 +2,6 @@
   import Header from '../../components/header.svelte';
   import Button from '../../components/button.svelte';
   import Toggle from '../../components/toggle.svelte';
-  import './popup.scss';
 </script>
 
 <main>
@@ -13,7 +12,7 @@
       <em>Protecting you online, just like a caring grandpa would!</em>
     </p>
 
-    <div class="settings first">
+    <div class="inner-container settings">
       <h2>Protection Status</h2>
       <ul>
         <li>
@@ -58,7 +57,27 @@
 </main>
 
 <style lang="scss">
+  :global(html) {
+    // This controls the minimum popup width
+    min-width: 390px;
+    // This controls the minimum popup height
+    min-height: 550px;
+  }
+
   main {
     width: auto;
+  }
+
+  .feature {
+    color: #495057;
+  }
+
+  .feature-link {
+    display: inline-block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 50%;
+    text-decoration: underline;
   }
 </style>

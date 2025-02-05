@@ -1,15 +1,12 @@
 <script lang="ts">
   import Header from '../../components/header.svelte';
-  // import Button from "../../components/button.svelte";
-  // import Toggle from "../../components/toggle.svelte";
-  import './wizard.scss';
 </script>
 
 <main>
   <div class="container">
     <Header logoSize={128} />
 
-    <div class="settings first">
+    <div class="settings inner-container">
       <h2>Settings wizard</h2>
       <ul>
         <li>
@@ -23,7 +20,7 @@
 
 <style lang="scss">
   main {
-    width: 50%;
+    min-width: 50%;
     max-width: 50rem;
   }
 </style>
