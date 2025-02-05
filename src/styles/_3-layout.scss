@@ -1,0 +1,27 @@
+main {
+  width: auto;
+  margin: 0 auto;
+  padding: var(--padding-vertical) var(--padding-horizontal);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.container {
+  flex-grow: 1;
+  padding: var(--padding-vertical) var(--padding-horizontal);
+  background: #f8f9fa;
+  text-align: center;
+  border-radius: 0.5rem;
+}
+
+.inner-container {
+  overflow: hidden;
+}
+
+.description {
+  margin-bottom: 0.5rem;
+  line-height: 1.5rem;
+  font-size: large;
+}
