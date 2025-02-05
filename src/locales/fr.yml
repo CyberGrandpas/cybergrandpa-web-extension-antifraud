@@ -1,6 +1,6 @@
 extension:
-  name: frVanilla I18n Example
+  name: CyberGrandpa AntiFraud
   description: Use the @wxt-dev/i18n to localize your extension
 popup:
-  title: Example Popup Title
+  title: Exemple de titre de pop-up
   hello: Hello $1!
