@@ -16,8 +16,8 @@ export default ts.config(
   ...svelte.configs['flat/recommended'],
   prettier,
   ...svelte.configs['flat/prettier'],
+  autoImports,
   {
-    autoImports,
     ignores: ['**/*.d.ts'],
     languageOptions: {
       globals: {
