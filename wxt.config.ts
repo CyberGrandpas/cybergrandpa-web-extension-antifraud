@@ -19,6 +19,7 @@ export default defineConfig({
     //     resources: ['/oxc_parser_wasm_bg.wasm'],
     //   },
     // ],
+    permissions: ['storage'],
   },
   imports: {
     eslintrc: {

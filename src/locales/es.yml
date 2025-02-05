@@ -1,0 +1,27 @@
+extension:
+  name: CiberAbuelo
+  subname: AntiFraude
+  description: Una extensión de navegador web para actividades de seguridad y anti-fraude en línea.
+  slogan: ¡Protegiéndote en línea, como lo haría un abuelo cariñoso!
+global:
+  logo: logo
+  visit: ¡Visita nuestro sitio web $1!
+  www: https://cybergrandpa.top/?utm_source=webext&utm_medium=web
+  options: Opciones
+  enabled: Activado
+  disabled: Desactivado
+  support: Soporte
+  wwwHelp: help.cybergrandpa.top
+popup:
+  latestUpdate: Última Actualización
+  protectionStatus: Estado de Protección
+  realTimeProtection: Protección en Tiempo Real
+  tools: Herramientas
+  scanPage: Escanear la página
+  scan: Escanear
+  settings: Configuración
+  wizard: Asistente
+options:
+  title: Opciones
+wizard:
+  title: Asistente de Configuración

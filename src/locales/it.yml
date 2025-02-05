@@ -1,0 +1,27 @@
+extension:
+  name: CyberNonno
+  subname: AntiTruffa
+  description: Un'estensione del browser web per la sicurezza e le attività anti-frode online.
+  slogan: Ti proteggiamo online, proprio come farebbe un nonno premuroso!
+global:
+  logo: logo
+  visit: Visita il nostro sito web $1!
+  www: https://cybergrandpa.top/?utm_source=webext&utm_medium=web
+  options: Opzioni
+  enabled: Attivato
+  disabled: Disattivato
+  support: Supporto
+  wwwHelp: help.cybergrandpa.top
+popup:
+  latestUpdate: Ultimo Aggiornamento
+  protectionStatus: Stato di Protezione
+  realTimeProtection: Protezione in Tempo Reale
+  tools: Strumenti
+  scanPage: Scansiona la pagina
+  scan: Scansiona
+  settings: Impostazioni
+  wizard: Procedura Guidata
+options:
+  title: Opzioni
+wizard:
+  title: Procedura Guidata Impostazioni

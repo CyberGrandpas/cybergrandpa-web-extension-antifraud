@@ -1,9 +1,8 @@
 document.documentElement.lang = lang
 
+console.log(browser.i18n.getUILanguage());
 
-  console.log(browser.i18n.getUILanguage());
+document.title = i18n.t('popup.title');
 
-// document.title = i18n.t('popup.title');
-
-// declare const messageH1: HTMLHeadingElement;
-// messageH1.textContent = i18n.t('popup.hello', ['John Smith']);
+declare const messageH1: HTMLHeadingElement;
+messageH1.textContent = i18n.t('popup.hello', ['John Smith']);
