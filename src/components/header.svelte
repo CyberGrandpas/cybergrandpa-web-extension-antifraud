@@ -6,15 +6,16 @@
   }
 
   let { logoSize = 96 }: Props = $props();
+  let t = i18n.t;
 </script>
 
 <div class="header">
   <div class="text">
-    <h1>CyberGrandpa <em>AntiFraud</em></h1>
+    <h1>{t('extension.name')} <em>{t('extension.subname')}</em></h1>
 
     {#if logoSize > 96}
       <p class="description">
-        <em>Protecting you online, just like a caring grandpa would!</em>
+        <em>{t('extension.slogan')}</em>
       </p>
     {/if}
   </div>

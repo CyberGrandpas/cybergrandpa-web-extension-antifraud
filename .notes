@@ -1,6 +1,8 @@
 document.documentElement.lang = lang
 
 
+  console.log(browser.i18n.getUILanguage());
+
 // document.title = i18n.t('popup.title');
 
 // declare const messageH1: HTMLHeadingElement;

@@ -7,7 +7,7 @@ export default defineConfig({
   extensionApi: 'chrome',
   modules: ['@wxt-dev/module-svelte', '@wxt-dev/i18n/module'],
   manifest: {
-    name: '__MSG_extension_name__',
+    name: '__MSG_extension_name__' + ' ' + '__MSG_extension_subname__',
     description: '__MSG_extension_description__',
     default_locale: 'en',
   },

@@ -1,11 +1,13 @@
+import '@/styles/style.scss';
+import { languageUpdates, setTitle } from '@/utils/bootstrap';
 import { mount } from 'svelte';
 import App from './options.svelte';
-import '../../styles/style.scss';
+
+languageUpdates();
+setTitle(i18n.t('options.title'));
 
 const app = mount(App, {
   target: document.getElementById('app')!,
 });
-
-document.documentElement.lang = browser.i18n.getUILanguage();
 
 export default app;

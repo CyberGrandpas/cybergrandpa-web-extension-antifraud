@@ -1,7 +1,7 @@
 <script lang="ts">
-  import Header from '../../components/header.svelte';
-  import Button from '../../components/button.svelte';
-  import Toggle from '../../components/toggle.svelte';
+  import Header from '@/components/header.svelte';
+  import Button from '@/components/button.svelte';
+  import Toggle from '@/components/toggle.svelte';
 </script>
 
 <main>
@@ -79,5 +79,9 @@
     overflow: hidden;
     width: 50%;
     text-decoration: underline;
+  }
+
+  ul li > span:last-child {
+    text-align: right;
   }
 </style>

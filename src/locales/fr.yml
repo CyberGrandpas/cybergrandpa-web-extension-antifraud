@@ -1,6 +1,12 @@
 extension:
-  name: CyberGrandpa AntiFraud
-  description: Use the @wxt-dev/i18n to localize your extension
+  name: CyberGrandpa
+  subname: Anti-Fraude
+  description: Une extension de navigateur Web pour la sécurité et la lutte contre la fraude en ligne.
+  slogan: Nous vous protégeons en ligne, comme le ferait un grand-père attentionné!
 popup:
-  title: Exemple de titre de pop-up
-  hello: Hello $1!
+  title: Titre de pop-up
+  hello: Halo!
+options:
+  title: Options Titre
+wizard:
+  title: Magicien Titre
