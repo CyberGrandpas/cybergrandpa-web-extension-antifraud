@@ -1,7 +1,7 @@
 {
-  "name": "cybergrandpa-cross-browser-extension-antivirus",
-  "displayName": "CyberGrandpa AntiVirus",
-  "description": "A cross-browser compatible web extension boilerplate for safety online",
+  "name": "cybergrandpa-cross-browser-extension-antifraud",
+  "displayName": "CyberGrandpa AntiFraud",
+  "description": "A browser compatible web extension for safety and anti-fraud online",
   "version": "0.0.1",
   "type": "module",
   "scripts": {
