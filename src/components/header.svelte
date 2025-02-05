@@ -3,24 +3,37 @@
 
   interface Props {
     logoSize?: number;
+    twoRows?: boolean;
   }
 
-  let { logoSize = 96 }: Props = $props();
+  let { logoSize = 96, twoRows = false }: Props = $props();
   let t = i18n.t;
 </script>
 
 <div class="header">
-  <div class="text">
-    <h1>{t('extension.name')} <em>{t('extension.subname')}</em></h1>
+  <div>
+    <h1 class="title">
+      <span class="extension-name">
+        {t('extension.name')}
+      </span>
+
+      {#if !!twoRows}
+        <br />
+      {/if}
+
+      <em>{t('extension.subname')}</em>
+    </h1>
 
     {#if logoSize > 96}
-      <p class="description">
+      <p class="slogan">
         <em>{t('extension.slogan')}</em>
       </p>
     {/if}
   </div>
   <div class="logo-container">
-    <Logo alt="CyberGrandpa Logo" size={logoSize} />
+    <a href={t('global.www')} target="_blank" title={t('global.visit', [t('extension.name')])}>
+      <Logo alt={`${t('extension.name')}} ${t('global.logo')}} `} size={logoSize} />
+    </a>
   </div>
 </div>
 
@@ -35,5 +48,16 @@
 
   .logo-container {
     margin-left: 0.75rem;
+  }
+
+  .slogan {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.5rem;
+    font-size: 1.1rem;
+  }
+
+  .extension-name {
+    text-transform: uppercase;
   }
 </style>

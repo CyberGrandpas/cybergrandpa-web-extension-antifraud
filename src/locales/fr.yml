@@ -1,12 +1,27 @@
 extension:
-  name: CyberGrandpa
+  name: CyberGrand-Père
   subname: Anti-Fraude
   description: Une extension de navigateur Web pour la sécurité et la lutte contre la fraude en ligne.
   slogan: Nous vous protégeons en ligne, comme le ferait un grand-père attentionné!
+global:
+  logo: logo
+  visit: Visitez notre site web $1!
+  www: https://cybergrandpa.top/?utm_source=webext&utm_medium=web
+  options: Options
+  enabled: Activer
+  disabled: Désactiver
+  support: Service Client
+  wwwHelp: help.cybergrandpa.top
 popup:
-  title: Titre de pop-up
-  hello: Halo!
+  latestUpdate: Dernière Mise à Jour
+  protectionStatus: Statut de Protection
+  realTimeProtection: Protection en temps réel
+  tools: Outils
+  scanPage: Scannez la page
+  scan: Scan
+  settings: Paramètres
+  wizard: Paramètres de l'assistant
 options:
-  title: Titre de Options
+  title: Options
 wizard:
-  title: Titre de Magicien
+  title: Paramètres de l'assistant

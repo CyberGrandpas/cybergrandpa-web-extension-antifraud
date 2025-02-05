@@ -13,15 +13,9 @@ main {
   padding: var(--padding-vertical) var(--padding-horizontal);
   background: #f8f9fa;
   text-align: center;
-  border-radius: 0.5rem;
+  border-radius: var(--border-radius);
 }
 
 .inner-container {
   overflow: hidden;
-}
-
-.description {
-  margin-bottom: 0.5rem;
-  line-height: 1.5rem;
-  font-size: large;
 }

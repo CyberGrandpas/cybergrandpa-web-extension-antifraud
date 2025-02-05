@@ -3,10 +3,25 @@ extension:
   subname: AntiFraud
   description: A browser web extension for safety and anti-fraud online activities.
   slogan: Protecting you online, just like a caring grandpa would!
+global:
+  logo: logo
+  visit: Visit our website $1!
+  www: https://cybergrandpa.top/?utm_source=webext&utm_medium=web
+  options: Options
+  enabled: Enabled
+  disabled: Disabled
+  support: Support
+  wwwHelp: help.cybergrandpa.top
 popup:
-  title: Popup Title
-  hello: Hello!
+  latestUpdate: Latest Update
+  protectionStatus: Protection Status
+  realTimeProtection: Real-time Protection
+  tools: Tools
+  scanPage: Scan the page
+  scan: Scan
+  settings: Settings
+  wizard: Wizard
 options:
-  title: Options Title
+  title: Options
 wizard:
-  title: Wizard Title
+  title: Settings Wizard

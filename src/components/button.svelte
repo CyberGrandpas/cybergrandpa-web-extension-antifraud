@@ -11,7 +11,7 @@
   let { children, url }: Props = $props();
 </script>
 
-<button class="button" onclick={() => browser.tabs.create({ url })}>
+<button class="button" onclick={() => browser.tabs.create({ url, active: true })}>
   {@render children()}
 </button>
 
