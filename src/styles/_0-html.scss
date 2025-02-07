@@ -23,7 +23,11 @@ body {
     0% 0%,
     50%
       calc(
-        50% - (((var(--scroll-y, 0) * 1px) - (var(--element-top, 0) * 1px)) * var(--background-parallax-intensity, 0))
+        50% -
+          (
+            ((var(--scroll-y, 0) * 0.0625rem) - (var(--element-top, 0) * 0.0625rem)) *
+              var(--background-parallax-intensity, 0)
+          )
       );
   background-repeat: repeat, no-repeat;
   background-size: cover, cover;

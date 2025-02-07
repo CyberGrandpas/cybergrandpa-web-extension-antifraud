@@ -12,10 +12,17 @@ global:
   support: Soporte
   wwwMain: cybergrandpa.top/?utm_source=webext&utm_medium=web
   wwwHelp: help.cybergrandpa.top
+  save: Guardar
+  saveAndClose: Guardar y Cerrar
+  close: Cerrar
+  cancel: Cancelar
+  reset: Reiniciar
+  yes: Si
+  no: No
 popup:
-  latestUpdate: Última Actualización
+  latestUpdate: Última Actualización
   protectionStatus: Estado de Protección
-  realTimeProtection: Protección en Tiempo Real
+  realTimeProtection: Protección Extrema
   tools: Herramientas
   scanPage: Escanear la página
   scan: Escanear
@@ -25,3 +32,13 @@ options:
   title: Opciones
 wizard:
   title: Asistente de Configuración
+  userWelcomeMessage: ¡Bienvenido amigo!
+  userWelcomeMessage2: Gracias por instalar $1 $2.
+  userWelcomeMessage3: Complete el asistente de configuración a continuación para comenzar.
+  userWelcomeMessage4: Tambien puede visitar nuestro <a href="$1" target="_blank">sitio web</a> para obtener más información.
+  userModalMessage: Puede hacer clic en la parte superior derecha de su ventana del navegador y pinar la extensión en su barra de herramientas.
+  suggested: Sugerido
+  optional: Opcional
+  question1: ¿Desea pinchar la extensión de CyberGrandpa en su barra de herramientas?
+  question2: ¿Desea recibir alertas de seguridad importantes?
+  question3: ¿Desea recibir actualizaciones de Cyberseguridad?

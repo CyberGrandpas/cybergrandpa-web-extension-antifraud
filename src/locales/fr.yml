@@ -22,7 +22,7 @@ global:
 popup:
   latestUpdate: Dernière Mise à Jour
   protectionStatus: Statut de Protection
-  realTimeProtection: Protection en temps réel
+  realTimeProtection: Protection Extrême
   tools: Outils
   scanPage: Scanner la page
   scan: Scanner

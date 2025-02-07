@@ -12,6 +12,13 @@ global:
   support: Unterstützung
   wwwMain: cybergrandpa.top/?utm_source=webext&utm_medium=web
   wwwHelp: help.cybergrandpa.top
+  save: Speichern
+  saveAndClose: Speichern und Schließen
+  close: Schließen
+  cancel: Abbrechen
+  reset: Zurücksetzen
+  yes: Ja
+  no: Nein
 popup:
   latestUpdate: Neuestes Update
   protectionStatus: Schutzstatus
@@ -25,3 +32,13 @@ options:
   title: Optionen
 wizard:
   title: Einstellungsassistent
+  userWelcomeMessage: Willkommen Freund!
+  userWelcomeMessage2: Dankeschön für die Installation von $1 $2.
+  userWelcomeMessage3: Vollziehen Sie den Assistenten unten, um zu beginnen.
+  userWelcomeMessage4: Sie können auch unsere <a href="$1" target="_blank">Website</a> besuchen, um weitere Informationen zu erhalten.
+  userModalMessage: Sie können auf der oberen rechten Seite Ihrer Browserfensterkarte die Erweiterung in Ihrer Werkzeugleiste fixieren.
+  suggested: Vorgeschlagen
+  optional: Optional
+  question1: Mochten Sie die Erweiterung von CyberGrandpa in Ihrer Werkzeugleiste fixieren?
+  question2: Mochten Sie wichtige Sicherheitsmeldungen erhalten?
+  question3: Mochten Sie die neuesten Updates für Cyber-Sicherheit erhalten?

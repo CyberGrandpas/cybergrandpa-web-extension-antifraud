@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { CONFIG_WWW_HELP } from '@/config';
+  import { CONFIG_WWW_MAIN } from '@/config';
   import type { HeaderProps } from '@/utils';
   import Logo from './logo.svelte';
 
@@ -28,7 +28,7 @@
     {/if}
   </div>
   <div class="logo-container">
-    <a href={CONFIG_WWW_HELP} target="_blank" title={t('global.visit', [t('extension.name')])}>
+    <a href={CONFIG_WWW_MAIN} target="_blank" title={t('global.visit', [t('extension.name')])}>
       <Logo alt={`${t('extension.name')}} ${t('global.logo')}} `} size={logoSize} />
     </a>
   </div>

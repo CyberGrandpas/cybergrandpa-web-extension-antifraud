@@ -13,7 +13,7 @@
   /* From Uiverse.io by RaspberryBee */
   /* The switch - the box around the slider */
   .switch {
-    font-size: 13px;
+    font-size: 0.8125rem;
     position: relative;
     display: inline-block;
     width: 3.5em;
@@ -37,7 +37,7 @@
     bottom: 0;
     background-color: rgb(182, 182, 182);
     transition: 0.4s;
-    border-radius: 10px;
+    border-radius: 0.625rem;
   }
 
   .slider:before {
@@ -45,7 +45,7 @@
     content: '';
     height: 1.2rem;
     width: 1.2rem;
-    border-radius: 8px;
+    border-radius: 0.5rem;
     left: 0.15rem;
     bottom: 0.15rem;
     transform: rotate(270deg);
@@ -58,7 +58,7 @@
   }
 
   .switch input:focus + .slider {
-    box-shadow: 0 0 1px #2196f3;
+    box-shadow: 0 0 0.0625rem #2196f3;
   }
 
   .switch input:checked + .slider:before {

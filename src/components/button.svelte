@@ -26,17 +26,17 @@
     font-size: var(--font-size, 1rem);
     font-family: Arial;
     padding: 0.3rem 0.5rem;
-    border-width: 1px;
+    border-width: 0.0625rem;
     color: #424526;
     border-color: #ffaa22;
     font-weight: bold;
     cursor: pointer;
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
-    border-bottom-left-radius: 6px;
-    border-bottom-right-radius: 6px;
-    box-shadow: 0px 1px 0px 0px #fff6af;
-    text-shadow: 0px 1px 0px #ffee66;
+    border-top-left-radius: 0.375rem;
+    border-top-right-radius: 0.375rem;
+    border-bottom-left-radius: 0.375rem;
+    border-bottom-right-radius: 0.375rem;
+    box-shadow: 0rem 0.0625rem 0rem 0rem #fff6af;
+    text-shadow: 0rem 0.0625rem 0rem #ffee66;
     background: linear-gradient(#ffec64, #ffab23);
   }
 

@@ -43,9 +43,9 @@
 <style lang="scss">
   :global(html) {
     // This controls the minimum popup width
-    min-width: 390px;
+    min-width: 26rem;
     // This controls the minimum popup height
-    min-height: 500px;
+    min-height: 31.25rem;
   }
 
   :global(.app-title) {

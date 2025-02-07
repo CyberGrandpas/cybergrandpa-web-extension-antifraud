@@ -12,10 +12,17 @@ global:
   support: Supporto
   wwwMain: cybergrandpa.top/?utm_source=webext&utm_medium=web
   wwwHelp: help.cybergrandpa.top
+  save: Salva
+  saveAndClose: Salva e Chiudi
+  close: Chiudi
+  cancel: Annulla
+  reset: Ripristina
+  yes: Si
+  no: No
 popup:
   latestUpdate: Ultimo Aggiornamento
   protectionStatus: Stato di Protezione
-  realTimeProtection: Protezione in Tempo Reale
+  realTimeProtection: Massima Protezione
   tools: Strumenti
   scanPage: Scansiona la pagina
   scan: Scansiona
@@ -25,3 +32,13 @@ options:
   title: Opzioni
 wizard:
   title: Procedura Guidata Impostazioni
+  userWelcomeMessage: Benvenuto!
+  userWelcomeMessage2: Grazie per aver installato $1 $2.
+  userWelcomeMessage3: Completa il procedimento guidato sottostante per iniziare.
+  userWelcomeMessage4: Puoi anche visitare il nostro <a href="$1" target="_blank">sito web</a> per maggiori informazioni.
+  userModalMessage: Puoi fare clic sull'angolo superiore destro della finestra del browser e pinare l'estensione nella barra degli strumenti.
+  suggested: Consigliato
+  optional: Opzionale
+  question1: Vuoi aggiungere il pin di CyberNonno nella tua barra degli strumenti?
+  question2: Vuoi ricevere importanti avvisi di sicurezza?
+  question3: Vuoi ricevere gli ultimi aggiornamenti sulla Cybersicurezza?

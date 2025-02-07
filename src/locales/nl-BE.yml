@@ -12,10 +12,17 @@ global:
   support: Ondersteuning
   wwwMain: cybergrandpa.top/?utm_source=webext&utm_medium=web
   wwwHelp: help.cybergrandpa.top
+  save: Opslaan
+  saveAndClose: Opslaan en Sluiten
+  close: Sluiten
+  cancel: Annuleren
+  reset: Resetten
+  yes: Ja
+  no: Nee
 popup:
   latestUpdate: Laatste Update
   protectionStatus: Beschermingsstatus
-  realTimeProtection: Realtime Bescherming
+  realTimeProtection: Extreme Bescherming
   tools: Hulpmiddelen
   scanPage: Scan de pagina
   scan: Scannen
@@ -25,3 +32,13 @@ options:
   title: Opties
 wizard:
   title: Instellingenwizard
+  userWelcomeMessage: Welkom vriend!
+  userWelcomeMessage2: Bedankt voor het installeren van $1 $2.
+  userWelcomeMessage3: Voltooi de onderstaande installatiewizard om aan de slag te gaan.
+  userWelcomeMessage4: U kunt ook onze <a href="$1" target="_blank">website</a> bezoeken voor meer informatie.
+  userModalMessage: U kunt rechtsboven in uw browservenster klikken en de extensie vastmaken aan uw werkbalk.
+  suggested: Aanbevolen
+  optional: Optioneel
+  question1: Wilt u de extensie van CyberOpa vastmaken aan uw werkbalk?
+  question2: Wilt u belangrijke beveiligingswaarschuwingen ontvangen?
+  question3: Wilt u de laatste updates over cyberveiligheid ontvangen?

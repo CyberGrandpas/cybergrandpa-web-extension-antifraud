@@ -37,11 +37,6 @@
 </main>
 
 <style lang="scss">
-  :global(html) {
-    // This controls the minimum options popup width
-    min-width: 370px;
-  }
-
   :global(.app-title) {
     font-size: 1.25rem;
     line-height: 1.75rem;
