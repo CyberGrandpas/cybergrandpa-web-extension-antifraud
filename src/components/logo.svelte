@@ -1,10 +1,7 @@
 <script lang="ts">
-  interface Props {
-    size?: number;
-    alt?: string;
-  }
+  import type { LogoProps } from '@/utils';
 
-  let { size = 128, alt = '' }: Props = $props();
+  let { size = 128, alt = '' }: LogoProps = $props();
 </script>
 
 <img src="/icon/{size}.png" width={size} height={size} {alt} />

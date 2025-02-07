@@ -1,9 +1,12 @@
 html {
   font-size: 16px;
+  min-height: var(--viewport-height);
 }
 
-html,
 body {
+  color: light-dark(var(--text-color-light), var(--text-color-dark));
+  background-color: light-dark(var(--background-color-light), var(--background-color-dark));
+  min-height: var(--viewport-height);
   font-family: var(--font-family-base);
   text-align: var(--alignment);
   user-select: none;
@@ -14,7 +17,6 @@ body {
   padding: 0;
   border: 0;
   background-attachment: fixed;
-  background-color: #000000;
   background-image: linear-gradient(135deg, rgba(0, 85, 250, 0.8) 0%, rgba(0, 255, 224, 0.722) 100%),
     url('/images/container06.svg');
   background-position:

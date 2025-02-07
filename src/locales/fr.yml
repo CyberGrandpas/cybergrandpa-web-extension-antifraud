@@ -6,12 +6,19 @@ extension:
 global:
   logo: logo
   visit: Visitez notre site web $1!
-  www: https://cybergrandpa.top/?utm_source=webext&utm_medium=web
   options: Options
-  enabled: Activer
-  disabled: Désactiver
+  enabled: Activé
+  disabled: Désactivé
   support: Service Client
+  wwwMain: cybergrandpa.top/?utm_source=webext&utm_medium=web
   wwwHelp: help.cybergrandpa.top
+  save: Sauvegarder
+  saveAndClose: Sauvegarder et Fermer
+  close: Fermer
+  cancel: Annuler
+  reset: Réinitialiser
+  yes: Oui
+  no: Non
 popup:
   latestUpdate: Dernière Mise à Jour
   protectionStatus: Statut de Protection
@@ -25,3 +32,13 @@ options:
   title: Options
 wizard:
   title: Paramètres de l'assistant
+  userWelcomeMessage: Bienvenue ami!
+  userWelcomeMessage2: Merci d'avoir installé $1 $2.
+  userWelcomeMessage3: Completer le wizard ci-dessous pour commencer.
+  userWelcomeMessage4: Vous pouvez aussi visiter notre <a href="$1" target="_blank">site web</a> pour plus d'informations.
+  userModalMessage: Vous pouvez cliquer sur la top right de votre navigateur et fixer l'extension sur votre barre d'outils.
+  suggested: Suggérés
+  optional: Optionnel
+  question1: Voulez-vous épingler l'extension CyberGrand-Père dans votre barre d'outils ?
+  question2: Souhaitez-vous recevoir des alertes de sécurité importantes ?
+  question3: Voulez-vous recevoir les dernières mises à jour sur la cybersécurité ?

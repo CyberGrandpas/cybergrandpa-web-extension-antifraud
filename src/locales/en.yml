@@ -6,12 +6,19 @@ extension:
 global:
   logo: logo
   visit: Visit our website $1!
-  www: https://cybergrandpa.top/?utm_source=webext&utm_medium=web
   options: Options
   enabled: Enabled
   disabled: Disabled
   support: Support
+  wwwMain: cybergrandpa.top/?utm_source=webext&utm_medium=web
   wwwHelp: help.cybergrandpa.top
+  save: Save
+  saveAndClose: Save and Close
+  close: Close
+  cancel: Cancel
+  reset: Reset
+  yes: Yes
+  no: No
 popup:
   latestUpdate: Latest Update
   protectionStatus: Protection Status
@@ -25,3 +32,13 @@ options:
   title: Options
 wizard:
   title: Settings Wizard
+  userWelcomeMessage: Welcome friend!
+  userWelcomeMessage2: Thanks for installing $1 $2.
+  userWelcomeMessage3: Complete the setup wizard below to get started.
+  userWelcomeMessage4: You can also visit our <a href="$1" target="_blank">website</a> for more information.
+  userModalMessage: You can click on the top right of your browser's window and pin the extension on your toolbar.
+  suggested: Suggested
+  optional: Optional
+  question1: Do you want to pin CyberGrandpa's extension in your toolbar?
+  question2: Do you want to receive important security alerts?
+  question3: Do you want to receive the latest updates on Cybersecurity?

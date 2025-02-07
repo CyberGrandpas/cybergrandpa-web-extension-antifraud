@@ -1,18 +1,15 @@
 <script lang="ts">
+  import { CONFIG_WWW_HELP } from '@/config';
+  import type { HeaderProps } from '@/utils';
   import Logo from './logo.svelte';
 
-  interface Props {
-    logoSize?: number;
-    twoRows?: boolean;
-  }
-
-  let { logoSize = 96, twoRows = false }: Props = $props();
+  let { logoSize = 96, twoRows = false }: HeaderProps = $props();
   let t = i18n.t;
 </script>
 
 <div class="header">
   <div>
-    <h1 class="title">
+    <h1 class="app-title">
       <span class="extension-name">
         {t('extension.name')}
       </span>
@@ -31,7 +28,7 @@
     {/if}
   </div>
   <div class="logo-container">
-    <a href={t('global.www')} target="_blank" title={t('global.visit', [t('extension.name')])}>
+    <a href={CONFIG_WWW_HELP} target="_blank" title={t('global.visit', [t('extension.name')])}>
       <Logo alt={`${t('extension.name')}} ${t('global.logo')}} `} size={logoSize} />
     </a>
   </div>

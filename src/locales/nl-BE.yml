@@ -6,11 +6,11 @@ extension:
 global:
   logo: logo
   visit: Bezoek onze website $1!
-  www: https://cybergrandpa.top/?utm_source=webext&utm_medium=web
   options: Opties
   enabled: Ingeschakeld
   disabled: Uitgeschakeld
   support: Ondersteuning
+  wwwMain: cybergrandpa.top/?utm_source=webext&utm_medium=web
   wwwHelp: help.cybergrandpa.top
 popup:
   latestUpdate: Laatste Update

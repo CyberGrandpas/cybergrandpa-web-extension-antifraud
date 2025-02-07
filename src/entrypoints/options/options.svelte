@@ -1,5 +1,8 @@
 <script lang="ts">
-  import Header from '../../components/header.svelte';
+  import { CONFIG_WWW_HELP } from '@/config';
+  import Button from '@/components/button.svelte';
+  import Header from '@/components/header.svelte';
+  import Status from '@/components/status.svelte';
 
   let t = i18n.t;
 </script>
@@ -9,11 +12,24 @@
     <Header logoSize={64} twoRows={true} />
 
     <div class="inner-container settings">
-      <h2>{t('global.options')}</h2>
+      <h4>{t('global.options')}</h4>
+      <Status />
+    </div>
+
+    <div class="settings">
+      <h4>{t('popup.tools')}</h4>
       <ul>
         <li>
-          <span class="feature">{t('popup.latestUpdate')}</span>
-          <span>-</span>
+          <span class="feature">{t('popup.settings')}</span>
+          <span class="feature-link">
+            <Button url="wizard.html" size="small">{t('popup.wizard')}</Button>
+          </span>
+        </li>
+        <li>
+          <span class="feature">{t('global.support')}</span>
+          <span class="feature-link">
+            <a href={CONFIG_WWW_HELP} target="_blank">{t('global.wwwHelp')}</a>
+          </span>
         </li>
       </ul>
     </div>
@@ -26,7 +42,7 @@
     min-width: 370px;
   }
 
-  :global(.title) {
+  :global(.app-title) {
     font-size: 1.25rem;
     line-height: 1.75rem;
   }

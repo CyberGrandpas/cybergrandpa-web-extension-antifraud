@@ -18,6 +18,11 @@ export default ts.config(
   ...svelte.configs['flat/prettier'],
   autoImports,
   {
+    rules: {
+      'svelte/no-at-html-tags': 'off',
+    },
+  },
+  {
     ignores: ['**/*.d.ts'],
     languageOptions: {
       globals: {

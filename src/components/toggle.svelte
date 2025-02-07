@@ -1,13 +1,11 @@
 <script lang="ts">
-  interface Props {
-    checked?: boolean;
-  }
+  import type { ToggleProps } from '@/utils';
 
-  let { checked }: Props = $props();
+  let { checked, onClick }: ToggleProps = $props();
 </script>
 
 <label class="switch">
-  <input type="checkbox" bind:checked />
+  <input type="checkbox" bind:checked onclick={onClick} />
   <span class="slider"></span>
 </label>
 

@@ -1,3 +1,4 @@
+@use 'webext-base-css' as *;
 @use '0-html' as *;
 @use '1-base' as *;
 @use '2-typography' as *;
@@ -7,6 +8,10 @@
 @use '6-widgets' as *;
 
 :root {
+  --text-color-light: #495057;
+  --text-color-dark: #efefec;
+  --background-color-light: #f8f9fa;
+  --background-color-dark: #1a283e;
   --background-height: 100vh;
   --viewport-height: 100vh;
   --site-language-alignment: left;
@@ -27,4 +32,5 @@
   --margin-left: 0;
   --margin-right: auto;
   --font-family-base: sans-serif;
+  max-width: initial;
 }

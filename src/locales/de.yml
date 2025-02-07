@@ -2,15 +2,15 @@ extension:
   name: CyberOpa
   subname: Betrugsschutz
   description: Eine Browser-Erweiterung für Sicherheit und Betrugsschutz bei Online-Aktivitäten.
-  slogan: Schützt Sie online, wie es ein fürsorglicher Opa tun würde!
+  slogan: Schützt Sie online, wie es ein fürsorglicher Opa tun wollte!
 global:
   logo: logo
   visit: Besuchen Sie unsere Website $1!
-  www: https://cybergrandpa.top/?utm_source=webext&utm_medium=web
   options: Optionen
   enabled: Aktiviert
   disabled: Deaktiviert
   support: Unterstützung
+  wwwMain: cybergrandpa.top/?utm_source=webext&utm_medium=web
   wwwHelp: help.cybergrandpa.top
 popup:
   latestUpdate: Neuestes Update

@@ -1,23 +1,29 @@
 <script lang="ts">
-  import { type Snippet } from 'svelte';
-
   import { browser } from 'wxt/browser';
+  import type { ButtonProps } from '@/utils';
 
-  interface Props {
-    children: Snippet;
-    url?: string;
+  let { children, url, onClick, size }: ButtonProps = $props();
+
+  if (!!url && !!onClick) {
+    console.error('Either url or onClick should be defined, not both');
+  } else if (!url && !onClick) {
+    console.error('Either only url or only onClick should be defined');
+  } else {
+    if (!!url && !onClick) {
+      onClick = () => browser.tabs.create({ url, active: true });
+    }
   }
 
-  let { children, url }: Props = $props();
+  let style = `--font-size: ${size === 'small' ? '0.8rem' : size === 'large' ? '1.3rem' : '1rem'}`;
 </script>
 
-<button class="button" onclick={() => browser.tabs.create({ url, active: true })}>
+<button class="button" onclick={onClick} {style}>
   {@render children()}
 </button>
 
 <style lang="scss">
   .button {
-    font-size: 14px;
+    font-size: var(--font-size, 1rem);
     font-family: Arial;
     padding: 0.3rem 0.5rem;
     border-width: 1px;
