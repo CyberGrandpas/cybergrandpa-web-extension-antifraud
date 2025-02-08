@@ -35,7 +35,7 @@
   </li>
   <li>
     <span class="feature">{t('popup.realTimeProtection')}</span>
-    <span><Toggle checked={realtime} onClick={() => storeRealtimeEnabled.set(!realtime)} /></span>
+    <span><Toggle checked={realtime} onClick={() => storeRealtimeEnabled.set(!realtime)} color="yellow" /></span>
   </li>
   <li>
     <span class="feature">{t('popup.latestUpdate')}</span>

@@ -34,4 +34,5 @@ export interface RadioProps {
 export interface ToggleProps {
   checked?: boolean;
   onClick?: () => void;
+  color?: 'red' | 'green' | 'yellow';
 }

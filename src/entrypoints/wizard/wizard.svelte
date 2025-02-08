@@ -96,6 +96,11 @@
     --padding-vertical: 2.25rem;
   }
 
+  :global(.app-title) {
+    font-size: 2rem !important;
+    line-height: 2.5rem !important;
+  }
+
   main {
     width: auto;
     min-width: 50%;

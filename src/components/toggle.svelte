@@ -1,10 +1,10 @@
 <script lang="ts">
   import type { ToggleProps } from '@/utils';
 
-  let { checked, onClick }: ToggleProps = $props();
+  let { checked, onClick, color = 'green' }: ToggleProps = $props();
 </script>
 
-<label class="switch">
+<label class="switch {color}">
   <input type="checkbox" bind:checked onclick={onClick} />
   <span class="slider"></span>
 </label>
@@ -55,6 +55,14 @@
 
   .switch input:checked + .slider {
     background-color: #21cc4c;
+  }
+
+  .switch.red input:checked + .slider {
+    background-color: #ff0000;
+  }
+
+  .switch.yellow input:checked + .slider {
+    background-color: #ffcc00;
   }
 
   .switch input:focus + .slider {

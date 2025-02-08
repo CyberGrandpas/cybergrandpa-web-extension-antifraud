@@ -43,6 +43,11 @@
     margin-bottom: 1.25rem;
   }
 
+  .app-title {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+
   .logo-container {
     margin-left: 0.75rem;
   }
@@ -55,6 +60,7 @@
   }
 
   .extension-name {
-    text-transform: uppercase;
+    font-size: 125%;
+    font-weight: 900;
   }
 </style>

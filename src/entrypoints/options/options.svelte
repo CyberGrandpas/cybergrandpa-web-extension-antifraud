@@ -35,10 +35,3 @@
     </div>
   </div>
 </main>
-
-<style lang="scss">
-  :global(.app-title) {
-    font-size: 1.25rem;
-    line-height: 1.75rem;
-  }
-</style>
