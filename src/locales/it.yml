@@ -28,6 +28,12 @@ popup:
   scan: Scansiona
   settings: Impostazioni
   wizard: Procedura Guidata
+  package: Pacchetto
+  upgrade: Aggiornamento
+  packageFree: Gratuito
+  packagePaid: Pago
+  help: Aiuto
+  billing: Fatturazione
 options:
   title: Opzioni
 wizard:

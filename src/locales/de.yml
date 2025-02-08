@@ -28,6 +28,12 @@ popup:
   scan: Scannen
   settings: Einstellungen
   wizard: Assistent
+  package: Paket
+  upgrade: Upgrade
+  packageFree: Kostenlos
+  packagePaid: Kostenpflichtig
+  help: Hilfe
+  billing: Abrechnung
 options:
   title: Optionen
 wizard:

@@ -23,6 +23,7 @@
 
 <style lang="scss">
   .button {
+    min-width: 6em;
     font-size: var(--font-size, 1rem);
     font-family: Arial;
     padding: 0.3rem 0.5rem;

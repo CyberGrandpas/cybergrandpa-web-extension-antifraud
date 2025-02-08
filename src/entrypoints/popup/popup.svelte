@@ -9,7 +9,7 @@
 
 <main>
   <div class="container">
-    <Header logoSize={64} twoRows={true} />
+    <Header logoSize={72} twoRows={true} />
 
     <p class="slogan">
       <em>{t('extension.slogan')}</em>
@@ -17,7 +17,7 @@
 
     <div class="inner-container settings">
       <h4>{t('popup.protectionStatus')}</h4>
-      <Status />
+      <Status floatingUpdate />
     </div>
 
     <div class="settings">
@@ -32,7 +32,7 @@
         <li>
           <span class="feature">{t('global.support')}</span>
           <span class="feature-link">
-            <a href={CONFIG_WWW_HELP} target="_blank">{t('global.wwwHelp')}</a>
+            <Button url={CONFIG_WWW_HELP} size="small">{t('popup.help')}</Button>
           </span>
         </li>
       </ul>
@@ -45,7 +45,7 @@
     // This controls the minimum popup width
     min-width: 26rem;
     // This controls the minimum popup height
-    min-height: 31.25rem;
+    min-height: 27rem;
   }
 
   main {

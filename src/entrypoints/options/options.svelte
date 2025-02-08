@@ -28,7 +28,7 @@
         <li>
           <span class="feature">{t('global.support')}</span>
           <span class="feature-link">
-            <a href={CONFIG_WWW_HELP} target="_blank">{t('global.wwwHelp')}</a>
+            <Button url={CONFIG_WWW_HELP} size="small">{t('popup.help')}</Button>
           </span>
         </li>
       </ul>

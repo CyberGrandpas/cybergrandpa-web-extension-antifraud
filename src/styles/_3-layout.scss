@@ -2,6 +2,7 @@ main {
   width: auto;
   margin: 0 auto;
   padding: var(--padding-vertical) var(--padding-horizontal);
+  padding-bottom: calc(var(--padding-vertical) * 1.4);
   display: flex;
   justify-content: center;
   align-items: center;

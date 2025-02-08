@@ -28,6 +28,12 @@ popup:
   scan: Scanner
   settings: Paramètres
   wizard: Assistant
+  package: Forfait
+  upgrade: Améliorer
+  packageFree: Gratuit
+  packagePaid: Payant
+  help: Aide
+  billing: Abonnement
 options:
   title: Options
 wizard:

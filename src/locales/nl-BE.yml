@@ -28,6 +28,12 @@ popup:
   scan: Scannen
   settings: Instellingen
   wizard: Wizard
+  package: Pakket
+  upgrade: Upgraden
+  packageFree: Gratis
+  packagePaid: Betaald
+  help: Hulp
+  billing: Facturatie
 options:
   title: Opties
 wizard:
