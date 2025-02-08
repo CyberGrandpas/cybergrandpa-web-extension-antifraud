@@ -46,8 +46,8 @@
     height: 1.2rem;
     width: 1.2rem;
     border-radius: 0.5rem;
-    left: 0.15rem;
-    bottom: 0.15rem;
+    left: 0.14rem;
+    bottom: 0.14rem;
     transform: rotate(270deg);
     background-color: rgb(255, 255, 255);
     transition: 0.4s;
