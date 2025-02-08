@@ -1,6 +1,7 @@
+import { ENV_LANGUAGE_FULL } from './env';
+
 export const languageUpdates = () => {
-  console.log(browser.i18n.getUILanguage());
-  document.documentElement.lang = browser.i18n.getUILanguage();
+  document.documentElement.lang = ENV_LANGUAGE_FULL;
 };
 
 export const setTitle = (title: string) => {

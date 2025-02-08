@@ -24,6 +24,13 @@ export interface ModalProps {
   onClose?: () => void;
 }
 
+export interface RadioProps {
+  label: string;
+  group: string;
+  value: string;
+  checked?: boolean;
+}
+
 export interface ToggleProps {
   checked?: boolean;
   onClick?: () => void;
