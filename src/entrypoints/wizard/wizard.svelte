@@ -4,7 +4,7 @@
   import { storeAlertsEnabled, storeNewsEnabled, storeOnBoardingCompleted, storeProtectionEnabled } from '@/lib/store';
   import Button from '@/components/button.svelte';
   import Header from '@/components/header.svelte';
-  import Modal from '@/components/modal.svelte';
+  import ModalOnboarding from '@/components/modal-onboarding.svelte';
   import Radio from '@/components/radio.svelte';
 
   let userOnboarded = $derived(get(storeOnBoardingCompleted));
@@ -82,7 +82,7 @@
     </div>
   </div>
 
-  <Modal
+  <ModalOnboarding
     show={showModal}
     text={t('wizard.userModalMessage')}
     src={`/images/help/screenshot_omnibox_toolbar_${ENV_LANGUAGE}.png`}
