@@ -1,10 +1,11 @@
 <script lang="ts">
   import { get } from 'svelte/store';
-  import { CONFIG_WWW_MAIN } from '@/config';
+  import { CONFIG_WWW_MAIN, ENV_LANGUAGE } from '@/config';
   import { storeAlertsEnabled, storeNewsEnabled, storeOnBoardingCompleted, storeProtectionEnabled } from '@/lib/store';
-  import Header from '@/components/header.svelte';
   import Button from '@/components/button.svelte';
+  import Header from '@/components/header.svelte';
   import Modal from '@/components/modal.svelte';
+  import Radio from '@/components/radio.svelte';
 
   let userOnboarded = $derived(get(storeOnBoardingCompleted));
 
@@ -12,7 +13,7 @@
 
   let t = i18n.t;
 
-  let pin = $state('1');
+  let pinned = $state('1');
   let alerts = $state('1');
   let news = $state('1');
 
@@ -22,7 +23,7 @@
     storeAlertsEnabled.set(alerts === '1' ? true : false);
     storeNewsEnabled.set(news === '1' ? true : false);
 
-    if (pin === '1') {
+    if (pinned === '1') {
       showModal = true;
     } else {
       endPostInstall();
@@ -55,28 +56,22 @@
             <strong>{t('wizard.suggested')}</strong>: {t('wizard.question1')}
           </span>
           <span>
-            <input id="radioPinYes" type="radio" class="css-checkbox" checked bind:group={pin} value="1" />
-            <label for="radioPinYes">{t('global.yes')}</label>
-            <input id="radioPinNo" type="radio" class="css-checkbox" bind:group={pin} value="0" />
-            <label for="radioPinNo">{t('global.no')}</label>
+            <Radio label={t('global.yes')} bind:group={pinned} checked value="1" />
+            <Radio label={t('global.no')} bind:group={pinned} value="0" />
           </span>
         </li>
         <li>
           <span class="feature">{t('wizard.optional')}: {t('wizard.question2')}</span>
           <span>
-            <input id="radioAlertsYes" type="radio" class="css-checkbox" checked bind:group={alerts} value="1" />
-            <label for="radioAlertsYes">{t('global.yes')}</label>
-            <input id="radioAlertsNo" type="radio" class="css-checkbox" bind:group={alerts} value="0" />
-            <label for="radioAlertsNo">{t('global.no')}</label>
+            <Radio label={t('global.yes')} bind:group={alerts} checked value="1" />
+            <Radio label={t('global.no')} bind:group={alerts} value="0" />
           </span>
         </li>
         <li>
           <span class="feature">{t('wizard.optional')}: {t('wizard.question3')}</span>
           <span>
-            <input id="radioUpdatesYes" type="radio" class="css-checkbox" checked bind:group={news} value="1" />
-            <label for="radioUpdatesYes">{t('global.yes')}</label>
-            <input id="radioUpdatesNo" type="radio" class="css-checkbox" bind:group={news} value="0" />
-            <label for="radioUpdatesNo">{t('global.no')}</label>
+            <Radio label={t('global.yes')} bind:group={news} checked value="1" />
+            <Radio label={t('global.no')} bind:group={news} value="0" />
           </span>
         </li>
         <li>
@@ -90,7 +85,7 @@
   <Modal
     show={showModal}
     text={t('wizard.userModalMessage')}
-    src="/images/help/screenshot_omnibox_toolbar.png"
+    src={`/images/help/screenshot_omnibox_toolbar_${ENV_LANGUAGE}.png`}
     onClose={endPostInstall}
   />
 </main>
