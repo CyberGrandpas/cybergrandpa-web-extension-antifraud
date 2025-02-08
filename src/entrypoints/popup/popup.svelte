@@ -48,11 +48,6 @@
     min-height: 31.25rem;
   }
 
-  // :global(.app-title) {
-  //   font-size: 1.25rem;
-  //   line-height: 1.75rem;
-  // }
-
   main {
     width: auto;
   }
