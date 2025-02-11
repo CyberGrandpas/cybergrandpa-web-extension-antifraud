@@ -16,8 +16,8 @@
     font-size: 0.8125rem;
     position: relative;
     display: inline-block;
-    width: 3.5em;
-    height: 1.8em;
+    width: 2.9rem;
+    height: 1.45rem;
   }
 
   /* Hide default HTML checkbox */
@@ -70,6 +70,6 @@
   }
 
   .switch input:checked + .slider:before {
-    transform: translateX(1.35rem);
+    transform: translateX(1.375rem);
   }
 </style>

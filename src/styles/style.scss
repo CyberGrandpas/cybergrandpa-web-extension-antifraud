@@ -8,19 +8,13 @@
 @use '6-widgets' as *;
 
 :root {
+  --font-size-base: 16px;
   --text-color-light: #495057;
   --text-color-dark: #efefec;
   --background-color-light: #f8f9fa;
   --background-color-dark: #1a283e;
   --background-height: 100vh;
   --viewport-height: 100vh;
-  --site-language-alignment: left;
-  --site-language-direction: ltr;
-  --site-language-flex-alignment: flex-start;
-  --site-language-indent-left: 1;
-  --site-language-indent-right: 0;
-  --site-language-margin-left: 0;
-  --site-language-margin-right: auto;
   --border-radius: 0.6rem;
   --padding-horizontal: 1.5rem;
   --padding-vertical: 1.5rem;

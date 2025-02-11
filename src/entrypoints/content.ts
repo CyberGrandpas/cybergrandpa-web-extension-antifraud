@@ -10,7 +10,7 @@ const overlayLoadingApp = (container: HTMLElement) => {
       loader: true,
       show: true,
       logo: true,
-      onClose: async () => {
+      onClose: () => {
         // Send a message to forward to contentScript
         browser.runtime.sendMessage({ type: 'scanPage', command: 'destroy' });
       },
@@ -28,11 +28,8 @@ const createUi = (ctx: ContentScriptContext, app: { (container: HTMLElement): vo
     onMount: (container) => {
       return app(container);
     },
-    // onRemove: (app) => unmount(app!, { outro: true }),
     onRemove: (app) => {
-      // console.log('onRemove', app);
-
-      // Destroy the app when the UI is removed
+      // Destroy the app when the UI is emoved
       if (app) {
         unmount(app, { outro: true });
       }

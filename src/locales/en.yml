@@ -19,6 +19,7 @@ global:
   reset: Reset
   yes: Yes
   no: No
+  scanning: Scanning
 popup:
   latestUpdate: Latest Update
   protectionStatus: Protection Status

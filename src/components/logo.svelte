@@ -3,7 +3,7 @@
 
   let { size = 128, alt = '' }: LogoProps = $props();
 
-  const src = `/icon/${size}.png`;
+  const src = browser.runtime.getURL(`/icon/${size}.png` as `/icon/128.png`);
 </script>
 
 <img {src} width={size} height={size} {alt} />

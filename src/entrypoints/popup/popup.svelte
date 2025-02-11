@@ -1,11 +1,26 @@
 <script lang="ts">
+  import { get } from 'svelte/store';
   import { CONFIG_WWW_HELP } from '@/config';
+  import { storeRealtimeEnabled, storeScanning } from '@/lib/store';
   import { getTabId } from '@/utils';
   import Header from '@/components/header.svelte';
   import Button from '@/components/button.svelte';
   import Status from '@/components/status.svelte';
 
+  let realtime = $state(get(storeRealtimeEnabled));
+  let scanning = $state(get(storeScanning));
+
+  storeRealtimeEnabled.subscribe((value) => {
+    realtime = value;
+  });
+
+  storeScanning.subscribe((value) => {
+    scanning = value;
+  });
+
   const scanPageOnClickHandler = async () => {
+    storeScanning.set(true);
+
     const tabId = await getTabId();
     const response = await browser.runtime.sendMessage({ type: 'loadContentScript', tabId });
 
@@ -34,7 +49,9 @@
         <li>
           <span class="feature">{t('popup.scanPage')}</span>
           <span class="feature-link">
-            <Button onClick={scanPageOnClickHandler} size="small">{t('popup.scan')}</Button>
+            <Button onClick={scanPageOnClickHandler} size="small" disabled={realtime} loading={scanning}>
+              {t('popup.scan')}
+            </Button>
           </span>
         </li>
         <li>

@@ -2,7 +2,7 @@
   import { browser } from 'wxt/browser';
   import type { ButtonProps } from '@/utils';
 
-  let { children, url, onClick, size }: ButtonProps = $props();
+  let { children, url, onClick, size, disabled, loading = false }: ButtonProps = $props();
 
   if (!!url && !!onClick) {
     console.error('Either url or onClick should be defined, not both');
@@ -17,13 +17,13 @@
   let style = `--font-size: ${size === 'small' ? '0.8rem' : size === 'large' ? '1.3rem' : '1rem'}`;
 </script>
 
-<button class="button" onclick={onClick} {style}>
+<button class="button {loading && 'running'}" onclick={onClick} {style} disabled={disabled || loading}>
   {@render children()}
 </button>
 
 <style lang="scss">
   .button {
-    min-width: 6em;
+    min-width: 6rem;
     font-size: var(--font-size, 1rem);
     font-family: Arial;
     padding: 0.3rem 0.5rem;
@@ -39,6 +39,15 @@
     box-shadow: 0rem 0.0625rem 0rem 0rem #fff6af;
     text-shadow: 0rem 0.0625rem 0rem #ffee66;
     background: linear-gradient(#ffec64, #ffab23);
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    &.running {
+      cursor: progress;
+    }
   }
 
   .button:hover {

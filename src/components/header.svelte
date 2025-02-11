@@ -18,12 +18,12 @@
         <br />
       {/if}
 
-      <em>{t('extension.subname')}</em>
+      <rem>{t('extension.subname')}</rem>
     </h1>
 
     {#if logoSize > 96}
       <p class="slogan">
-        <em>{t('extension.slogan')}</em>
+        <rem>{t('extension.slogan')}</rem>
       </p>
     {/if}
   </div>

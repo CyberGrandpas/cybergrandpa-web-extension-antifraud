@@ -5,6 +5,8 @@ export interface ButtonProps {
   url?: string;
   onClick?: () => void;
   size?: 'small' | 'large';
+  disabled?: boolean;
+  loading?: boolean;
 }
 
 export interface HeaderProps {

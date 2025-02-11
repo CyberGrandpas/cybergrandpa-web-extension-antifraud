@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Jumper } from 'svelte-loading-spinners';
   import { type ModalProps } from '@/utils';
-  import Logo from './logo.svelte';
+  import UiMessage from './ui-message.svelte';
 
   const defaultModalOnClose = () => {
     show = false;
@@ -22,7 +22,7 @@
 
 <div class="modal {show ? 'modal--show' : ''}">
   {#if loader}
-    <Jumper size="9" color="#f6ff00" unit="rem" duration="1s" />
+    <Jumper size="10" color="#f6ff00" unit="rem" duration="1s" />
   {:else}
     <div class="modal-wrap">
       {#if src}
@@ -38,7 +38,7 @@
 
   {#if logo}
     <div class="modal-logo">
-      <Logo alt={t('global.logo')} />
+      <UiMessage text={t('global.scanning')} />
     </div>
   {/if}
 </div>
@@ -64,7 +64,7 @@
     height: 100%;
     overflow-x: hidden;
     background-color: rgba(31, 32, 41, 0.75);
-    transition: opacity 250ms 700ms ease;
+    transition: opacity 250ms ease;
     pointer-events: none;
     opacity: 0;
 

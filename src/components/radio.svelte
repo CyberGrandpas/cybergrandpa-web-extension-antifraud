@@ -5,7 +5,7 @@
 
   let { label, group = $bindable(), checked, value }: RadioProps = $props();
 
-  const id = camelCase(['radio', label, value, '_', nanoid(4)].join(' '));
+  const id = camelCase(['radio', label, group, value, '_', nanoid(4)].join(' '));
 </script>
 
 <input {id} type="radio" class="css-radio" {checked} bind:group {value} />

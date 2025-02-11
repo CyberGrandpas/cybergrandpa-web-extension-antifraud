@@ -22,7 +22,21 @@ export default defineConfig({
     //     resources: ['/oxc_parser_wasm_bg.wasm'],
     //   },
     // ],
-    permissions: ['storage', 'scripting', 'activeTab', 'tabs', 'webRequest', 'webRequestBlocking'],
+    permissions: [
+      'storage',
+      'scripting',
+      'activeTab',
+      'tabs',
+      'declarativeNetRequest',
+      'declarativeNetRequestWithHostAccess',
+    ],
+    host_permissions: [''],
+    web_accessible_resources: [
+      {
+        matches: ['<all_urls>'],
+        resources: ['/icon/*.png'],
+      },
+    ],
   },
   imports: {
     eslintrc: {
