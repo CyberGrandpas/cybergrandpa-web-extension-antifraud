@@ -1,8 +1,16 @@
 <script lang="ts">
   import { CONFIG_WWW_HELP } from '@/config';
+  import { getTabId } from '@/utils';
   import Header from '@/components/header.svelte';
   import Button from '@/components/button.svelte';
   import Status from '@/components/status.svelte';
+
+  const scanPageOnClickHandler = async () => {
+    const tabId = await getTabId();
+    const response = await browser.runtime.sendMessage({ type: 'loadContentScript', tabId });
+
+    console.log('loadContentScript', { response });
+  };
 
   let t = i18n.t;
 </script>
@@ -26,7 +34,7 @@
         <li>
           <span class="feature">{t('popup.scanPage')}</span>
           <span class="feature-link">
-            <Button url="wizard.html" size="small">{t('popup.scan')}</Button>
+            <Button onClick={scanPageOnClickHandler} size="small">{t('popup.scan')}</Button>
           </span>
         </li>
         <li>

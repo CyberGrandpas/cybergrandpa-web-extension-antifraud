@@ -7,6 +7,7 @@ export default defineConfig({
   extensionApi: 'chrome',
   modules: ['@wxt-dev/module-svelte', '@wxt-dev/i18n/module'],
   manifest: {
+    manifest_version: 3,
     name: '__MSG_extension_name__' + ' ' + '__MSG_extension_subname__',
     description: '__MSG_extension_description__',
     default_locale: 'en',
@@ -15,11 +16,13 @@ export default defineConfig({
     //   {
     //     // We'll use this matches in the cotent script as well
     //     matches: ['*://*.github.com/*'],
+    //     // OR
+    //     matches: ['<all_urls>'],
     //     // Use the same path as `relativeDest` from the WXT module
     //     resources: ['/oxc_parser_wasm_bg.wasm'],
     //   },
     // ],
-    permissions: ['storage'],
+    permissions: ['storage', 'scripting', 'activeTab', 'tabs', 'webRequest', 'webRequestBlocking'],
   },
   imports: {
     eslintrc: {

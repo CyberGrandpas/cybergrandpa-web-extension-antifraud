@@ -1,34 +1,67 @@
 <script lang="ts">
-  import type { ModalProps } from '@/utils';
+  import { Jumper } from 'svelte-loading-spinners';
+  import { type ModalProps } from '@/utils';
+  import Logo from './logo.svelte';
 
-  let { show, text, src, onClose }: ModalProps = $props();
+  const defaultModalOnClose = () => {
+    show = false;
+  };
+
+  let { show, text, src, onClose = defaultModalOnClose, loader, logo }: ModalProps = $props();
+
+  const onCloseHandler = async () => {
+    defaultModalOnClose();
+
+    setTimeout(() => {
+      onClose();
+    }, 500);
+  };
 
   let t = i18n.t;
 </script>
 
 <div class="modal {show ? 'modal--show' : ''}">
-  <div class="modal-wrap">
-    {#if src}
-      <img {src} alt={src} />
-    {/if}
+  {#if loader}
+    <Jumper size="9" color="#f6ff00" unit="rem" duration="1s" />
+  {:else}
+    <div class="modal-wrap">
+      {#if src}
+        <img {src} alt={src} />
+      {/if}
 
-    <p>{text}</p>
-  </div>
-  <button class="modal-btn" onclick={onClose} aria-label={t('global.close')}>⨯</button>
+      {#if text}
+        <p>{text}</p>
+      {/if}
+    </div>
+  {/if}
+  <button class="modal-btn" onclick={onCloseHandler} aria-label={t('global.close')}>⨯</button>
+
+  {#if logo}
+    <div class="modal-logo">
+      <Logo alt={t('global.logo')} />
+    </div>
+  {/if}
 </div>
 
 <style lang="scss">
+  :global(body) {
+    overflow: hidden;
+    background-image: none !important;
+    background-color: transparent !important;
+  }
+
   .modal {
+    z-index: 1;
     position: fixed;
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     justify-content: center;
     margin: 0 auto;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 100;
     overflow-x: hidden;
     background-color: rgba(31, 32, 41, 0.75);
     transition: opacity 250ms 700ms ease;
@@ -95,7 +128,6 @@
     position: fixed;
     top: 2rem;
     right: 2rem;
-    z-index: 110;
     text-align: center;
     line-height: 0rem;
     font-size: 5rem;
@@ -105,5 +137,11 @@
     appearance: none;
     border: none;
     background: none;
+  }
+
+  .modal-logo {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
   }
 </style>

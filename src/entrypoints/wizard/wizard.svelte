@@ -4,7 +4,7 @@
   import { storeAlertsEnabled, storeNewsEnabled, storeOnBoardingCompleted, storeProtectionEnabled } from '@/lib/store';
   import Button from '@/components/button.svelte';
   import Header from '@/components/header.svelte';
-  import ModalOnboarding from '@/components/modal-onboarding.svelte';
+  import ModalOnboarding from '@/components/modal-help.svelte';
   import Radio from '@/components/radio.svelte';
 
   let userOnboarded = $derived(get(storeOnBoardingCompleted));

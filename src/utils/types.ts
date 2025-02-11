@@ -18,9 +18,11 @@ export interface LogoProps {
 }
 
 export interface ModalProps {
-  text: string;
+  text?: string;
   src?: string;
   show?: boolean;
+  logo?: boolean;
+  loader?: boolean;
   onClose?: () => void;
 }
 
