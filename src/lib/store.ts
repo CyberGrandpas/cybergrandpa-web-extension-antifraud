@@ -8,7 +8,7 @@ export const storeProtectionEnabled = createStore<boolean>(false, 'local:protect
 
 export const storeRealtimeEnabled = createStore<boolean>(false, 'local:realtimeEnabled');
 
-export const storeScanning = createStore<boolean>(false, 'local:scanning');
+export const storeScanning = createStore<string>('0', 'local:scanning');
 
 export const storeAlertsEnabled = createStore<boolean>(false, 'local:alertsEnabled');
 

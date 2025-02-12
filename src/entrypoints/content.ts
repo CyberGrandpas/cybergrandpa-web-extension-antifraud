@@ -1,5 +1,7 @@
 import App from '@/components/modal.svelte';
+import { storeScanning } from '@/lib/store';
 import '@/styles/style.scss';
+import { SendMessageParams } from '@/utils';
 import { mount, unmount } from 'svelte';
 import { ContentScriptContext } from 'wxt/client';
 
@@ -11,11 +13,15 @@ const overlayLoadingApp = (container: HTMLElement) => {
       show: true,
       logo: true,
       onClose: () => {
-        // Send a message to forward to contentScript
+        // Send a request to forward to contentScript
         browser.runtime.sendMessage({ type: 'scanPage', command: 'destroy' });
       },
     },
   });
+};
+
+const getLog = (request: SendMessageParams) => {
+  return `[${request.command}] of "${request.type}" executed`;
 };
 
 const createUi = (ctx: ContentScriptContext, app: { (container: HTMLElement): void }) => {
@@ -29,16 +35,15 @@ const createUi = (ctx: ContentScriptContext, app: { (container: HTMLElement): vo
       return app(container);
     },
     onRemove: (app) => {
+      // Set the scanning state to 0
+      storeScanning.set('0');
+
       // Destroy the app when the UI is emoved
       if (app) {
         unmount(app, { outro: true });
       }
     },
   });
-};
-
-const getLog = (message: { command: string; type: string }) => {
-  return `[${message.command}] of "${message.type}" executed`;
 };
 
 const mainContentScript = async (ctx: ContentScriptContext) => {
@@ -48,37 +53,60 @@ const mainContentScript = async (ctx: ContentScriptContext) => {
   const ui = await createUi(ctx, overlayLoadingApp);
 
   // auto mount
-  // ui.mount();
-  ui.autoMount();
+  ui.mount();
 
-  // Setup listener for one-time messages
-  browser.runtime.onMessage.addListener((message, _sender, sendResponse) => {
-    if (ui && message.type === 'scanPage') {
+  const addListenerHandler = (
+    request: SendMessageParams,
+    _sender: chrome.runtime.MessageSender,
+    sendResponse: (response: string) => void
+  ) => {
+    if (ui && request.type === 'scanPage') {
       // Returning a promise will send a response back to the sender
-      if (message.command === 'open') {
+      if (request.command === 'open') {
         ui.mount();
       }
 
-      // Returning a promise will send a response back to the sender
-      if (message.command === 'reload') {
-        ui.remove();
+      // if (request.command === 'reload') {
+      //   ui.remove();
 
-        setTimeout(() => {
-          ui!.mount();
-        }, 500);
-      }
+      //   setTimeout(ui.mount, 2500);
+      // }
 
-      // Only respond to close command
-      if (message.command === 'destroy') {
+      if (request.command === 'close') {
         ui.remove();
       }
 
-      // Returning a promise will send a response back to the sender
-      return sendResponse(getLog(message));
+      if (request.command === 'destroy') {
+        beforeUnloadHandler();
+      }
+
+      sendResponse(getLog(request));
+
+      return true;
     }
 
-    throw Error('Unknown message');
-  });
+    throw Error('Unknown request');
+  };
+
+  const setupListeners = () => {
+    // Setup listeners
+    browser.runtime.onMessage.addListener(addListenerHandler);
+
+    window.addEventListener('beforeunload', beforeUnloadHandler);
+  };
+
+  const removeListenerHandler = () => {
+    browser.runtime.onMessage.removeListener(addListenerHandler);
+    window.removeEventListener('beforeunload', beforeUnloadHandler);
+  };
+
+  const beforeUnloadHandler = () => {
+    removeListenerHandler();
+
+    ui.remove();
+  };
+
+  setupListeners();
 };
 
 export default defineContentScript({

@@ -1,5 +1,5 @@
 const onInstalledHandler = async ({ reason }: { reason: string }) => {
-  if (reason !== 'install') return;
+  if (reason !== 'install' && reason !== 'startup') return;
 
   // Open a tab on install
   await browser.tabs.create({
@@ -11,15 +11,19 @@ const onInstalledHandler = async ({ reason }: { reason: string }) => {
 export default defineBackground(() => {
   browser.runtime.onInstalled.addListener(onInstalledHandler);
 
-  browser.runtime.onMessage.addListener(async (message, _sender, sendResponse) => {
-    if (message.type === 'loadContentScript') {
+  browser.runtime.onStartup.addListener(() => onInstalledHandler({ reason: 'startup' }));
+
+  browser.runtime.onMessage.addListener(async (request, _sender, sendResponse) => {
+    if (request.type === 'loadContentScript') {
       // Returning a promise will send a response back to the sender
       const response = await browser.scripting.executeScript({
-        target: { tabId: message.tabId },
+        target: { tabId: request.tabId },
         files: ['/content-scripts/content.js'],
       });
 
-      return sendResponse(response);
+      sendResponse(response);
+
+      return Promise.resolve(response);
     }
 
     // MESSAGES FORWARDED TO CONTENT SCRIPTS and ALL TABS
@@ -30,15 +34,29 @@ export default defineBackground(() => {
       (tab) => tab.id != null && tab.url != null && contentScriptMatches.includes(tab.url)
     );
 
-    // Forward message to tabs, collecting the responses
-    const responses = await Promise.all(
+    // Forward request to tabs, collecting the responses
+    // const responses =
+    await Promise.all(
       contentScriptTabs.map(async (tab) => {
-        const response = await browser.tabs.sendMessage(tab.id!, message);
+        let response;
+
+        try {
+          response = await browser.tabs.sendMessage(tab.id!, request);
+        } catch (error) {
+          // console.error(error);
+          response = error;
+        }
+
+        // sendResponse(String(response));
+
         return { tab: tab.id, response };
       })
     );
 
+    // Send responses back to sender
+    // sendResponse(responses);
+
     // Return an array of all responses back to popup.
-    return sendResponse(responses);
+    return true;
   });
 });

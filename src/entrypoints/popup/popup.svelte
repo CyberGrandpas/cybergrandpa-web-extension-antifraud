@@ -2,7 +2,7 @@
   import { get } from 'svelte/store';
   import { CONFIG_WWW_HELP } from '@/config';
   import { storeRealtimeEnabled, storeScanning } from '@/lib/store';
-  import { getTabId } from '@/utils';
+  import { getTabId, activateTab, sendMessage } from '@/utils';
   import Header from '@/components/header.svelte';
   import Button from '@/components/button.svelte';
   import Status from '@/components/status.svelte';
@@ -10,24 +10,39 @@
   let realtime = $state(get(storeRealtimeEnabled));
   let scanning = $state(get(storeScanning));
 
-  storeRealtimeEnabled.subscribe((value) => {
+  const unsubscribeRealtime = storeRealtimeEnabled.subscribe((value) => {
     realtime = value;
   });
 
-  storeScanning.subscribe((value) => {
+  const unsubscribeScanning = storeScanning.subscribe((value) => {
     scanning = value;
   });
 
+  const isBusyScanning = (value: string) => Number(value) > 0;
+
   const scanPageOnClickHandler = async () => {
-    storeScanning.set(true);
+    if (isBusyScanning(scanning)) {
+      return activateTab(Number(scanning));
+    }
 
     const tabId = await getTabId();
-    const response = await browser.runtime.sendMessage({ type: 'loadContentScript', tabId });
+    const response = await sendMessage({ type: 'loadContentScript', tabId });
+
+    storeScanning.set(String(tabId));
 
     console.log('loadContentScript', { response });
   };
 
   let t = i18n.t;
+
+  $effect(() => {
+    return () => {
+      // eslint-disable-next-line no-debugger
+      debugger;
+      unsubscribeRealtime();
+      unsubscribeScanning();
+    };
+  });
 </script>
 
 <main>
@@ -49,8 +64,13 @@
         <li>
           <span class="feature">{t('popup.scanPage')}</span>
           <span class="feature-link">
-            <Button onClick={scanPageOnClickHandler} size="small" disabled={realtime} loading={scanning}>
-              {t('popup.scan')}
+            <Button
+              onClick={scanPageOnClickHandler}
+              size="small"
+              disabled={realtime}
+              loading={isBusyScanning(scanning)}
+            >
+              {isBusyScanning(scanning) ? t('global.scanning') : t('popup.scan')}
             </Button>
           </span>
         </li>

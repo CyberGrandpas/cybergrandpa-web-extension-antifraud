@@ -17,7 +17,7 @@
   let style = `--font-size: ${size === 'small' ? '0.8rem' : size === 'large' ? '1.3rem' : '1rem'}`;
 </script>
 
-<button class="button {loading && 'running'}" onclick={onClick} {style} disabled={disabled || loading}>
+<button class="button {loading && 'running'}" onclick={onClick} {style} {disabled}>
   {@render children()}
 </button>
 

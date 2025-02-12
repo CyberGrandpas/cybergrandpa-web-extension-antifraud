@@ -40,3 +40,9 @@ export interface ToggleProps {
   onClick?: () => void;
   color?: 'red' | 'green' | 'yellow';
 }
+
+export interface SendMessageParams {
+  type: string;
+  tabId?: number;
+  command?: string;
+}

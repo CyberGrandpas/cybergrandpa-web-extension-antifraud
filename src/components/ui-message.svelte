@@ -27,14 +27,13 @@
 
     &__logo {
       z-index: 2;
-      background-color: #fff;
+      background: light-dark(var(--background-color-light), var(--background-color-dark));
       border-radius: 100%;
       padding: 0.1875rem;
     }
 
     &__message {
       z-index: 1;
-      background-color: #fff;
       font-size: 1rem;
       font-weight: 500;
       padding-left: 1.75rem;
@@ -42,6 +41,7 @@
       line-height: 2.5rem;
       padding-right: 1rem;
       border-radius: 0 1rem 1rem 0;
+      background: light-dark(var(--background-color-light), var(--background-color-dark));
     }
 
     &__dots {
@@ -49,7 +49,8 @@
       display: inline-block;
       width: 0.875rem;
       aspect-ratio: 6;
-      background: radial-gradient(circle closest-side, #333 90%, #0000) 0 / calc(100% / 3) 100% space;
+      background: radial-gradient(circle closest-side, var(--background-color-light) 90%, var(--background-color-dark))
+        0 / calc(100% / 3) 100% space;
       clip-path: inset(0 100% 0 0);
       animation: l1 1s steps(4) infinite;
     }
