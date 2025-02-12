@@ -19,6 +19,7 @@ global:
   reset: Reiniciar
   yes: Si
   no: No
+  scanning: Escaneando
 popup:
   latestUpdate: Última Actualización
   protectionStatus: Estado de Protección

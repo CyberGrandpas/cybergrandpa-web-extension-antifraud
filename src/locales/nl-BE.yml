@@ -34,6 +34,7 @@ popup:
   packagePaid: Betaald
   help: Hulp
   billing: Facturatie
+  scanning: Scannen
 options:
   title: Opties
 wizard:

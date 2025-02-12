@@ -34,6 +34,7 @@ popup:
   packagePaid: Pago
   help: Aiuto
   billing: Fatturazione
+  scanning: Scansionando
 options:
   title: Opzioni
 wizard:
