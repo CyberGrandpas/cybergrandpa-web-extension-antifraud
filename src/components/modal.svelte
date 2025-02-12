@@ -63,7 +63,7 @@
     width: 100%;
     height: 100%;
     overflow-x: hidden;
-    background-color: rgba(31, 32, 41, 0.75);
+    background: rgba(31, 32, 41, 0.7);
     transition: opacity 250ms ease;
     pointer-events: none;
     opacity: 0;

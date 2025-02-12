@@ -2,7 +2,7 @@
   import { get } from 'svelte/store';
   import { CONFIG_WWW_HELP } from '@/config';
   import { storeRealtimeEnabled, storeScanning } from '@/lib/store';
-  import { getTabId, activateTab, sendMessage } from '@/utils';
+  import { getActiveTab, activateTab, sendMessage } from '@/utils';
   import Header from '@/components/header.svelte';
   import Button from '@/components/button.svelte';
   import Status from '@/components/status.svelte';
@@ -32,13 +32,18 @@
       return activateTab(Number(scanning));
     }
 
-    const tabId = await getTabId();
-    const response = await sendMessage({ type: 'loadContentScript', tabId });
+    const { id, url } = await getActiveTab();
 
-    storeScanning.set(String(tabId));
+    if (!url || url?.startsWith('about') || url?.startsWith('chrome') || url?.startsWith('firefox')) {
+      return;
+    }
+
+    const response = await sendMessage({ type: 'loadContentScript', tabId: id });
+
+    storeScanning.set(String(id));
 
     console.log('loadContentScript', { response });
-    console.log(`tabId = ${tabId}`);
+    console.log(`tabId = ${id}`);
   };
 
   let t = i18n.t;
@@ -62,11 +67,6 @@
     <p class="slogan">
       <em>{t('extension.slogan')}</em>
     </p>
-
-    <div class="inner-container settings">
-      <h4>{t('popup.protectionStatus')}</h4>
-      <Status floatingUpdate />
-    </div>
 
     <div class="settings">
       <h4>{t('popup.tools')}</h4>
@@ -92,13 +92,18 @@
         </li>
       </ul>
     </div>
+
+    <div class="inner-container settings">
+      <h4>{t('popup.protectionStatus')}</h4>
+      <Status floatingUpdate />
+    </div>
   </div>
 </main>
 
 <style lang="scss">
   :global(html) {
     // This controls the minimum popup width
-    min-width: 26rem;
+    min-width: 24.5rem;
     // This controls the minimum popup height
     min-height: 27rem;
   }
