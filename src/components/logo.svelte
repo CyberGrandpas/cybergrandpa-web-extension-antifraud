@@ -6,11 +6,19 @@
   const src = browser.runtime.getURL(`/icon/${size}.png` as `/icon/128.png`);
 </script>
 
-<img {src} width={size} height={size} {alt} />
+<div class="logo">
+  <img {src} width={size} height={size} {alt} />
+</div>
 
 <style lang="scss">
-  img {
+  .logo {
+    background-color: var(--background-color-light);
+    border-radius: 100%;
     display: block;
-    margin: 0 auto;
+
+    img {
+      display: block;
+      margin: 0 auto;
+    }
   }
 </style>

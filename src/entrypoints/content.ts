@@ -1,7 +1,7 @@
 import App from '@/components/modal.svelte';
 import { storeScanning } from '@/lib/store';
 import '@/styles/style.scss';
-import { SendMessageParams } from '@/utils';
+import { SendMessageParams, getLog } from '@/utils';
 import { mount, unmount } from 'svelte';
 import { ContentScriptContext } from 'wxt/client';
 
@@ -18,10 +18,6 @@ const overlayLoadingApp = (container: HTMLElement) => {
       },
     },
   });
-};
-
-const getLog = (request: SendMessageParams) => {
-  return `[${request.command}] of "${request.type}" executed`;
 };
 
 const createUi = (ctx: ContentScriptContext, app: { (container: HTMLElement): void }) => {
@@ -47,13 +43,13 @@ const createUi = (ctx: ContentScriptContext, app: { (container: HTMLElement): vo
 };
 
 const mainContentScript = async (ctx: ContentScriptContext) => {
-  console.log('Bootstrap ContentScript');
+  console.log('Bootstrap mainContentScript');
 
   // Instantiate the UI
   const ui = await createUi(ctx, overlayLoadingApp);
 
   // auto mount
-  ui.mount();
+  ui.autoMount();
 
   const addListenerHandler = (
     request: SendMessageParams,
@@ -65,12 +61,6 @@ const mainContentScript = async (ctx: ContentScriptContext) => {
       if (request.command === 'open') {
         ui.mount();
       }
-
-      // if (request.command === 'reload') {
-      //   ui.remove();
-
-      //   setTimeout(ui.mount, 2500);
-      // }
 
       if (request.command === 'close') {
         ui.remove();
@@ -88,25 +78,23 @@ const mainContentScript = async (ctx: ContentScriptContext) => {
     throw Error('Unknown request');
   };
 
-  const setupListeners = () => {
-    // Setup listeners
+  const addListeners = () => {
     browser.runtime.onMessage.addListener(addListenerHandler);
-
-    window.addEventListener('beforeunload', beforeUnloadHandler);
+    ctx.addEventListener(window, 'beforeunload', beforeUnloadHandler);
   };
 
-  const removeListenerHandler = () => {
+  const removeInvalidatedListener = ctx.onInvalidated(() => {
     browser.runtime.onMessage.removeListener(addListenerHandler);
-    window.removeEventListener('beforeunload', beforeUnloadHandler);
-  };
+  });
+
+  removeInvalidatedListener();
 
   const beforeUnloadHandler = () => {
-    removeListenerHandler();
-
+    ctx.abort();
     ui.remove();
   };
 
-  setupListeners();
+  addListeners();
 };
 
 export default defineContentScript({

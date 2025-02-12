@@ -1,17 +1,26 @@
+import { storeScanning } from '@/lib/store';
+import { forwardMessageToCss } from '@/utils';
+
 const onInstalledHandler = async ({ reason }: { reason: string }) => {
-  if (reason !== 'install' && reason !== 'startup') return;
+  if (reason !== 'install' && reason !== 'startup' && reason !== 'update') return;
+
+  storeScanning.set('0');
 
   // Open a tab on install
   await browser.tabs.create({
     url: browser.runtime.getURL('/wizard.html'),
     active: true,
   });
+
+  await forwardMessageToCss({ type: 'scanPage', command: 'destroy' });
 };
 
 export default defineBackground(() => {
   browser.runtime.onInstalled.addListener(onInstalledHandler);
 
   browser.runtime.onStartup.addListener(() => onInstalledHandler({ reason: 'startup' }));
+
+  browser.runtime.onSuspend.addListener(() => onInstalledHandler({ reason: 'suspend' }));
 
   browser.runtime.onMessage.addListener(async (request, _sender, sendResponse) => {
     if (request.type === 'loadContentScript') {
@@ -26,35 +35,10 @@ export default defineBackground(() => {
       return Promise.resolve(response);
     }
 
-    // MESSAGES FORWARDED TO CONTENT SCRIPTS and ALL TABS
-    // Grab tabs matching content scripts
-    const allTabs = await browser.tabs.query({});
-    const contentScriptMatches = new MatchPattern('*://*/*');
-    const contentScriptTabs = allTabs.filter(
-      (tab) => tab.id != null && tab.url != null && contentScriptMatches.includes(tab.url)
-    );
-
-    // Forward request to tabs, collecting the responses
-    // const responses =
-    await Promise.all(
-      contentScriptTabs.map(async (tab) => {
-        let response;
-
-        try {
-          response = await browser.tabs.sendMessage(tab.id!, request);
-        } catch (error) {
-          // console.error(error);
-          response = error;
-        }
-
-        // sendResponse(String(response));
-
-        return { tab: tab.id, response };
-      })
-    );
+    const responses = await forwardMessageToCss(request);
 
     // Send responses back to sender
-    // sendResponse(responses);
+    sendResponse(responses);
 
     // Return an array of all responses back to popup.
     return true;

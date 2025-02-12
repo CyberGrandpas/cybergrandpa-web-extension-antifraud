@@ -10,13 +10,20 @@
   let realtime = $state(get(storeRealtimeEnabled));
   let scanning = $state(get(storeScanning));
 
-  const unsubscribeRealtime = storeRealtimeEnabled.subscribe((value) => {
-    realtime = value;
-  });
+  const setupListeners = () => {
+    const unsubscribeRealtime = storeRealtimeEnabled.subscribe((value) => {
+      realtime = value;
+    });
 
-  const unsubscribeScanning = storeScanning.subscribe((value) => {
-    scanning = value;
-  });
+    const unsubscribeScanning = storeScanning.subscribe((value) => {
+      scanning = value;
+      console.log(`scanning = ${value}`);
+    });
+
+    console.log(`setupListeners`);
+
+    return [unsubscribeRealtime, unsubscribeScanning];
+  };
 
   const isBusyScanning = (value: string) => Number(value) > 0;
 
@@ -31,14 +38,17 @@
     storeScanning.set(String(tabId));
 
     console.log('loadContentScript', { response });
+    console.log(`tabId = ${tabId}`);
   };
 
   let t = i18n.t;
 
   $effect(() => {
+    const [unsubscribeRealtime, unsubscribeScanning] = setupListeners();
+
     return () => {
-      // eslint-disable-next-line no-debugger
-      debugger;
+      storeRealtimeEnabled.unwatch();
+      storeScanning.unwatch();
       unsubscribeRealtime();
       unsubscribeScanning();
     };

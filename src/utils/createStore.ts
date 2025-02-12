@@ -17,13 +17,11 @@ export function createStore<T>(value: T, storageKey: StorageItemKey) {
   const unwatch = storageItem.watch(set);
 
   return {
-    ready: () => storageItem.getValue(),
+    ready: storageItem.getValue,
     subscribe,
     set: (value: T) => {
       storageItem.setValue(value);
     },
-    destroy: () => {
-      unwatch();
-    },
+    unwatch,
   };
 }
