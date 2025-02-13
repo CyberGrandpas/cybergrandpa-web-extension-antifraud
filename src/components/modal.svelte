@@ -7,7 +7,7 @@
     show = false;
   };
 
-  let { show, text, src, onClose = defaultModalOnClose, loader, logo }: ModalProps = $props();
+  let { show = false, autoShow = false, text, src, onClose = defaultModalOnClose, loader, logo }: ModalProps = $props();
 
   const onCloseHandler = async () => {
     defaultModalOnClose();
@@ -18,29 +18,39 @@
   };
 
   let t = i18n.t;
+
+  $effect(() => {
+    if (autoShow) {
+      setTimeout(() => {
+        show = true;
+      }, 100);
+    }
+  });
 </script>
 
 <div class="modal {show ? 'modal--show' : ''}">
-  {#if loader}
-    <Jumper size="10" color="#f6ff00" unit="rem" duration="1s" />
-  {:else}
-    <div class="modal-wrap">
-      {#if src}
-        <img {src} alt={src} />
-      {/if}
+  <div class="modal-wrap">
+    {#if loader}
+      <Jumper size="10" color="#f6ff00" unit="rem" duration="1s" />
+    {:else}
+      <div class="modal-content">
+        {#if src}
+          <img {src} alt={src} />
+        {/if}
 
-      {#if text}
-        <p>{text}</p>
-      {/if}
-    </div>
-  {/if}
-  <button class="modal-btn" onclick={onCloseHandler} aria-label={t('global.close')}>⨯</button>
+        {#if text}
+          <p>{text}</p>
+        {/if}
+      </div>
+    {/if}
+    <button class="modal-btn" onclick={onCloseHandler} aria-label={t('global.close')}>⨯</button>
 
-  {#if logo}
-    <div class="modal-logo">
-      <UiMessage text={t('global.scanning')} />
-    </div>
-  {/if}
+    {#if logo}
+      <div class="modal-logo">
+        <UiMessage text={t('global.scanning')} />
+      </div>
+    {/if}
+  </div>
 </div>
 
 <style lang="scss">
@@ -53,10 +63,6 @@
   .modal {
     z-index: 1;
     position: fixed;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
     margin: 0 auto;
     top: 0;
     left: 0;
@@ -75,7 +81,31 @@
   }
 
   .modal-wrap {
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: scale(1.6);
+    transition:
+      opacity 250ms 250ms ease,
+      transform 300ms 250ms ease;
+
+    .modal--show & {
+      opacity: 1;
+      transform: scale(1);
+      transition:
+        opacity 250ms 500ms ease,
+        transform 350ms 500ms ease;
+    }
+  }
+
+  .modal-content {
     display: block;
     width: 100%;
     max-width: 25rem;
@@ -89,19 +119,6 @@
     -ms-flex-item-align: center;
     align-self: center;
     box-shadow: 0 0.75rem 1.5625rem 0 rgba(199, 175, 189, 0.25);
-    opacity: 0;
-    transform: scale(0.6);
-    transition:
-      opacity 250ms 250ms ease,
-      transform 300ms 250ms ease;
-
-    .modal--show & {
-      opacity: 1;
-      transform: scale(1);
-      transition:
-        opacity 250ms 500ms ease,
-        transform 350ms 500ms ease;
-    }
   }
 
   .modal-wrap img {

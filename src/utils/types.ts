@@ -23,6 +23,7 @@ export interface ModalProps {
   text?: string;
   src?: string;
   show?: boolean;
+  autoShow?: boolean;
   logo?: boolean;
   loader?: boolean;
   onClose?: () => void;

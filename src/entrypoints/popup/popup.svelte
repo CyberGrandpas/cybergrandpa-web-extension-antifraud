@@ -20,8 +20,6 @@
       console.log(`scanning = ${value}`);
     });
 
-    console.log(`setupListeners`);
-
     return [unsubscribeRealtime, unsubscribeScanning];
   };
 

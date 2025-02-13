@@ -9,12 +9,20 @@ const overlayLoadingApp = (container: HTMLElement) => {
   return mount(App, {
     target: container,
     props: {
+      accessors: true,
+      autoShow: true,
       loader: true,
-      show: true,
       logo: true,
       onClose: () => {
         // Send a request to forward to contentScript
         browser.runtime.sendMessage({ type: 'scanPage', command: 'destroy' });
+      },
+    },
+    events: {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      onMount: (evt) => {
+        // eslint-disable-next-line no-debugger
+        debugger;
       },
     },
   });
@@ -46,10 +54,11 @@ const mainContentScript = async (ctx: ContentScriptContext) => {
   console.log('Bootstrap mainContentScript');
 
   // Instantiate the UI
+  // TODO: make it modular for different apps in content script's page.
   const ui = await createUi(ctx, overlayLoadingApp);
 
   // auto mount
-  ui.autoMount();
+  ui.mount();
 
   const addListenerHandler = (
     request: SendMessageParams,
