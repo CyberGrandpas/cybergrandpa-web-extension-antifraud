@@ -1,6 +1,5 @@
 <script lang="ts">
   import Modal from '@/components/modal.svelte';
-  import '@/styles/style.scss';
 
   let { onClose } = $props();
 
@@ -12,3 +11,11 @@
     {t('global.scanning')}
   </p>
 </Modal>
+
+<style lang="scss">
+  :global(body) {
+    overflow: hidden;
+    background-image: none !important;
+    background-color: transparent !important;
+  }
+</style>

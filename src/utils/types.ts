@@ -1,6 +1,12 @@
 import OverlayLoadingApp from '@/components/apps/overlay-loading-app.svelte';
 import { type Snippet } from 'svelte';
 
+export type SvelteApp = typeof OverlayLoadingApp;
+
+export type AppsType = {
+  [key: string]: SvelteApp;
+};
+
 export interface ButtonProps {
   children: Snippet;
   url?: string;
@@ -49,5 +55,3 @@ export interface SendMessageParams {
   tabId?: number;
   command?: string;
 }
-
-export type SvelteApp = typeof OverlayLoadingApp;

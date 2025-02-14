@@ -50,12 +50,6 @@
 </div>
 
 <style lang="scss">
-  :global(body) {
-    overflow: hidden;
-    background-image: none !important;
-    background-color: transparent !important;
-  }
-
   .modal {
     z-index: 1;
     position: fixed;

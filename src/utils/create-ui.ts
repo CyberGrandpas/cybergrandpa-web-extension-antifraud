@@ -1,17 +1,22 @@
+import apps from '@/components/apps';
+import { APP_NAME } from '@/config';
 import { storeScanning } from '@/lib/store';
+import { pascalCase } from 'change-case';
 import { unmount } from 'svelte';
 import { ContentScriptContext } from 'wxt/client';
 import { bootstrapApp } from './bootstrap-app';
 import { SvelteApp } from './types';
 
-export const createUi = (name: string, svelteApp: SvelteApp, ctx: ContentScriptContext) => {
+export const createUi = (name: string, ctx: ContentScriptContext) => {
   return createShadowRootUi(ctx, {
-    name,
+    name: `${APP_NAME}-${name}`,
     position: 'modal',
     zIndex: 99999999,
     anchor: 'body',
     append: 'first',
     onMount: (container) => {
+      const svelteApp: SvelteApp = apps[pascalCase(name)];
+
       return bootstrapApp(svelteApp, container);
     },
     onRemove: (app) => {

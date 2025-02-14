@@ -1,5 +1,5 @@
 import { mount } from 'svelte';
-import { SvelteApp } from './types';
+import type { SvelteApp } from './types';
 
 export const bootstrapApp = (svelteApp: SvelteApp, target: HTMLElement) => {
   return mount(svelteApp, {

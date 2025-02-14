@@ -1,13 +1,11 @@
-import OverlayLoadingApp from '@/components/apps/overlay-loading-app.svelte';
-import { storeScanning } from '@/lib/store';
-import { SendMessageParams, createUi, getLog } from '@/utils';
+import '@/styles/style.scss';
+import { SendMessageParams, getLog } from '@/utils';
+import { createUi } from '@/utils/create-ui';
 import { ContentScriptContext } from 'wxt/client';
 
 const mainContentScript = async (ctx: ContentScriptContext) => {
-  await storeScanning.ready();
-
   // Instantiate the UI
-  const ui = await createUi('cybergrandpa-modal-shadow-root', OverlayLoadingApp, ctx);
+  const ui = await createUi('overlay-loading-app', ctx);
 
   // auto mount
   ui.mount();

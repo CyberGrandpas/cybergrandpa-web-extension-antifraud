@@ -1,6 +1,6 @@
 import { storeOnBoardingCompleted } from '@/lib/store';
 import '@/styles/style.scss';
-import { languageUpdates, setTitle } from '@/utils/bootstrap';
+import { languageUpdates, setTitle } from '@/utils';
 import { mount } from 'svelte';
 import App from './wizard.svelte';
 
