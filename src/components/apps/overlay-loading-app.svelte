@@ -6,7 +6,7 @@
   let t = i18n.t;
 </script>
 
-<Modal show autoShow loader logo {onClose}>
+<Modal autoShow loader logo {onClose}>
   <p>
     {t('global.scanning')}
   </p>
