@@ -1,3 +1,4 @@
+import OverlayLoadingApp from '@/components/apps/overlay-loading-app.svelte';
 import { type Snippet } from 'svelte';
 
 export interface ButtonProps {
@@ -20,13 +21,14 @@ export interface LogoProps {
 }
 
 export interface ModalProps {
-  text?: string;
-  src?: string;
+  children?: Snippet;
   show?: boolean;
   autoShow?: boolean;
   logo?: boolean;
   loader?: boolean;
   onClose?: () => void;
+  text?: string;
+  src?: string;
 }
 
 export interface RadioProps {
@@ -47,3 +49,5 @@ export interface SendMessageParams {
   tabId?: number;
   command?: string;
 }
+
+export type SvelteApp = typeof OverlayLoadingApp;

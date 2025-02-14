@@ -1,5 +1,7 @@
 export * from './activateTab';
 export * from './bootstrap';
+export * from './bootstrap-app';
+export * from './create-ui';
 export * from './createStore';
 export * from './env';
 export * from './forwardMessageToCss';

@@ -7,7 +7,7 @@
     show = false;
   };
 
-  let { show = false, autoShow = false, text, src, onClose = defaultModalOnClose, loader, logo }: ModalProps = $props();
+  let { show = false, autoShow = false, children, onClose = defaultModalOnClose, loader, logo }: ModalProps = $props();
 
   const onCloseHandler = async () => {
     defaultModalOnClose();
@@ -34,12 +34,8 @@
       <Jumper size="10" color="#f6ff00" unit="rem" duration="1s" />
     {:else}
       <div class="modal-content">
-        {#if src}
-          <img {src} alt={src} />
-        {/if}
-
-        {#if text}
-          <p>{text}</p>
+        {#if children}
+          {@render children()}
         {/if}
       </div>
     {/if}
@@ -121,23 +117,10 @@
     box-shadow: 0 0.75rem 1.5625rem 0 rgba(199, 175, 189, 0.25);
   }
 
-  .modal-wrap img {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
-
-  .modal-wrap p {
-    padding: 1.25rem 1.875rem 0 1.875rem;
-  }
-
   @media screen and (max-width: 31.25rem) {
     .modal-wrap {
       width: calc(100% - 2.5rem);
       padding-bottom: 0.9375rem;
-    }
-    .modal-wrap p {
-      padding: 0.9375rem 1.25rem 0 1.25rem;
     }
   }
 

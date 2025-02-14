@@ -30,3 +30,6 @@ dist/
 !.env.example
 .notes
 notes.txt
+
+# windsurf rules
+.windsurfrules

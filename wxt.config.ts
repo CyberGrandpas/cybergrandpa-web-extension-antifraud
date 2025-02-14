@@ -34,7 +34,7 @@ export default defineConfig({
     web_accessible_resources: [
       {
         matches: ['<all_urls>'],
-        resources: ['/icon/*.png'],
+        resources: ['/components/apps/*.svelte', '/icon/*.png'],
       },
     ],
   },

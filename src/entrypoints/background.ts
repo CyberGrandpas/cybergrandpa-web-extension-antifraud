@@ -11,8 +11,6 @@ const onInstalledHandler = async ({ reason }: { reason: string }) => {
     url: browser.runtime.getURL('/wizard.html'),
     active: true,
   });
-
-  await forwardMessageToCss({ type: 'scanPage', command: 'destroy' });
 };
 
 export default defineBackground(() => {
