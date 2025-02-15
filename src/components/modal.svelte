@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { fade } from 'svelte/transition';
   import { Jumper } from 'svelte-loading-spinners';
   import { type ModalProps } from '@/utils';
   import UiMessage from './ui-message.svelte';
@@ -7,8 +8,6 @@
     show = false;
   };
 
-  let { show = false, autoShow = false, children, onClose = defaultModalOnClose, loader, logo }: ModalProps = $props();
-
   const onCloseHandler = async () => {
     defaultModalOnClose();
 
@@ -16,6 +15,8 @@
       onClose();
     }, 500);
   };
+
+  let { show = false, autoShow = false, children, onClose = defaultModalOnClose, loader, logo }: ModalProps = $props();
 
   let t = i18n.t;
 
@@ -31,19 +32,20 @@
 <div class="modal {show ? 'modal--show' : ''}">
   <div class="modal-wrap">
     {#if loader}
-      <Jumper size="10" color="#f6ff00" unit="rem" duration="1s" />
-    {:else}
-      <div class="modal-content">
-        {#if children}
-          {@render children()}
-        {/if}
+      <div transition:fade>
+        <Jumper size="10" color="#f6ff00" unit="rem" duration="1s" />
+      </div>
+    {:else if children}
+      <div class="modal-content" transition:fade>
+        {@render children()}
       </div>
     {/if}
+
     <button class="modal-btn" onclick={onCloseHandler} aria-label={t('global.close')}>⨯</button>
 
     {#if logo}
       <div class="modal-logo">
-        <UiMessage text={t('global.scanning')} />
+        <UiMessage text={loader ? t('global.scanning') : undefined} />
       </div>
     {/if}
   </div>
@@ -59,10 +61,14 @@
     width: 100%;
     height: 100%;
     overflow-x: hidden;
-    background: rgba(31, 32, 41, 0.7);
     transition: opacity 250ms ease;
     pointer-events: none;
+    background: rgba(31, 32, 41, 0.9);
     opacity: 0;
+
+    @media screen and (min-width: 40rem) {
+      background: rgba(31, 32, 41, 0.7);
+    }
 
     &.modal--show {
       pointer-events: auto;
@@ -78,6 +84,7 @@
     height: 100%;
     display: flex;
     flex-wrap: wrap;
+    padding: 1.25rem;
     align-items: center;
     justify-content: center;
     opacity: 0;
@@ -96,26 +103,19 @@
   }
 
   .modal-content {
+    position: absolute;
+    top: auto;
     display: block;
     width: 100%;
     max-width: 25rem;
     margin: 0 auto;
-    margin-top: 1.25rem;
-    margin-bottom: 1.25rem;
     border-radius: 0.25rem;
     overflow: hidden;
-    padding-bottom: 1.25rem;
+    padding: 1.25rem;
     background-color: light-dark(var(--background-color-light), var(--background-color-dark));
     -ms-flex-item-align: center;
     align-self: center;
     box-shadow: 0 0.75rem 1.5625rem 0 rgba(199, 175, 189, 0.25);
-  }
-
-  @media screen and (max-width: 31.25rem) {
-    .modal-wrap {
-      width: calc(100% - 2.5rem);
-      padding-bottom: 0.9375rem;
-    }
   }
 
   .modal-btn {
@@ -137,5 +137,19 @@
     position: fixed;
     bottom: 2rem;
     left: 2rem;
+  }
+
+  @media screen and (max-width: 40rem) {
+    .modal-btn,
+    .modal-logo {
+      right: auto;
+      left: auto;
+      width: 100%;
+      text-align: center;
+    }
+
+    .modal-content {
+      max-width: calc(100% - 2rem);
+    }
   }
 </style>

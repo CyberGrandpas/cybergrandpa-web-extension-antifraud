@@ -49,3 +49,7 @@ wizard:
   question1: ¿Desea pinchar la extensión de CyberGrandpa en su barra de herramientas?
   question2: ¿Desea recibir alertas de seguridad importantes?
   question3: ¿Desea recibir actualizaciones de Cyberseguridad?
+overlay:
+  title: Resultados del análisis de la página
+  falsyMessage: No se han detectado problemas.
+  truthyMessage: Se han detectado problemas.

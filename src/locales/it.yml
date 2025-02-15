@@ -49,3 +49,7 @@ wizard:
   question1: Vuoi aggiungere il pin di CyberNonno nella tua barra degli strumenti?
   question2: Vuoi ricevere importanti avvisi di sicurezza?
   question3: Vuoi ricevere gli ultimi aggiornamenti sulla Cybersicurezza?
+overlay:
+  title: Risultati dell'analisi della pagina
+  falsyMessage: Nessun problema rilevato.
+  truthyMessage: Alcuni problemi rilevati.

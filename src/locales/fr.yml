@@ -49,3 +49,7 @@ wizard:
   question1: Voulez-vous épingler l'extension CyberGrand-Père dans votre barre d'outils ?
   question2: Souhaitez-vous recevoir des alertes de sécurité importantes ?
   question3: Voulez-vous recevoir les dernières mises à jour sur la cybersécurité ?
+overlay:
+  title: Résultats de l'analyse de la page
+  falsyMessage: Aucune anomalie détectée.
+  truthyMessage: Anomalies détectées.

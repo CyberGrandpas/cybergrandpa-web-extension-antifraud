@@ -49,3 +49,7 @@ wizard:
   question1: Mochten Sie die Erweiterung von CyberGrandpa in Ihrer Werkzeugleiste fixieren?
   question2: Mochten Sie wichtige Sicherheitsmeldungen erhalten?
   question3: Mochten Sie die neuesten Updates für Cyber-Sicherheit erhalten?
+overlay:
+  title: Ergebnisse des Analysen der Seite
+  falsyMessage: Keine Probleme erkannt.
+  truthyMessage: Einige Probleme erkannt.

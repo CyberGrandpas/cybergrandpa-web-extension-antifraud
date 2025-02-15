@@ -49,3 +49,7 @@ wizard:
   question1: Do you want to pin CyberGrandpa's extension in your toolbar?
   question2: Do you want to receive important security alerts?
   question3: Do you want to receive the latest updates on Cybersecurity?
+overlay:
+  title: Results of analisys of the page
+  falsyMessage: No issues detected.
+  truthyMessage: Some issues detected.

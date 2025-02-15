@@ -78,7 +78,7 @@
     padding: 1.25rem 1.875rem 0 1.875rem;
   }
 
-  @media screen and (max-width: 31.25rem) {
+  @media screen and (max-width: 40rem) {
     .modal-wrap {
       width: calc(100% - 2.5rem);
       padding-bottom: 0.9375rem;

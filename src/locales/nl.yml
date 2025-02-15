@@ -49,3 +49,7 @@ wizard:
   question1: Wilt u de extensie van CyberOpa vastmaken aan uw werkbalk?
   question2: Wilt u belangrijke beveiligingswaarschuwingen ontvangen?
   question3: Wilt u de laatste updates over cyberveiligheid ontvangen?
+overlay:
+  title: Resultaten van de pagina-analyse
+  falsyMessage: Geen problemen gedetecteerd.
+  truthyMessage: Enkele problemen gedetecteerd.
