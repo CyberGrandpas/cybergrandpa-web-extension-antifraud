@@ -85,7 +85,7 @@
   <ModalOnboarding
     show={showModal}
     text={t('wizard.userModalMessage')}
-    src={`/images/help/screenshot_omnibox_toolbar_${ENV_LANGUAGE}.png`}
+    src={`/images/help/screenshot-omnibox-toolbar-${ENV_LANGUAGE}.png`}
     onClose={endPostInstall}
   />
 </main>

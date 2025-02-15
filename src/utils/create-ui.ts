@@ -5,7 +5,6 @@ import { pascalCase } from 'change-case';
 import { unmount } from 'svelte';
 import { ContentScriptContext } from 'wxt/client';
 import { bootstrapApp } from './bootstrap-app';
-import { SvelteApp } from './types';
 
 export const createUi = (name: string, ctx: ContentScriptContext) => {
   return createShadowRootUi(ctx, {
@@ -15,7 +14,7 @@ export const createUi = (name: string, ctx: ContentScriptContext) => {
     anchor: 'body',
     append: 'first',
     onMount: (container) => {
-      const svelteApp: SvelteApp = apps[pascalCase(name)];
+      const svelteApp = apps[pascalCase(name)];
 
       return bootstrapApp(svelteApp, container);
     },

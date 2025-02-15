@@ -1,7 +1,6 @@
-import OverlayLoadingApp from '@/components/apps/overlay-loading-app.svelte';
-import { type Snippet } from 'svelte';
+import type { Component, ComponentProps, Snippet } from 'svelte';
 
-export type SvelteApp = typeof OverlayLoadingApp;
+export type SvelteApp = Component<object> & ComponentProps<Component>;
 
 export type AppsType = {
   [key: string]: SvelteApp;
