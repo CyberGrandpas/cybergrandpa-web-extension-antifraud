@@ -17,7 +17,7 @@
 
     const unsubscribeScanning = storeScanning.subscribe((value) => {
       scanning = value;
-      console.log(`scanning = ${value}`);
+      // console.log(`scanning = ${value}`);
     });
 
     return [unsubscribeRealtime, unsubscribeScanning];
@@ -41,7 +41,7 @@
     storeScanning.set(String(id));
 
     console.log('loadContentScript', { response });
-    console.log(`tabId = ${id}`);
+    // console.log(`tabId = ${id}`);
   };
 
   let t = i18n.t;

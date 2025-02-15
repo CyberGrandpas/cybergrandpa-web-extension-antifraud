@@ -42,15 +42,11 @@ const mainContentScript = async (ctx: ContentScriptContext) => {
     throw Error('Unknown request');
   };
 
-  const removeInvalidatedListener = ctx.onInvalidated(() => {
-    browser.runtime.onMessage.removeListener(addListenerHandler);
-  });
-
-  removeInvalidatedListener();
-
   const beforeUnloadHandler = () => {
-    ctx.abort();
+    browser.runtime.onMessage.removeListener(addListenerHandler);
+
     ui.remove();
+    ctx.abort();
   };
 
   addListeners();
