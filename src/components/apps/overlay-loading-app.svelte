@@ -9,6 +9,10 @@
   $effect(() => {
     setTimeout(() => {
       loader = false;
+
+      setTimeout(() => {
+        hasIssues = true;
+      }, 1250);
     }, 3000);
   });
 </script>
