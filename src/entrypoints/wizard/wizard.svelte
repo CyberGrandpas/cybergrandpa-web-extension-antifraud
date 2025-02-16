@@ -35,7 +35,7 @@
   };
 </script>
 
-<main>
+<main class="main">
   <div class="container">
     <Header logoSize={128} />
 
@@ -102,7 +102,6 @@
   }
 
   main {
-    width: auto;
     min-width: 50%;
     max-width: 70rem;
   }

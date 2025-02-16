@@ -7,7 +7,7 @@
   let t = i18n.t;
 </script>
 
-<main>
+<main class="main">
   <div class="container">
     <Header logoSize={64} twoRows={true} />
 
@@ -35,3 +35,19 @@
     </div>
   </div>
 </main>
+
+<style lang="scss">
+  :global(html) {
+    // This controls the minimum popup width
+    min-width: 24.5rem;
+    // This controls the minimum popup height
+    min-height: 25rem;
+  }
+
+  .slogan {
+    margin-bottom: 0.5rem;
+    line-height: 1.5rem;
+    font-size: 1rem;
+    margin: 0 -0.9rem;
+  }
+</style>

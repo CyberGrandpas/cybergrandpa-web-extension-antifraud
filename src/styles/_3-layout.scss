@@ -1,12 +1,12 @@
-main {
+.main {
   width: auto;
+  min-height: var(--viewport-height);
   margin: 0 auto;
   padding: var(--padding-vertical) var(--padding-horizontal);
   padding-bottom: calc(var(--padding-vertical) * 1.4);
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 0.9rem;
 }
 
 .container {

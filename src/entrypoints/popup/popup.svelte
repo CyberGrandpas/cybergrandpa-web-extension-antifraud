@@ -58,7 +58,7 @@
   });
 </script>
 
-<main>
+<main class="main">
   <div class="container">
     <Header logoSize={72} twoRows={true} />
 
@@ -104,10 +104,6 @@
     min-width: 24.5rem;
     // This controls the minimum popup height
     min-height: 27rem;
-  }
-
-  main {
-    width: auto;
   }
 
   .slogan {
