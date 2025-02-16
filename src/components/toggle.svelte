@@ -35,7 +35,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgb(182, 182, 182);
+    background-color: var(--color-gray);
     transition: 0.4s;
     border-radius: 0.625rem;
   }
@@ -49,24 +49,24 @@
     left: 0.14rem;
     bottom: 0.14rem;
     transform: rotate(270deg);
-    background-color: rgb(255, 255, 255);
+    background-color: var(--color-white);
     transition: 0.4s;
   }
 
   .switch input:checked + .slider {
-    background-color: #21cc4c;
+    background-color: var(--color-green);
   }
 
   .switch.red input:checked + .slider {
-    background-color: #ff0000;
+    background-color: var(--color-red);
   }
 
   .switch.yellow input:checked + .slider {
-    background-color: #ffcc00;
+    background-color: var(--color-yellow);
   }
 
   .switch input:focus + .slider {
-    box-shadow: 0 0 0.0625rem #2196f3;
+    box-shadow: 0 0 0.0625rem var(--color-secondary);
   }
 
   .switch input:checked + .slider:before {

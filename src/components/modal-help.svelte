@@ -14,9 +14,9 @@
     {/if}
 
     <p>{text}</p>
+
     <button class="modal-btn" onclick={onClose} aria-label={t('global.close')}>
       <SvgCrossIcon height="1.5rem" width="1.5rem" />
-      <span>{t('global.close')}</span>
     </button>
   </div>
 </div>
@@ -50,7 +50,7 @@
     max-width: 25rem;
     margin: 1.25rem 1.25rem 0 auto;
     border-radius: 0.25rem;
-    padding-bottom: 1.25rem;
+    padding-bottom: 1px;
     background-color: light-dark(var(--background-color-light), var(--background-color-dark));
     box-shadow: 0 0.75rem 1.5625rem 0 rgba(199, 175, 189, 0.25);
     opacity: 0;
@@ -92,13 +92,12 @@
     position: absolute;
     bottom: 0;
     left: 0;
-    margin-left: 0.3rem;
-    margin-bottom: 0.3rem;
+    transform: translate(-50%, 50%);
     display: block;
     text-align: center;
     line-height: 1.5rem;
     font-size: 1rem;
-    color: #f20606;
+    color: var(--color-red);
     display: flex;
     align-items: center;
     justify-content: left;
@@ -107,9 +106,5 @@
     appearance: none;
     border: none;
     background: none;
-
-    span {
-      margin-left: 0.5rem;
-    }
   }
 </style>

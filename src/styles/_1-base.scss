@@ -6,11 +6,11 @@
 
 a:link,
 a:visited {
-  color: light-dark(#007bff, #eff3f9);
+  color: light-dark(var(--color-secondary), var(--background-color-light));
   text-decoration: underline;
 }
 
 a:hover {
-  color: light-dark(#0a4e95, #097efb);
+  color: light-dark(var(--background-color-dark), var(--color-secondary));
   text-decoration: none;
 }

@@ -33,7 +33,7 @@
   <div class="modal-wrap">
     {#if loader}
       <div transition:fade>
-        <Jumper size="10" color="#f6ff00" unit="rem" duration="1s" />
+        <Jumper size="10" color="var(--color-primary)" unit="rem" duration="1s" />
       </div>
     {:else if children}
       <div class="modal-content" transition:fade>
@@ -125,7 +125,7 @@
     text-align: center;
     line-height: 0rem;
     font-size: 5rem;
-    color: #f6ff00;
+    color: var(--color-primary);
     box-shadow: 0 0.75rem 1.5625rem 0 rgba(16, 39, 112, 0.25);
     cursor: pointer;
     appearance: none;

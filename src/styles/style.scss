@@ -9,10 +9,25 @@
 
 :root {
   --font-size-base: 16px;
+  --font-family-base: 'Inter', sans-serif;
+
+  // Palettes
+  --color-primary: #ffee66;
+  --color-secondary: #007bff;
+  --color-tertiary: #ffab23;
+
   --text-color-light: #495057;
   --text-color-dark: #efefec;
   --background-color-light: #f8f9fa;
   --background-color-dark: #1c4381;
+
+  // Colors
+  --color-green: #21cc4c;
+  --color-yellow: #ffcc00;
+  --color-red: #f20606;
+  --color-gray: rgb(182, 182, 182);
+  --color-white: #fff;
+
   --background-height: 100vh;
   --viewport-height: 100vh;
   --border-radius: 0.6rem;
@@ -25,6 +40,5 @@
   --indent-right: 0;
   --margin-left: 0;
   --margin-right: auto;
-  --font-family-base: sans-serif;
   max-width: initial;
 }
