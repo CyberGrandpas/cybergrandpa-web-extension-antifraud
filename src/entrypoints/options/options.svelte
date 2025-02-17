@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { CONFIG_WWW_HELP } from '@/config';
   import Button from '@/components/button.svelte';
   import Header from '@/components/header.svelte';
   import Status from '@/components/status.svelte';
+  import { CONFIG_WWW_HELP } from '@/config';
 
   let t = i18n.t;
 </script>

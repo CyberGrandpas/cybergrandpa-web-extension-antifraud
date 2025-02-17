@@ -1,11 +1,11 @@
 <script lang="ts">
-  import { get } from 'svelte/store';
-  import { CONFIG_WWW_MAIN, ENV_LANGUAGE } from '@/config';
-  import { storeAlertsEnabled, storeNewsEnabled, storeOnBoardingCompleted, storeProtectionEnabled } from '@/lib/store';
   import Button from '@/components/button.svelte';
   import Header from '@/components/header.svelte';
   import ModalOnboarding from '@/components/modal-help.svelte';
   import Radio from '@/components/radio.svelte';
+  import { CONFIG_WWW_MAIN, ENV_LANGUAGE } from '@/config';
+  import { storeAlertsEnabled, storeNewsEnabled, storeOnBoardingCompleted, storeProtectionEnabled } from '@/lib/store';
+  import { get } from 'svelte/store';
 
   let userOnboarded = $derived(get(storeOnBoardingCompleted));
 

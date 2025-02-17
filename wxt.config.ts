@@ -30,7 +30,7 @@ export default defineConfig({
       'declarativeNetRequest',
       'declarativeNetRequestWithHostAccess',
     ],
-    host_permissions: [''],
+    host_permissions: ['<all_urls>'],
     web_accessible_resources: [
       {
         matches: ['<all_urls>'],
