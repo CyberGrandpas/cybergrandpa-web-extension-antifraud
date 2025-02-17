@@ -1,9 +1,11 @@
 import '@/styles/style.scss';
-import { SendMessageParams, getLog } from '@/utils';
+import { SendMessageParams, getLog, getUrlService } from '@/utils';
 import { createUi } from '@/utils/create-ui';
 import { ContentScriptContext } from 'wxt/client';
 
 const mainContentScript = async (ctx: ContentScriptContext) => {
+  const urlService = getUrlService();
+
   // Instantiate the UI
   const ui = await createUi('overlay-loading-app', ctx);
 
@@ -50,6 +52,10 @@ const mainContentScript = async (ctx: ContentScriptContext) => {
   };
 
   addListeners();
+
+  const allUrls = await urlService.getAll();
+
+  console.log(`allUrls: `, allUrls);
 };
 
 export default defineContentScript({

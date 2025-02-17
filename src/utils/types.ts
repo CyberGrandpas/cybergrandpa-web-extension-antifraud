@@ -1,3 +1,4 @@
+import { IndexableType } from 'dexie';
 import type { Component, ComponentProps, Snippet } from 'svelte';
 
 export type SvelteApp = Component<object> & ComponentProps<Component>;
@@ -53,4 +54,18 @@ export interface SendMessageParams {
   type: string;
   tabId?: number;
   command?: string;
+}
+
+export type UrlInfo = {
+  id: string;
+  url: string;
+};
+
+export interface UrlService {
+  count(): Promise<number>;
+  findAll(url: string): Promise<UrlInfo[]>;
+  getAll(): Promise<UrlInfo[]>;
+  getSome(limit: number): Promise<UrlInfo[]>;
+  upsert(info: UrlInfo): Promise<IndexableType>;
+  upsertBulk(info: string[]): Promise<IndexableType>;
 }
