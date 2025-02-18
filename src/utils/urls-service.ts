@@ -1,33 +1,32 @@
 import { defineProxyService } from '@webext-core/proxy-service';
-import { urlsDb } from './database';
+import { newDbInit } from '../lib/database';
 import type { UrlService } from './types';
 
 function createUrlService(): UrlService {
-  const TABLE_NAME = 'urls';
+  const urlsDb = newDbInit('urls-db');
+  const table = urlsDb.addCollection('urls', { unique: ['url'], indices: ['url'] });
 
   return {
-    async count() {
-      return await urlsDb.table(TABLE_NAME).count();
+    count() {
+      return table.count();
     },
-    async getSome(limit: number) {
-      return await urlsDb.table(TABLE_NAME).orderBy('id').limit(limit).toArray();
+    getSome(limit: number) {
+      return table.chain().limit(limit).data();
     },
-    async findAll(url: string) {
-      return await urlsDb.table(TABLE_NAME).where('url').equalsIgnoreCase(url).toArray();
+    findAll(url: string) {
+      return table
+        .chain()
+        .where((info) => url.search(info.url) !== -1)
+        .data();
     },
-    async getAll() {
-      return await urlsDb.table(TABLE_NAME).orderBy('id').toArray();
+    upsert(info) {
+      return table.insert(info);
     },
-    async upsert(info) {
-      const res = await urlsDb.table(TABLE_NAME).put(info);
-
-      return res;
-    },
-    async upsertBulk(info: string[]) {
+    upsertBulk(info: string[]) {
       const infoArray = info.map((url) => ({ url }));
-      const res = await urlsDb.table(TABLE_NAME).bulkPut(infoArray);
+      const response = infoArray.map((info) => table.insert(info));
 
-      return res;
+      return response.length;
     },
   };
 }

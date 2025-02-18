@@ -1,5 +1,5 @@
 import { storeScanning } from '@/lib/store';
-import { forwardMessageToCss, getStreamArray, registerUrlService } from '@/utils';
+import { forwardMessageToCss, initDb } from '@/utils';
 
 const onInstalledHandler = async ({ reason }: { reason: string }) => {
   if (reason !== 'install' && reason !== 'startup' && reason !== 'update') return;
@@ -41,7 +41,7 @@ const onMessageHandler = async (
   return true;
 };
 
-export default defineBackground(() => {
+const main = () => {
   browser.runtime.onInstalled.addListener(onInstalledHandler);
 
   browser.runtime.onStartup.addListener(() => onInstalledHandler({ reason: 'startup' }));
@@ -50,37 +50,10 @@ export default defineBackground(() => {
 
   browser.runtime.onMessage.addListener(onMessageHandler);
 
-  // Register proxy-service so other JS context's can get or insert favicons
-  const urlService = registerUrlService();
+  initDb();
+};
 
-  let syncUrlsIsBusy = false;
-
-  const syncUrls = async () => {
-    if (syncUrlsIsBusy) return;
-
-    syncUrlsIsBusy = true;
-    console.log({ syncUrlsIsBusy });
-
-    const response = await getStreamArray('https://hblock.molinero.dev/hosts');
-
-    // console.dir(response);
-
-    urlService.upsertBulk(response);
-
-    syncUrlsIsBusy = false;
-    console.log({ syncUrlsIsBusy, responseRows: response.length });
-  };
-
-  setTimeout(async () => {
-    try {
-      const res = await urlService.count();
-
-      console.dir(res);
-    } catch (error) {
-      console.error(error);
-    }
-  }, 1000);
-
-  syncUrls();
-  setInterval(syncUrls, 50000);
+export default defineBackground({
+  type: undefined,
+  main,
 });

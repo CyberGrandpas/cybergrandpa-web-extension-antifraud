@@ -39,15 +39,8 @@
 <style lang="scss">
   :global(html) {
     // This controls the minimum popup width
-    min-width: 24.5rem;
+    min-width: 30rem;
     // This controls the minimum popup height
-    min-height: 25rem;
-  }
-
-  .slogan {
-    margin-bottom: 0.5rem;
-    line-height: 1.5rem;
-    font-size: 1rem;
-    margin: 0 -0.9rem;
+    min-height: 35rem;
   }
 </style>
