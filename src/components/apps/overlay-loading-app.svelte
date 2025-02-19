@@ -1,5 +1,6 @@
 <script lang="ts">
   import Modal from '@/components/modal.svelte';
+  import { getUrlService } from '@/libs/urls-service';
 
   let loader = $state(true);
   let hasIssues = $state(false);
@@ -15,6 +16,15 @@
       }, 1250);
     }, 3000);
   });
+
+  setTimeout(async () => {
+    const urlService = getUrlService();
+    const allUrls = await urlService.count();
+    const found = await urlService.seek('---adbs186282--54223580950k.gbc.criteo.com');
+
+    console.log(`allUrls: `, allUrls);
+    console.log(`found: `, found);
+  }, 250);
 </script>
 
 <Modal logo autoShow {loader} {onClose}>

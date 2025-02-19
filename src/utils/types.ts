@@ -8,11 +8,11 @@ export type AppsType = {
 
 export interface ButtonProps {
   children: Snippet;
-  url?: string;
-  onClick?: () => void;
-  size?: 'small' | 'large';
   disabled?: boolean;
   loading?: boolean;
+  onClick?: () => void;
+  size?: 'small' | 'large';
+  url?: string;
 }
 
 export interface HeaderProps {
@@ -21,26 +21,26 @@ export interface HeaderProps {
 }
 
 export interface LogoProps {
-  size?: number;
   alt?: string;
+  size?: number;
 }
 
 export interface ModalProps {
-  children?: Snippet;
-  show?: boolean;
   autoShow?: boolean;
-  logo?: boolean;
+  children?: Snippet;
   loader?: boolean;
+  logo?: boolean;
   onClose?: () => void;
-  text?: string;
+  show?: boolean;
   src?: string;
+  text?: string;
 }
 
 export interface RadioProps {
-  label: string;
-  group: string;
-  value: string;
   checked?: boolean;
+  group: string;
+  label: string;
+  value: string;
 }
 
 export interface ToggleProps {
@@ -55,14 +55,9 @@ export interface SendMessageParams {
   command?: string;
 }
 
-export type UrlInfo = {
-  url: string;
-};
-
 export interface UrlService {
   count(): number;
-  findAll(url: string): UrlInfo[];
-  getSome(limit: number): UrlInfo[];
-  upsert(info: UrlInfo): UrlInfo | undefined;
-  upsertBulk(info: string[]): number;
+  getRows(limit: number, offset?: number): string;
+  seek(url: string): boolean;
+  upsert(base64string: string): Promise<void>;
 }

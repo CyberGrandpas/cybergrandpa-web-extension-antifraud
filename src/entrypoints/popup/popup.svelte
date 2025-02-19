@@ -3,7 +3,7 @@
   import Header from '@/components/header.svelte';
   import Status from '@/components/status.svelte';
   import { CONFIG_WWW_HELP } from '@/config';
-  import { storeRealtimeEnabled, storeScanning } from '@/lib/store';
+  import { storeRealtimeEnabled, storeScanning } from '@/libs/store';
   import { activateTab, getActiveTab, sendMessage } from '@/utils';
   import { get } from 'svelte/store';
 
@@ -17,7 +17,6 @@
 
     const unsubscribeScanning = storeScanning.subscribe((value) => {
       scanning = value;
-      // console.log(`scanning = ${value}`);
     });
 
     return [unsubscribeRealtime, unsubscribeScanning];
@@ -36,12 +35,9 @@
       return;
     }
 
-    const response = await sendMessage({ type: 'loadContentScript', tabId: id });
+    await sendMessage({ type: 'loadContentScript', tabId: id });
 
     storeScanning.set(String(id));
-
-    console.log('loadContentScript', { response });
-    // console.log(`tabId = ${id}`);
   };
 
   let t = i18n.t;

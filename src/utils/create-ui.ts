@@ -1,6 +1,6 @@
 import apps from '@/components/apps';
 import { APP_NAME } from '@/config';
-import { storeScanning } from '@/lib/store';
+import { storeScanning } from '@/libs/store';
 import { pascalCase } from 'change-case';
 import { unmount } from 'svelte';
 import { ContentScriptContext } from 'wxt/client';

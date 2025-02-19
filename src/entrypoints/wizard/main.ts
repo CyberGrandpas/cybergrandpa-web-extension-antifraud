@@ -1,4 +1,4 @@
-import { storeOnBoardingCompleted } from '@/lib/store';
+import { storeOnBoardingCompleted } from '@/libs/store';
 import '@/styles/style.scss';
 import { languageUpdates, setTitle } from '@/utils';
 import { mount } from 'svelte';

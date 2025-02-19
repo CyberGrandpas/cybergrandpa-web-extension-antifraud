@@ -4,7 +4,7 @@
   import ModalOnboarding from '@/components/modal-help.svelte';
   import Radio from '@/components/radio.svelte';
   import { CONFIG_WWW_MAIN, ENV_LANGUAGE } from '@/config';
-  import { storeAlertsEnabled, storeNewsEnabled, storeOnBoardingCompleted, storeProtectionEnabled } from '@/lib/store';
+  import { storeAlertsEnabled, storeNewsEnabled, storeOnBoardingCompleted, storeProtectionEnabled } from '@/libs/store';
   import { get } from 'svelte/store';
 
   let userOnboarded = $derived(get(storeOnBoardingCompleted));

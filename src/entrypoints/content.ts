@@ -1,3 +1,4 @@
+// import { getUrlService } from '@/libs/urls-service';
 import '@/styles/style.scss';
 import { SendMessageParams, getLog } from '@/utils';
 import { createUi } from '@/utils/create-ui';
@@ -38,8 +39,6 @@ const mainContentScript = async (ctx: ContentScriptContext) => {
 
       return true;
     }
-
-    throw Error('Unknown request');
   };
 
   const beforeUnloadHandler = () => {
@@ -51,13 +50,14 @@ const mainContentScript = async (ctx: ContentScriptContext) => {
 
   addListeners();
 
-  setTimeout(async () => {
-    const urlService = getUrlService();
+  // setTimeout(async () => {
+  //   const urlService = getUrlService();
+  //   const allUrls = await urlService.count();
+  //   const found = await urlService.seek('---adbs186282--54223580950k.gbc.criteo.com');
 
-    const allUrls = await urlService.getSome(10);
-
-    console.log(`allUrls: `, allUrls);
-  }, 3000);
+  //   console.log(`allUrls: `, allUrls);
+  //   console.log(`found: `, found);
+  // }, 250);
 };
 
 export default defineContentScript({

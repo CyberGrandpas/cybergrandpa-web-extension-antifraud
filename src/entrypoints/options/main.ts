@@ -1,4 +1,4 @@
-import { storeProtectionEnabled } from '@/lib/store';
+import { storeProtectionEnabled } from '@/libs/store';
 import '@/styles/style.scss';
 import { languageUpdates, setTitle } from '@/utils';
 import { mount } from 'svelte';

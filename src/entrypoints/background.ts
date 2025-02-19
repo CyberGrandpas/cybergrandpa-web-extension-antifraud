@@ -1,5 +1,11 @@
-import { storeScanning } from '@/lib/store';
-import { forwardMessageToCss, initDb } from '@/utils';
+import { STORAGE_DB_URLS } from '@/config';
+import { initDb } from '@/libs/init-db';
+import { storeScanning } from '@/libs/store';
+import { registerUrlService } from '@/libs/urls-service';
+import { forwardMessageToCss } from '@/utils';
+
+// Register proxy-service so other JS context's can get or insert data
+const urlService = registerUrlService(STORAGE_DB_URLS);
 
 const onInstalledHandler = async ({ reason }: { reason: string }) => {
   if (reason !== 'install' && reason !== 'startup' && reason !== 'update') return;
@@ -50,10 +56,10 @@ const main = () => {
 
   browser.runtime.onMessage.addListener(onMessageHandler);
 
-  initDb();
+  initDb(urlService);
 };
 
 export default defineBackground({
-  type: undefined,
+  type: 'module',
   main,
 });

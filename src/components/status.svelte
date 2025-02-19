@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { get } from 'svelte/store';
-  import { CONFIG_WWW_MAIN } from '@/config';
-  import { storeProtectionEnabled, storeRealtimeEnabled, storeLatestUpdate, storePackageType } from '@/lib/store';
   import Toggle from '@/components/toggle.svelte';
+  import { CONFIG_WWW_MAIN } from '@/config';
+  import { storeLatestUpdate, storePackageType, storeProtectionEnabled, storeRealtimeEnabled } from '@/libs/store';
+  import { get } from 'svelte/store';
 
   let { floatingUpdate = false } = $props();
 
