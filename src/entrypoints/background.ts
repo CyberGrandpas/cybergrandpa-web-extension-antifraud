@@ -1,8 +1,9 @@
 import { STORAGE_DB_URLS } from '@/config';
 import { initDb } from '@/libs/init-db';
-import { storeScanning } from '@/libs/store';
+import { storeOnBoardingCompleted, storeScanning } from '@/libs/store';
 import { registerUrlService } from '@/libs/urls-service';
 import { forwardMessageToCss } from '@/utils';
+import { browser } from 'wxt/browser/chrome';
 
 // Register proxy-service so other JS context's can get or insert data
 const urlService = registerUrlService(STORAGE_DB_URLS);
@@ -10,7 +11,14 @@ const urlService = registerUrlService(STORAGE_DB_URLS);
 const onInstalledHandler = async ({ reason }: { reason: string }) => {
   if (reason !== 'install' && reason !== 'startup' && reason !== 'update') return;
 
+  // Set the scanning state to 0
   storeScanning.set('0');
+
+  if (reason === 'startup' || import.meta.env.DEV) {
+    if (await storeOnBoardingCompleted.ready()) {
+      return;
+    }
+  }
 
   // Open a tab on install
   await browser.tabs.create({
@@ -57,6 +65,7 @@ const main = () => {
   browser.runtime.onMessage.addListener(onMessageHandler);
 
   initDb(urlService);
+  // initWebBlocking();
 };
 
 export default defineBackground({

@@ -2,7 +2,7 @@ import { createStore } from '@/utils';
 
 export const storeLatestUpdate = createStore<string>('13 Jan 2025 11:11:23am', 'local:latestUpdate');
 
-export const storeOnBoardingCompleted = createStore<boolean>(false, 'sync:onBoardingCompleted');
+export const storeOnBoardingCompleted = createStore<boolean>(false, 'local:onBoardingCompleted');
 
 export const storeProtectionEnabled = createStore<boolean>(true, 'local:protectionEnabled');
 

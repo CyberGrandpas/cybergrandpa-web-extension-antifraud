@@ -4,7 +4,7 @@
   import Status from '@/components/status.svelte';
   import { CONFIG_WWW_HELP } from '@/config';
   import { storeRealtimeEnabled, storeScanning } from '@/libs/store';
-  import { activateTab, getActiveTab, sendMessage } from '@/utils';
+  import { activateTab, getActiveTab, isLocalUrlMatch, sendMessage } from '@/utils';
   import { get } from 'svelte/store';
 
   let realtime = $state(get(storeRealtimeEnabled));
@@ -31,7 +31,7 @@
 
     const { id, url } = await getActiveTab();
 
-    if (!url || url?.startsWith('about') || url?.startsWith('chrome') || url?.startsWith('firefox')) {
+    if (!url || isLocalUrlMatch(url)) {
       return;
     }
 

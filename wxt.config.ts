@@ -14,11 +14,11 @@ export default defineConfig({
     permissions: [
       'activeTab',
       'alarms',
-      'declarativeNetRequest',
-      'declarativeNetRequestWithHostAccess',
       'scripting',
       'storage',
       'tabs',
+      'webNavigation',
+      'declarativeNetRequestWithHostAccess',
     ],
     host_permissions: ['<all_urls>'],
     web_accessible_resources: [
@@ -27,6 +27,9 @@ export default defineConfig({
         resources: ['/icon/*.png'],
       },
     ],
+    content_security_policy: {
+      extension_pages: "script-src 'self' 'wasm-unsafe-eval'; object-src 'self';",
+    },
   },
   imports: {
     eslintrc: {

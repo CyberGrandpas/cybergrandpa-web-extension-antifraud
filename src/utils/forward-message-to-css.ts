@@ -1,10 +1,12 @@
+import { isLocalUrlMatch } from './is-local-url-match';
 import { SendMessageParams } from './types';
 
 // MESSAGES FORWARDED TO CONTENT SCRIPTS and ALL TABS
 export const forwardMessageToCss = async (request: SendMessageParams) => {
   // Grab tabs matching content scripts
   const allTabs = await browser.tabs.query({});
-  const contentScriptMatches = new MatchPattern('*://*/*');
+
+  // Filter out tabs that are not local
   const contentScriptTabs = allTabs.filter((tab) => {
     return (
       typeof tab.id !== 'undefined' &&
@@ -12,10 +14,7 @@ export const forwardMessageToCss = async (request: SendMessageParams) => {
       tab.id !== null &&
       tab.url !== null &&
       tab.url.length > 0 &&
-      !tab.url.startsWith('about:') &&
-      !tab.url.startsWith('chrome') &&
-      !tab.url.startsWith('firefox') &&
-      contentScriptMatches.includes(tab.url)
+      !isLocalUrlMatch(tab.url)
     );
   });
 
