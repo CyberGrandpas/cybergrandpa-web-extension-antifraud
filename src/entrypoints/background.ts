@@ -35,7 +35,7 @@ const onMessageHandler = async (
 
     sendResponse(response);
 
-    return Promise.resolve(response);
+    return true;
   }
 
   const responses = await forwardMessageToCss(request);
@@ -43,7 +43,7 @@ const onMessageHandler = async (
   // Send responses back to sender
   sendResponse(responses);
 
-  // Return an array of all responses back to popup.
+  // Return true for async
   return true;
 };
 

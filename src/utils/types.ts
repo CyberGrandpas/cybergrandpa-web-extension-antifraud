@@ -59,5 +59,5 @@ export interface UrlService {
   count(): number;
   getRows(limit: number, offset?: number): string;
   seek(url: string): boolean;
-  upsert(base64string: string): Promise<void>;
+  upsert(base64string: string): Promise<boolean>;
 }

@@ -1,7 +1,5 @@
 import { STORAGE_KEY_URLS, STREAM_URL } from '@/config';
-import { checkAlarmState } from '../utils/check-alarm-state';
-import { GetStream } from '../utils/get-stream';
-import { UrlService } from '../utils/types';
+import { checkAlarmState, GetStream, type UrlService } from '@/utils';
 
 export const initDb = (urlService: UrlService) => {
   let syncUrlsIsBusy = false;

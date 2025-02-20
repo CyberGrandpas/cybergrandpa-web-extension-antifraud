@@ -8,8 +8,8 @@ const createUrlService = (storageKey: StorageItemKey): UrlService => {
 
   let arr: string[] = [];
 
-  const v = async () => {
-    const base64string = await urlsDb.ready();
+  const v = async (base64stringParam?: string) => {
+    const base64string = base64stringParam || (await urlsDb.ready());
 
     if (!base64string) {
       return [];
@@ -21,10 +21,16 @@ const createUrlService = (storageKey: StorageItemKey): UrlService => {
     return getArrayFromString(streamToText, (x) => x.startsWith('0.0.0.0'), '0.0.0.0');
   };
 
-  urlsDb.subscribe(async (value) => {
+  urlsDb.ready().then(async (value) => {
     if (value) {
-      arr = await v();
+      arr = await v(value);
     }
+
+    urlsDb.subscribe(async (value) => {
+      if (value) {
+        arr = await v(value);
+      }
+    });
   });
 
   return {
@@ -38,7 +44,15 @@ const createUrlService = (storageKey: StorageItemKey): UrlService => {
       return arr.includes(url);
     },
     upsert: async (base64string: string) => {
-      return await urlsDb.set(base64string);
+      try {
+        await urlsDb.set(base64string);
+      } catch (error) {
+        console.error(error);
+
+        return false;
+      }
+
+      return true;
     },
   };
 };

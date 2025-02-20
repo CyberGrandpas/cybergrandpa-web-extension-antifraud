@@ -4,7 +4,7 @@ export const storeLatestUpdate = createStore<string>('13 Jan 2025 11:11:23am', '
 
 export const storeOnBoardingCompleted = createStore<boolean>(false, 'sync:onBoardingCompleted');
 
-export const storeProtectionEnabled = createStore<boolean>(false, 'local:protectionEnabled');
+export const storeProtectionEnabled = createStore<boolean>(true, 'local:protectionEnabled');
 
 export const storeRealtimeEnabled = createStore<boolean>(false, 'local:realtimeEnabled');
 

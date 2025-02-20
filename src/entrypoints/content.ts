@@ -1,6 +1,5 @@
-// import { getUrlService } from '@/libs/urls-service';
 import '@/styles/style.scss';
-import { SendMessageParams, getLog } from '@/utils';
+import { ENV_APP_VERSION, SendMessageParams, getLog } from '@/utils';
 import { createUi } from '@/utils/create-ui';
 import { ContentScriptContext } from 'wxt/client';
 
@@ -50,14 +49,7 @@ const mainContentScript = async (ctx: ContentScriptContext) => {
 
   addListeners();
 
-  // setTimeout(async () => {
-  //   const urlService = getUrlService();
-  //   const allUrls = await urlService.count();
-  //   const found = await urlService.seek('---adbs186282--54223580950k.gbc.criteo.com');
-
-  //   console.log(`allUrls: `, allUrls);
-  //   console.log(`found: `, found);
-  // }, 250);
+  console.log('content script loaded. ENV_APP_VERSION:', ENV_APP_VERSION);
 };
 
 export default defineContentScript({
