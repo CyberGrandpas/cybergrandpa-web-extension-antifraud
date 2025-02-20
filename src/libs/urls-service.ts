@@ -41,7 +41,7 @@ const createUrlService = (storageKey: StorageItemKey): UrlService => {
       return arr.slice(offset, offset + limit).join('\n');
     },
     seek: (url) => {
-      return arr.includes(url);
+      return arr.filter((x) => url.includes(x)).length > 0;
     },
     upsert: async (base64string: string) => {
       try {

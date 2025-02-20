@@ -2,8 +2,8 @@ import { STORAGE_DB_URLS } from '@/config';
 import { initDb } from '@/libs/init-db';
 import { storeOnBoardingCompleted, storeScanning } from '@/libs/store';
 import { registerUrlService } from '@/libs/urls-service';
+import { initWebBlocking } from '@/libs/web-blocking';
 import { forwardMessageToCss } from '@/utils';
-import { browser } from 'wxt/browser/chrome';
 
 // Register proxy-service so other JS context's can get or insert data
 const urlService = registerUrlService(STORAGE_DB_URLS);
@@ -64,8 +64,11 @@ const main = () => {
 
   browser.runtime.onMessage.addListener(onMessageHandler);
 
+  // Initialize database
   initDb(urlService);
-  // initWebBlocking();
+
+  // Initialize web blocking
+  initWebBlocking();
 };
 
 export default defineBackground({

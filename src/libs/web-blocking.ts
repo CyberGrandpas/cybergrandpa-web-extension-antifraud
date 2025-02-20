@@ -1,10 +1,16 @@
-import { CONFIG_LOCAL_URL_MATCHES } from '@/config';
+import { CONFIG_LOCAL_URL_PATTERN } from '@/config';
+import { getUrlService } from './urls-service';
 
 export const initWebBlocking = () => {
-  browser.webNavigation.onCommitted.addListener(
-    (details) => {
-      console.log('This is my favorite website!', details.url);
+  const urlService = getUrlService();
+
+  browser?.webNavigation?.onBeforeNavigate?.addListener(
+    async (details) => {
+      // const isUrlBlocked = await urlService.seek('---adbs186282--54223580950k.gbc.criteo.com');
+      const isUrlBlocked = await urlService.seek(details.url);
+
+      console.log('URL:', isUrlBlocked, details.url);
     },
-    { url: [{ urlMatches: CONFIG_LOCAL_URL_MATCHES }] }
+    { url: CONFIG_LOCAL_URL_PATTERN }
   );
 };

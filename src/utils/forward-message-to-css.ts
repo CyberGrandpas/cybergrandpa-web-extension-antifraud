@@ -1,4 +1,4 @@
-import { isLocalUrlMatch } from './is-local-url-match';
+import { isIgnoreUrlMatch } from './is-ignore-url-match';
 import { SendMessageParams } from './types';
 
 // MESSAGES FORWARDED TO CONTENT SCRIPTS and ALL TABS
@@ -14,7 +14,7 @@ export const forwardMessageToCss = async (request: SendMessageParams) => {
       tab.id !== null &&
       tab.url !== null &&
       tab.url.length > 0 &&
-      !isLocalUrlMatch(tab.url)
+      !isIgnoreUrlMatch(tab.url)
     );
   });
 
