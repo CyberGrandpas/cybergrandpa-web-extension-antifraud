@@ -34,16 +34,29 @@ const onMessageHandler = async (
     arg0: chrome.scripting.InjectionResult<unknown>[] | { tab: number | undefined; response: unknown }[]
   ) => void
 ) => {
-  if (request.type === 'loadContentScript' && request.tabId) {
-    // Returning a promise will send a response back to the sender
-    const response = await browser.scripting.executeScript({
-      target: { tabId: request.tabId },
-      files: ['/content-scripts/content.js'],
-    });
+  if (request.tabId) {
+    if (request.type === 'loadContentScript') {
+      // Returning a promise will send a response back to the sender
+      const response = await browser.scripting.executeScript({
+        target: { tabId: request.tabId },
+        files: ['/content-scripts/content.js'],
+      });
 
-    sendResponse(response);
+      sendResponse(response);
 
-    return true;
+      return true;
+    }
+
+    if (request.type === 'stopHostPageLoading') {
+      const response = await browser.scripting.executeScript({
+        target: { tabId: request.tabId },
+        files: ['/content-scripts/close.js'],
+      });
+
+      console.log('response', response);
+
+      return true;
+    }
   }
 
   const responses = await forwardMessageToCss(request);

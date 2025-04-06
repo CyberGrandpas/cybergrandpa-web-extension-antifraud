@@ -24,7 +24,7 @@ export default defineConfig({
     web_accessible_resources: [
       {
         matches: ['<all_urls>'],
-        resources: ['/icon/*.png'],
+        resources: ['/icon/*.png', '/content-scripts/*.js'],
       },
     ],
     content_security_policy: {

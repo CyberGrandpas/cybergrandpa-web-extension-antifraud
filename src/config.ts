@@ -1,4 +1,5 @@
 export * from './utils/env';
+import { i18n } from '#i18n';
 
 export const APP_NAME = 'cybergrandpa-antifraud';
 
