@@ -1,0 +1,55 @@
+extension:
+  name: CyberGrandpa
+  subname: AntiFraud
+  description: Uma extensão de navegador para segurança e atividades online antifraude.
+  slogan: Protegendo você online, como um avô cuidadoso faria!
+global:
+  logo: logo
+  visit: Visite nosso site $1!
+  options: Opções
+  enabled: Ativado
+  disabled: Desativado
+  support: Suporte
+  wwwMain: cybergrandpa.top/?utm_source=webext&utm_medium=web
+  wwwHelp: help.cybergrandpa.top
+  save: Salvar
+  saveAndClose: Salvar e Fechar
+  close: Fechar
+  cancel: Cancelar
+  reset: Redefinir
+  yes: Sim
+  no: Não
+  scanning: Escaneando
+popup:
+  latestUpdate: Última Atualização
+  protectionStatus: Status da Proteção
+  realTimeProtection: Proteção Extrema
+  tools: Ferramentas
+  scanPage: Escanear a página
+  scan: Escanear
+  settings: Configurações
+  wizard: Assistente
+  package: Pacote
+  upgrade: Atualizar
+  packageFree: Gratuito
+  packagePaid: Pago
+  help: Ajuda
+  billing: Cobrança
+options:
+  title: Opções
+wizard:
+  title: Assistente de Configuração
+  userWelcomeMessage: Bem-vindo amigo!
+  userWelcomeMessage2: Obrigado por instalar $1 $2.
+  userWelcomeMessage3: Complete o assistente de configuração abaixo para começar.
+  userWelcomeMessage4: Você também pode visitar nosso <a href="$1" target="_blank">site</a> para mais informações.
+  userModalMessage: Você pode clicar no canto superior direito da janela do seu navegador e fixar a extensão na barra de ferramentas.
+  suggested: Sugerido
+  optional: Opcional
+  question1: Você quer fixar a extensão CyberGrandpa na sua barra de ferramentas?
+  question2: Você quer receber alertas de segurança importantes?
+  question3: Você quer receber as últimas atualizações sobre Cibersegurança?
+overlay:
+  title: Resultados da análise da página
+  falsyMessage: Nenhum problema detectado.
+  truthyMessage: Alguns problemas detectados.
