@@ -2,7 +2,7 @@
 export const compressReadableStream = async (readableStream: ReadableStream<Uint8Array>) => {
   try {
     // Create a compression stream
-    const compressedStream = readableStream.pipeThrough(new CompressionStream('gzip') as any);
+    const compressedStream = readableStream.pipeThrough(new CompressionStream('gzip'));
 
     // Convert the compressed stream to a Uint8Array
     const reader = compressedStream.getReader();
