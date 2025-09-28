@@ -3,10 +3,9 @@ import { APP_NAME } from '@/config';
 import { storeScanning } from '@/libs/store';
 import { pascalCase } from 'change-case';
 import { unmount } from 'svelte';
-import { ContentScriptContext } from 'wxt/client';
 import { bootstrapApp } from './bootstrap-app';
 
-export const createUi = (name: string, ctx: ContentScriptContext) => {
+export const createUi = (name: string, ctx: any) => {
   return createShadowRootUi(ctx, {
     name: `${APP_NAME}-${name}`,
     position: 'modal',

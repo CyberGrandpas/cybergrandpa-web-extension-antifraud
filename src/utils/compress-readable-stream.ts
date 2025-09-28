@@ -1,21 +1,21 @@
 // Utility to compress a ReadableStream to base64String
-export const compressReadableStream = async (readableStream: ReadableStream<string>) => {
+export const compressReadableStream = async (readableStream: ReadableStream<Uint8Array>) => {
   try {
     // Create a compression stream
-    const compressedStream = readableStream.pipeThrough(new CompressionStream('gzip'));
+    const compressedStream = readableStream.pipeThrough(new CompressionStream('gzip') as any);
 
     // Convert the compressed stream to a Uint8Array
     const reader = compressedStream.getReader();
-    const chunks = [];
+    const chunks: Uint8Array[] = [];
 
     while (true) {
       const { done, value } = await reader.read();
       if (done) break;
-      chunks.push(value);
+      chunks.push(value as Uint8Array);
     }
 
     // Create a Blob from the chunks
-    const blob = new Blob(chunks);
+    const blob = new Blob(chunks as BlobPart[]);
 
     // Convert Blob to base64 using FileReader
     const base64String = await new Promise((resolve, reject) => {
