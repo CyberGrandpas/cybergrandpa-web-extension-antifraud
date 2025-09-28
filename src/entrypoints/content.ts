@@ -1,7 +1,7 @@
 import '@/styles/style.scss';
 import { ENV_APP_VERSION, SendMessageParams, getLog } from '@/utils';
 import { createUi } from '@/utils/create-ui';
-import { ContentScriptContext } from 'wxt/client';
+import { ContentScriptContext } from 'wxt/utils/content-script-context';
 
 const mainContentScript = async (ctx: ContentScriptContext) => {
   // Instantiate the UI
