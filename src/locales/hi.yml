@@ -1,0 +1,55 @@
+extension:
+  name: साइबरदादा
+  subname: एंटीफ्रॉड
+  description: ऑनलाइन गतिविधियों की सुरक्षा और धोखाधड़ी रोकथाम के लिए ब्राउज़र एक्सटेंशन।
+  slogan: ऑनलाइन आपकी सुरक्षा करना, जैसे एक प्यार करने वाला दादा करता!
+global:
+  logo: लोगो
+  visit: हमारी वेबसाइट $1 पर जाएं!
+  options: विकल्प
+  enabled: सक्षम
+  disabled: अक्षम
+  support: सहायता
+  wwwMain: cybergrandpa.top/?utm_source=webext&utm_medium=web
+  wwwHelp: help.cybergrandpa.top
+  save: सहेजें
+  saveAndClose: सहेजें और बंद करें
+  close: बंद करें
+  cancel: रद्द करें
+  reset: रीसेट
+  yes: हाँ
+  no: नहीं
+  scanning: स्कैनिंग
+popup:
+  latestUpdate: नवीनतम अपडेट
+  protectionStatus: सुरक्षा स्थिति
+  realTimeProtection: चरम सुरक्षा
+  tools: उपकरण
+  scanPage: पेज स्कैन करें
+  scan: स्कैन
+  settings: सेटिंग्स
+  wizard: विज़ार्ड
+  package: पैकेज
+  upgrade: अपग्रेड
+  packageFree: मुफ्त
+  packagePaid: भुगतान
+  help: मदद
+  billing: बिलिंग
+options:
+  title: विकल्प
+wizard:
+  title: सेटिंग विज़ार्ड
+  userWelcomeMessage: स्वागत है, दोस्त!
+  userWelcomeMessage2: $1 $2 स्थापित करने के लिए धन्यवाद।
+  userWelcomeMessage3: शुरू करने के लिए नीचे दिए गए सेटिंग विज़ार्ड को पूरा करें।
+  userWelcomeMessage4: अधिक जानकारी के लिए आप हमारी <a href="$1" target="_blank">वेबसाइट</a> भी देख सकते हैं।
+  userModalMessage: आप अपने ब्राउज़र विंडो के दाईं ओर क्लिक करके एक्सटेंशन को टूलबार में पिन कर सकते हैं।
+  suggested: सुझावित
+  optional: वैकल्पिक
+  question1: क्या आप साइबरदादा एक्सटेंशन को टूलबार में पिन करना चाहते हैं?
+  question2: क्या आप महत्वपूर्ण सुरक्षा अलर्ट प्राप्त करना चाहते हैं?
+  question3: क्या आप साइबर सुरक्षा के नवीनतम अपडेट प्राप्त करना चाहते हैं?
+overlay:
+  title: पेज विश्लेषण के परिणाम
+  falsyMessage: कोई समस्या नहीं मिली।
+  truthyMessage: कुछ समस्याएं मिली हैं।

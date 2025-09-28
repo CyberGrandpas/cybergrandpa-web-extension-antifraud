@@ -1,0 +1,55 @@
+extension:
+  name: КиберДядо
+  subname: АнтиИзмама
+  description: Разширение за браузър за сигурност и предотвратяване на измами в онлайн дейности.
+  slogan: Защитаваме ви онлайн, като грижовен дядо!
+global:
+  logo: лого
+  visit: Посетете нашия сайт $1!
+  options: Опции
+  enabled: Включено
+  disabled: Изключено
+  support: Поддръжка
+  wwwMain: cybergrandpa.top/?utm_source=webext&utm_medium=web
+  wwwHelp: help.cybergrandpa.top
+  save: Запази
+  saveAndClose: Запази и затвори
+  close: Затвори
+  cancel: Отказ
+  reset: Нулиране
+  yes: Да
+  no: Не
+  scanning: Сканиране
+popup:
+  latestUpdate: Последна актуализация
+  protectionStatus: Статус на защитата
+  realTimeProtection: Екстремна защита
+  tools: Инструменти
+  scanPage: Сканирай страница
+  scan: Сканирай
+  settings: Настройки
+  wizard: Съветник
+  package: Пакет
+  upgrade: Актуализация
+  packageFree: Безплатен
+  packagePaid: Платен
+  help: Помощ
+  billing: Биллинг
+options:
+  title: Опции
+wizard:
+  title: Съветник за настройка
+  userWelcomeMessage: Добре дошли, приятелю!
+  userWelcomeMessage2: Благодарим за инсталирането на $1 $2.
+  userWelcomeMessage3: Завършете съветника за настройка по-долу, за да започнете.
+  userWelcomeMessage4: Можете също да посетите нашия <a href="$1" target="_blank">сайт</a> за повече информация.
+  userModalMessage: Можете да кликнете в горния десен ъгъл на прозореца на браузъра и да закрепите разширението в лентата с инструменти.
+  suggested: Препоръчано
+  optional: По избор
+  question1: Искате ли да закрепите разширението КиберДядо в лентата с инструменти?
+  question2: Искате ли да получавате важни сигурностни предупреждения?
+  question3: Искате ли да получавате най-новите актуализации за киберсигурност?
+overlay:
+  title: Резултати от анализа на страницата
+  falsyMessage: Не са открити проблеми.
+  truthyMessage: Открити са някои проблеми.

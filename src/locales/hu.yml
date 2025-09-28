@@ -1,0 +1,55 @@
+extension:
+  name: CyberNagyapa
+  subname: AntiCsalás
+  description: Böngésző kiegészítő biztonsághoz és csalás megelőzéshez online tevékenységekben.
+  slogan: Védünk online, mint egy gondoskodó nagyapa!
+global:
+  logo: logo
+  visit: Látogassa meg weboldalunkat $1!
+  options: Beállítások
+  enabled: Engedélyezve
+  disabled: Letiltva
+  support: Támogatás
+  wwwMain: cybergrandpa.top/?utm_source=webext&utm_medium=web
+  wwwHelp: help.cybergrandpa.top
+  save: Mentés
+  saveAndClose: Mentés és bezárás
+  close: Bezárás
+  cancel: Mégse
+  reset: Visszaállítás
+  yes: Igen
+  no: Nem
+  scanning: Szkennelés
+popup:
+  latestUpdate: Legfrissebb frissítés
+  protectionStatus: Védelmi állapot
+  realTimeProtection: Szélsőséges védelem
+  tools: Eszközök
+  scanPage: Oldal szkennelése
+  scan: Szkennelés
+  settings: Beállítások
+  wizard: Varázsló
+  package: Csomag
+  upgrade: Frissítés
+  packageFree: Ingyenes
+  packagePaid: Fizetős
+  help: Súgó
+  billing: Számlázás
+options:
+  title: Beállítások
+wizard:
+  title: Beállítási varázsló
+  userWelcomeMessage: Üdvözöljük, barátom!
+  userWelcomeMessage2: Köszönjük, hogy telepítette a $1 $2-t.
+  userWelcomeMessage3: Fejezze be az alábbi beállítási varázslót a kezdéshez.
+  userWelcomeMessage4: További információkért látogassa meg <a href="$1" target="_blank">weboldalunkat</a> is.
+  userModalMessage: A böngészőablak jobb felső sarkára kattinthat és rögzítheti a bővítményt az eszköztárra.
+  suggested: Ajánlott
+  optional: Opcionális
+  question1: Szeretné rögzíteni a CyberNagyapa bővítményt az eszköztárra?
+  question2: Szeretne fontos biztonsági figyelmeztetéseket kapni?
+  question3: Szeretne a legfrissebb kiberbiztonsági frissítéseket kapni?
+overlay:
+  title: Oldal elemzésének eredményei
+  falsyMessage: Nem találtunk problémákat.
+  truthyMessage: Néhány probléma található.

@@ -1,0 +1,55 @@
+extension:
+  name: CyberDedko
+  subname: AntiPodvod
+  description: Rozšírenie prehliadača pre bezpečnosť a prevenciu podvodov v online aktivitách.
+  slogan: Chránime vás online, ako starostlivý dedko!
+global:
+  logo: logo
+  visit: Navštívte našu stránku $1!
+  options: Možnosti
+  enabled: Povolené
+  disabled: Zakázané
+  support: Podpora
+  wwwMain: cybergrandpa.top/?utm_source=webext&utm_medium=web
+  wwwHelp: help.cybergrandpa.top
+  save: Uložiť
+  saveAndClose: Uložiť a zavrieť
+  close: Zavrieť
+  cancel: Zrušiť
+  reset: Resetovať
+  yes: Áno
+  no: Nie
+  scanning: Skenovanie
+popup:
+  latestUpdate: Najnovšia aktualizácia
+  protectionStatus: Stav ochrany
+  realTimeProtection: Extrémna ochrana
+  tools: Nástroje
+  scanPage: Skenovať stránku
+  scan: Skenovať
+  settings: Nastavenia
+  wizard: Sprievodca
+  package: Balík
+  upgrade: Aktualizovať
+  packageFree: Zdarma
+  packagePaid: Platený
+  help: Pomocník
+  billing: Fakturácia
+options:
+  title: Možnosti
+wizard:
+  title: Sprievodca nastavením
+  userWelcomeMessage: Vitajte, priateľ!
+  userWelcomeMessage2: Ďakujeme za inštaláciu $1 $2.
+  userWelcomeMessage3: Dokončite sprievodcu nastavením nižšie pre začiatok.
+  userWelcomeMessage4: Môžete tiež navštíviť našu <a href="$1" target="_blank">webovú stránku</a> pre viac informácií.
+  userModalMessage: Môžete kliknúť v pravom hornom rohu okna prehliadača a pripnúť rozšírenie na panel nástrojov.
+  suggested: Odporúčané
+  optional: Voliteľné
+  question1: Chcete pripnúť rozšírenie CyberDedko na panel nástrojov?
+  question2: Chcete dostávať dôležité bezpečnostné upozornenia?
+  question3: Chcete dostávať najnovšie aktualizácie kybernetickej bezpečnosti?
+overlay:
+  title: Výsledky analýzy stránky
+  falsyMessage: Neboli zistené žiadne problémy.
+  truthyMessage: Boli zistené niektoré problémy.

@@ -1,0 +1,55 @@
+extension:
+  name: 网络爷爷
+  subname: 防欺诈
+  description: 用于在线活动安全和防欺诈的浏览器扩展程序。
+  slogan: 像慈爱的爷爷一样保护您的网络安全！
+global:
+  logo: 标志
+  visit: 访问我们的网站 $1！
+  options: 选项
+  enabled: 已启用
+  disabled: 已禁用
+  support: 支持
+  wwwMain: cybergrandpa.top/?utm_source=webext&utm_medium=web
+  wwwHelp: help.cybergrandpa.top
+  save: 保存
+  saveAndClose: 保存并关闭
+  close: 关闭
+  cancel: 取消
+  reset: 重置
+  yes: 是
+  no: 否
+  scanning: 扫描中
+popup:
+  latestUpdate: 最新更新
+  protectionStatus: 保护状态
+  realTimeProtection: 极限保护
+  tools: 工具
+  scanPage: 扫描页面
+  scan: 扫描
+  settings: 设置
+  wizard: 向导
+  package: 套餐
+  upgrade: 升级
+  packageFree: 免费
+  packagePaid: 付费
+  help: 帮助
+  billing: 计费
+options:
+  title: 选项
+wizard:
+  title: 设置向导
+  userWelcomeMessage: 欢迎，朋友！
+  userWelcomeMessage2: 感谢安装 $1 $2。
+  userWelcomeMessage3: 完成下面的设置向导以开始使用。
+  userWelcomeMessage4: 您也可以访问我们的 <a href="$1" target="_blank">网站</a> 获取更多信息。
+  userModalMessage: 您可以点击浏览器窗口的右上角，将扩展程序固定到工具栏。
+  suggested: 推荐
+  optional: 可选
+  question1: 您想将网络爷爷扩展程序固定到工具栏吗？
+  question2: 您想接收重要的安全警报吗？
+  question3: 您想接收网络安全的最新更新吗？
+overlay:
+  title: 页面分析结果
+  falsyMessage: 未检测到问题。
+  truthyMessage: 检测到一些问题。

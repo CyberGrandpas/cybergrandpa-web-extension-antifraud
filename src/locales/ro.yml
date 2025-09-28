@@ -1,0 +1,55 @@
+extension:
+  name: CyberBunicul
+  subname: AntiInșelăciune
+  description: Extensie de browser pentru siguranță și prevenirea înșelăciunii în activitățile online.
+  slogan: Vă protejăm online, ca un bunic grijuliu!
+global:
+  logo: logo
+  visit: Vizitați site-ul nostru $1!
+  options: Opțiuni
+  enabled: Activat
+  disabled: Dezactivat
+  support: Suport
+  wwwMain: cybergrandpa.top/?utm_source=webext&utm_medium=web
+  wwwHelp: help.cybergrandpa.top
+  save: Salvare
+  saveAndClose: Salvare și închidere
+  close: Închidere
+  cancel: Anulare
+  reset: Resetare
+  yes: Da
+  no: Nu
+  scanning: Scanare
+popup:
+  latestUpdate: Ultima actualizare
+  protectionStatus: Starea protecției
+  realTimeProtection: Protecție extremă
+  tools: Instrumente
+  scanPage: Scanează pagina
+  scan: Scanează
+  settings: Setări
+  wizard: Asistent
+  package: Pachet
+  upgrade: Actualizare
+  packageFree: Gratuit
+  packagePaid: Plătit
+  help: Ajutor
+  billing: Facturare
+options:
+  title: Opțiuni
+wizard:
+  title: Asistentul de configurare
+  userWelcomeMessage: Bine ai venit, prietene!
+  userWelcomeMessage2: Mulțumim pentru instalarea $1 $2.
+  userWelcomeMessage3: Completați asistentul de configurare de mai jos pentru a începe.
+  userWelcomeMessage4: Puteți vizita și <a href="$1" target="_blank">site-ul nostru</a> pentru mai multe informații.
+  userModalMessage: Puteți face clic în colțul din dreapta sus al ferestrei browserului și fixa extensia în bara de instrumente.
+  suggested: Recomandat
+  optional: Opțional
+  question1: Doriți să fixați extensia CyberBunicul în bara de instrumente?
+  question2: Doriți să primiți alerte importante de securitate?
+  question3: Doriți să primiți cele mai recente actualizări despre securitatea cibernetică?
+overlay:
+  title: Rezultatele analizei paginii
+  falsyMessage: Nu au fost detectate probleme.
+  truthyMessage: Au fost detectate unele probleme.

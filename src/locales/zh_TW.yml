@@ -1,0 +1,55 @@
+extension:
+  name: 網路爺爺
+  subname: 防詐騙
+  description: 用於線上活動安全和防詐騙的瀏覽器擴充功能。
+  slogan: 像慈愛的爺爺一樣保護您的網路安全！
+global:
+  logo: 標誌
+  visit: 造訪我們的網站 $1！
+  options: 選項
+  enabled: 已啟用
+  disabled: 已停用
+  support: 支援
+  wwwMain: cybergrandpa.top/?utm_source=webext&utm_medium=web
+  wwwHelp: help.cybergrandpa.top
+  save: 儲存
+  saveAndClose: 儲存並關閉
+  close: 關閉
+  cancel: 取消
+  reset: 重設
+  yes: 是
+  no: 否
+  scanning: 掃描中
+popup:
+  latestUpdate: 最新更新
+  protectionStatus: 保護狀態
+  realTimeProtection: 極限保護
+  tools: 工具
+  scanPage: 掃描頁面
+  scan: 掃描
+  settings: 設定
+  wizard: 精靈
+  package: 套件
+  upgrade: 升級
+  packageFree: 免費
+  packagePaid: 付費
+  help: 說明
+  billing: 帳單
+options:
+  title: 選項
+wizard:
+  title: 設定精靈
+  userWelcomeMessage: 歡迎，朋友！
+  userWelcomeMessage2: 感謝安裝 $1 $2。
+  userWelcomeMessage3: 完成下面的設定精靈以開始使用。
+  userWelcomeMessage4: 您也可以造訪我們的 <a href="$1" target="_blank">網站</a> 獲取更多資訊。
+  userModalMessage: 您可以點選瀏覽器視窗的右上角，將擴充功能固定到工具列。
+  suggested: 建議
+  optional: 選用
+  question1: 您想將網路爺爺擴充功能固定到工具列嗎？
+  question2: 您想接收重要的安全警示嗎？
+  question3: 您想接收網路安全的最新更新嗎？
+overlay:
+  title: 頁面分析結果
+  falsyMessage: 未偵測到問題。
+  truthyMessage: 偵測到一些問題。
