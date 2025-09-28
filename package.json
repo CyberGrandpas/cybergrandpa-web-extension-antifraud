@@ -20,7 +20,7 @@
     "@eslint/compat": "^1.4.0",
     "@thedutchcoder/postcss-rem-to-px": "^0.0.2",
     "@tsconfig/svelte": "^5.0.5",
-    "@types/chrome": "^0.1.12",
+    "@types/chrome": "0.1.12",
     "@types/lokijs": "^1.5.14",
     "@typescript-eslint/parser": "^8.44.1",
     "@webext-core/proxy-service": "^1.2.1",

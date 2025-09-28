@@ -39,7 +39,7 @@ options:
   title: Opções
 wizard:
   title: Assistente de Configuração
-  userWelcomeMessage: Bem-vindo amigo!
+  userWelcomeMessage: Bem-vindo, amigo!
   userWelcomeMessage2: Obrigado por instalar $1 $2.
   userWelcomeMessage3: Complete o assistente de configuração abaixo para começar.
   userWelcomeMessage4: Você também pode visitar nosso <a href="$1" target="_blank">site</a> para mais informações.
