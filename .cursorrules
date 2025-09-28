@@ -89,6 +89,7 @@ This is an anti-fraud and safety web extension that blocks malicious URLs using 
 ## Browser Permissions
 
 Required permissions:
+
 - `activeTab`, `alarms`, `scripting`, `storage`, `tabs`
 - `webNavigation`, `declarativeNetRequestWithHostAccess`
 - `host_permissions` for all URLs
@@ -124,6 +125,7 @@ Required permissions:
 - Type checking with Svelte compiler integration
 
 When making changes:
+
 1. Always use Svelte 5 syntax and patterns
 2. Ensure cross-browser compatibility
 3. Maintain TypeScript strict typing

@@ -1,13 +1,26 @@
-# CLAUDE.md
+# .cursorrules
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+You are an AI assistant helping with a cross-browser web extension project built with WXT framework and Svelte 5. Follow these rules and guidelines when working with this codebase.
 
-## Directives
+## Core Directives
 
-1. I'm using Svelte 5;
-2. don't show me solutions for svelte4;
-3. Im builing a cross-browser web extension;
-4. don't show me formattation inline suggestions;
+1. **Svelte 5 Only**: Always use Svelte 5 syntax with runes. Never suggest Svelte 4 solutions or syntax.
+2. **Cross-browser Extension**: This is a web extension that must work across Chrome and Firefox using Manifest V3.
+3. **No Formatting Suggestions**: Do not provide inline formatting suggestions - focus on functionality and architecture.
+4. **Package Manager**: Always use `bun` for package management operations.
+
+## Project Overview
+
+This is an anti-fraud and safety web extension that blocks malicious URLs using a distributed blocklist system. The extension provides real-time URL blocking, cross-browser compatibility, and multi-language support.
+
+## Technology Stack
+
+- **Framework**: WXT (Web Extension Framework) with TypeScript
+- **Frontend**: Svelte 5 with runes syntax
+- **Styling**: SASS/SCSS with modular architecture
+- **Database**: LokiJS for in-memory URL storage
+- **Communication**: @webext-core/proxy-service for cross-context messaging
+- **Internationalization**: @wxt-dev/i18n with YAML locale files
 
 ## Development Commands
 
@@ -29,96 +42,94 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ### Package Management
 
-- Uses `bun` as package manager (specified in packageManager field)
+- Always use `bun` as the package manager
 - Run `bun postinstall` after dependency changes to prepare WXT
 
-## Architecture Overview
+## Architecture Guidelines
 
-This is a cross-browser extension built with WXT framework for anti-fraud and safety online activities. The extension blocks malicious URLs using a distributed blocklist system.
+### Entrypoints Structure (`src/entrypoints/`)
 
-### Core Technologies
-
-- **WXT Framework**: Modern web extension framework with TypeScript support
-- **Svelte 5**: Frontend framework for UI components with runes syntax
-- **TypeScript**: Strict typing throughout the codebase
-- **SASS/SCSS**: Styling with modular architecture
-- **LokiJS**: In-memory database for URL storage
-- **Proxy Service**: Cross-context communication using @webext-core/proxy-service
-
-### Extension Structure
-
-#### Entrypoints (src/entrypoints/)
-
-- `background.ts` - Service worker handling extension lifecycle, message passing, and URL blocking
+- `background.ts` - Service worker for extension lifecycle, message passing, and URL blocking
 - `content.ts` - Content script for page scanning and UI injection
 - `close.content.ts` - Content script for closing/blocking tabs
 - `popup/` - Extension popup interface
 - `options/` - Extension settings page
 - `wizard/` - Onboarding wizard for new users
 
-#### Core Services (src/libs/)
+### Core Services (`src/libs/`)
 
 - `urls-service.ts` - URL blocklist management with compressed storage
 - `web-blocking.ts` - Real-time URL blocking using webNavigation API
 - `store.ts` - Persistent storage management
 - `init-db.ts` - Database initialization and setup
 
-#### Key Features
+### Component Architecture (`src/components/`)
 
-- **URL Blocking**: Uses compressed blocklist from hblock.molinero.dev/hosts
-- **Real-time Scanning**: Monitors navigation and blocks malicious URLs
-- **Cross-browser Support**: Manifest V3 compatible with Chrome and Firefox
-- **Internationalization**: Multi-language support with @wxt-dev/i18n
-- **Onboarding**: Wizard-based setup for new users
-
-### Component Architecture
-
-#### UI Components (src/components/)
-
-- Modular Svelte components with consistent props interfaces
+- Use modular Svelte 5 components with consistent props interfaces
 - Reusable components: Button, Modal, Toggle, Status, Header
-- App-specific components in `apps/` directory
-- Icon components in `icons/` directory
+- App-specific components go in `apps/` directory
+- Icon components go in `icons/` directory
+- Always use Svelte 5 runes syntax (`$state`, `$derived`, `$effect`, etc.)
 
-#### Utilities (src/utils/)
+### Utilities (`src/utils/`)
 
 - Cross-context messaging utilities
 - Tab management and activation
 - Stream processing for compressed data
 - Environment and configuration helpers
 
-### Configuration
+## Key Features to Maintain
 
-#### Browser Permissions
+- **URL Blocking**: Uses compressed blocklist from hblock.molinero.dev/hosts
+- **Real-time Scanning**: Monitors navigation and blocks malicious URLs
+- **Cross-browser Support**: Manifest V3 compatible with Chrome and Firefox
+- **Internationalization**: Multi-language support (EN, DE, ES, FR, IT, NL, PT)
+- **Onboarding**: Wizard-based setup for new users
+
+## Browser Permissions
+
+Required permissions:
 
 - `activeTab`, `alarms`, `scripting`, `storage`, `tabs`
 - `webNavigation`, `declarativeNetRequestWithHostAccess`
 - `host_permissions` for all URLs
 
-#### Build Configuration
+## Storage Strategy
 
-- WXT config in `wxt.config.ts` with Svelte and i18n modules
-- ESLint config supports TypeScript and Svelte
-- PostCSS with rem-to-px conversion
-- SASS with modular styling architecture
-
-### Storage Strategy
-
-- Uses WXT storage API with local storage
+- Use WXT storage API with local storage
 - Compressed URL data using streams and base64 encoding
 - Proxy service for cross-context data access
 - Real-time updates across all contexts
 
-### Development Workflow
+## Internationalization
+
+- YAML locale files in `src/locales/`
+- Supports: English, German, Spanish, French, Italian, Dutch, Portuguese
+- Messages accessed via `i18n.t()` function
+- Manifest uses `__MSG_*__` format for localized strings
+
+## Code Style Guidelines
+
+- Use TypeScript with strict typing throughout
+- Follow Svelte 5 runes syntax patterns
+- Use SASS/SCSS with modular styling architecture
+- Maintain consistent component prop interfaces
+- Use PostCSS with rem-to-px conversion
+- Follow ESLint configuration for TypeScript and Svelte
+
+## Development Workflow
 
 - Hot reload during development
 - Browser-specific builds and testing
 - Automatic manifest generation
 - Type checking with Svelte compiler integration
 
-### Internationalization
+When making changes:
 
-- YAML locale files in `src/locales/`
-- Supports: English, German, Spanish, French, Italian, Dutch, Portuguese
-- Messages accessed via `i18n.t()` function
-- Manifest uses `__MSG_*__` format for localized strings
+1. Always use Svelte 5 syntax and patterns
+2. Ensure cross-browser compatibility
+3. Maintain TypeScript strict typing
+4. Follow the established component architecture
+5. Use the correct development commands with `bun`
+6. Consider internationalization for user-facing text
+7. Test both Chrome and Firefox builds when applicable
