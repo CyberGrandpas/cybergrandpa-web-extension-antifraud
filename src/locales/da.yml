@@ -1,0 +1,55 @@
+extension:
+  name: CyberBedstefar
+  subname: AntiSvindel
+  description: Browser-udvidelse til sikkerhed og forebyggelse af svindel i onlineaktiviteter.
+  slogan: Beskytter dig online, som en omsorgsfuld bedstefar!
+global:
+  logo: logo
+  visit: Besøg vores hjemmeside $1!
+  options: Indstillinger
+  enabled: Aktiveret
+  disabled: Deaktiveret
+  support: Support
+  wwwMain: cybergrandpa.top/?utm_source=webext&utm_medium=web
+  wwwHelp: help.cybergrandpa.top
+  save: Gem
+  saveAndClose: Gem og luk
+  close: Luk
+  cancel: Annuller
+  reset: Nulstil
+  yes: Ja
+  no: Nej
+  scanning: Scanner
+popup:
+  latestUpdate: Seneste opdatering
+  protectionStatus: Beskyttelsesstatus
+  realTimeProtection: Ekstrem beskyttelse
+  tools: Værktøjer
+  scanPage: Scan side
+  scan: Scan
+  settings: Indstillinger
+  wizard: Guide
+  package: Pakke
+  upgrade: Opgrader
+  packageFree: Gratis
+  packagePaid: Betalt
+  help: Hjælp
+  billing: Fakturering
+options:
+  title: Indstillinger
+wizard:
+  title: Indstillingsguide
+  userWelcomeMessage: Velkommen, ven!
+  userWelcomeMessage2: Tak for at installere $1 $2.
+  userWelcomeMessage3: Fuldfør indstillingsguiden nedenfor for at komme i gang.
+  userWelcomeMessage4: Du kan også besøge vores <a href="$1" target="_blank">hjemmeside</a> for mere information.
+  userModalMessage: Du kan klikke i øverste højre hjørne af browser-vinduet og fastgøre udvidelsen til værktøjslinjen.
+  suggested: Foreslået
+  optional: Valgfrit
+  question1: Vil du fastgøre CyberBedstefar-udvidelsen til værktøjslinjen?
+  question2: Vil du modtage vigtige sikkerhedsadvarsler?
+  question3: Vil du modtage de seneste opdateringer om cybersikkerhed?
+overlay:
+  title: Resultater af sideanalyse
+  falsyMessage: Ingen problemer blev opdaget.
+  truthyMessage: Nogle problemer blev opdaget.

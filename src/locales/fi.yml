@@ -1,0 +1,55 @@
+extension:
+  name: CyberIsoisä
+  subname: AntiHuijaus
+  description: Selaimen laajennus turvallisuuteen ja huijausten estämiseen verkkoaktiviteeteissa.
+  slogan: Suojellaan sinua verkossa, kuten huolehtiva isoisä!
+global:
+  logo: logo
+  visit: Vieraile sivustollamme $1!
+  options: Asetukset
+  enabled: Käytössä
+  disabled: Pois käytöstä
+  support: Tuki
+  wwwMain: cybergrandpa.top/?utm_source=webext&utm_medium=web
+  wwwHelp: help.cybergrandpa.top
+  save: Tallenna
+  saveAndClose: Tallenna ja sulje
+  close: Sulje
+  cancel: Peruuta
+  reset: Nollaa
+  yes: Kyllä
+  no: Ei
+  scanning: Skannaus
+popup:
+  latestUpdate: Viimeisin päivitys
+  protectionStatus: Suojauksen tila
+  realTimeProtection: Äärimmäinen suoja
+  tools: Työkalut
+  scanPage: Skannaa sivu
+  scan: Skannaa
+  settings: Asetukset
+  wizard: Ohjattu asetus
+  package: Paketti
+  upgrade: Päivitä
+  packageFree: Ilmainen
+  packagePaid: Maksullinen
+  help: Ohje
+  billing: Laskutus
+options:
+  title: Asetukset
+wizard:
+  title: Asetusohjattu
+  userWelcomeMessage: Tervetuloa, ystävä!
+  userWelcomeMessage2: Kiitos $1 $2:n asentamisesta.
+  userWelcomeMessage3: Suorita alla oleva asetusohjattu aloittaaksesi.
+  userWelcomeMessage4: Voit myös vierailla <a href="$1" target="_blank">sivustollamme</a> saadaksesi lisätietoja.
+  userModalMessage: Voit napsauttaa selainikkunan oikeassa yläkulmassa ja kiinnittää laajennuksen työkaluriville.
+  suggested: Suositeltu
+  optional: Valinnainen
+  question1: Haluatko kiinnittää CyberIsoisä-laajennuksen työkaluriville?
+  question2: Haluatko vastaanottaa tärkeitä turvallisuushälytyksiä?
+  question3: Haluatko vastaanottaa uusimmat päivitykset kyberturvallisuudesta?
+overlay:
+  title: Sivun analyysin tulokset
+  falsyMessage: Ongelmia ei havaittu.
+  truthyMessage: Joitain ongelmia havaittu.

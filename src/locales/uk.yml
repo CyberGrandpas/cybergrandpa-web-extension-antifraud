@@ -1,0 +1,55 @@
+extension:
+  name: КіберДідусь
+  subname: АнтиШахрай
+  description: Розширення браузера для безпеки та захисту від шахрайства в інтернеті.
+  slogan: Захищаємо вас онлайн, як турботливий дідусь!
+global:
+  logo: логотип
+  visit: Відвідайте наш сайт $1!
+  options: Налаштування
+  enabled: Увімкнено
+  disabled: Вимкнено
+  support: Підтримка
+  wwwMain: cybergrandpa.top/?utm_source=webext&utm_medium=web
+  wwwHelp: help.cybergrandpa.top
+  save: Зберегти
+  saveAndClose: Зберегти і закрити
+  close: Закрити
+  cancel: Скасувати
+  reset: Скинути
+  yes: Так
+  no: Ні
+  scanning: Сканування
+popup:
+  latestUpdate: Останнє оновлення
+  protectionStatus: Статус захисту
+  realTimeProtection: Екстремальний захист
+  tools: Інструменти
+  scanPage: Сканувати сторінку
+  scan: Сканувати
+  settings: Налаштування
+  wizard: Майстер
+  package: Пакет
+  upgrade: Оновити
+  packageFree: Безкоштовний
+  packagePaid: Платний
+  help: Допомога
+  billing: Білінг
+options:
+  title: Налаштування
+wizard:
+  title: Майстер налаштування
+  userWelcomeMessage: Ласкаво просимо, друже!
+  userWelcomeMessage2: Дякуємо за встановлення $1 $2.
+  userWelcomeMessage3: Завершіть майстер налаштування нижче, щоб почати.
+  userWelcomeMessage4: Ви також можете відвідати наш <a href="$1" target="_blank">сайт</a> для отримання додаткової інформації.
+  userModalMessage: Ви можете натиснути у верхньому правому куті вікна браузера і закріпити розширення на панелі інструментів.
+  suggested: Рекомендовано
+  optional: Опціонально
+  question1: Хочете закріпити розширення КіберДідусь на панелі інструментів?
+  question2: Хочете отримувати важливі сповіщення безпеки?
+  question3: Хочете отримувати останні оновлення з кібербезпеки?
+overlay:
+  title: Результати аналізу сторінки
+  falsyMessage: Проблем не виявлено.
+  truthyMessage: Виявлено деякі проблеми.

@@ -1,0 +1,55 @@
+extension:
+  name: CyberDjed
+  subname: AntiPrevarant
+  description: Proširenje preglednika za sigurnost i sprječavanje prijevara u online aktivnostima.
+  slogan: Štitimo vas online, kao brižni djed!
+global:
+  logo: logo
+  visit: Posjetite našu stranicu $1!
+  options: Opcije
+  enabled: Omogućeno
+  disabled: Onemogućeno
+  support: Podrška
+  wwwMain: cybergrandpa.top/?utm_source=webext&utm_medium=web
+  wwwHelp: help.cybergrandpa.top
+  save: Spremi
+  saveAndClose: Spremi i zatvori
+  close: Zatvori
+  cancel: Otkaži
+  reset: Resetiraj
+  yes: Da
+  no: Ne
+  scanning: Skeniranje
+popup:
+  latestUpdate: Najnovije ažuriranje
+  protectionStatus: Status zaštite
+  realTimeProtection: Ekstremna zaštita
+  tools: Alati
+  scanPage: Skeniraj stranicu
+  scan: Skeniraj
+  settings: Postavke
+  wizard: Čarobnjak
+  package: Paket
+  upgrade: Nadogradi
+  packageFree: Besplatno
+  packagePaid: Plaćeno
+  help: Pomoć
+  billing: Naplata
+options:
+  title: Opcije
+wizard:
+  title: Čarobnjak postavki
+  userWelcomeMessage: Dobrodošli, prijatelju!
+  userWelcomeMessage2: Hvala što ste instalirali $1 $2.
+  userWelcomeMessage3: Završite čarobnjaka postavki dolje za početak.
+  userWelcomeMessage4: Također možete posjetiti našu <a href="$1" target="_blank">web stranicu</a> za više informacija.
+  userModalMessage: Možete kliknuti u gornjem desnom kutu prozora preglednika i pričvrstiti proširenje na alatnu traku.
+  suggested: Predloženo
+  optional: Neobavezno
+  question1: Želite li pričvrstiti proširenje CyberDjed na alatnu traku?
+  question2: Želite li primati važna sigurnosna upozorenja?
+  question3: Želite li primati najnovija ažuriranja o kibernetičkoj sigurnosti?
+overlay:
+  title: Rezultati analize stranice
+  falsyMessage: Nisu otkriveni problemi.
+  truthyMessage: Otkriveni su neki problemi.

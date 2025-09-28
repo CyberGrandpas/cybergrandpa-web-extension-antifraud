@@ -1,0 +1,55 @@
+extension:
+  name: سايبرجراندبا
+  subname: مكافحة الاحتيال
+  description: امتداد متصفح للحماية ومكافحة الاحتيال في الأنشطة عبر الإنترنت.
+  slogan: نحميك عبر الإنترنت، كما يفعل الجد الحنون!
+global:
+  logo: شعار
+  visit: زر موقعنا $1!
+  options: خيارات
+  enabled: مفعل
+  disabled: معطل
+  support: الدعم
+  wwwMain: cybergrandpa.top/?utm_source=webext&utm_medium=web
+  wwwHelp: help.cybergrandpa.top
+  save: حفظ
+  saveAndClose: حفظ وإغلاق
+  close: إغلاق
+  cancel: إلغاء
+  reset: إعادة تعيين
+  yes: نعم
+  no: لا
+  scanning: جاري المسح
+popup:
+  latestUpdate: آخر تحديث
+  protectionStatus: حالة الحماية
+  realTimeProtection: حماية متقدمة
+  tools: الأدوات
+  scanPage: مسح الصفحة
+  scan: مسح
+  settings: الإعدادات
+  wizard: المعالج
+  package: الحزمة
+  upgrade: ترقية
+  packageFree: مجاني
+  packagePaid: مدفوع
+  help: مساعدة
+  billing: الفواتير
+options:
+  title: الخيارات
+wizard:
+  title: معالج الإعدادات
+  userWelcomeMessage: مرحباً صديقي!
+  userWelcomeMessage2: شكراً لتثبيت $1 $2.
+  userWelcomeMessage3: أكمل معالج الإعدادات أدناه للبدء.
+  userWelcomeMessage4: يمكنك أيضاً زيارة <a href="$1" target="_blank">موقعنا</a> للمزيد من المعلومات.
+  userModalMessage: يمكنك النقر في أعلى يمين نافذة المتصفح وتثبيت الامتداد في شريط الأدوات.
+  suggested: مقترح
+  optional: اختياري
+  question1: هل تريد تثبيت امتداد سايبرجراندبا في شريط الأدوات؟
+  question2: هل تريد تلقي تنبيهات الأمان المهمة؟
+  question3: هل تريد تلقي آخر التحديثات حول الأمن السيبراني؟
+overlay:
+  title: نتائج تحليل الصفحة
+  falsyMessage: لم يتم اكتشاف مشاكل.
+  truthyMessage: تم اكتشاف بعض المشاكل.

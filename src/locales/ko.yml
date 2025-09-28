@@ -1,0 +1,55 @@
+extension:
+  name: 사이버할아버지
+  subname: 사기방지
+  description: 온라인 활동의 안전성과 사기 방지를 위한 브라우저 확장 프로그램.
+  slogan: 사랑스러운 할아버지처럼 온라인에서 당신을 보호합니다!
+global:
+  logo: 로고
+  visit: 저희 웹사이트 $1을 방문하세요!
+  options: 옵션
+  enabled: 활성화
+  disabled: 비활성화
+  support: 지원
+  wwwMain: cybergrandpa.top/?utm_source=webext&utm_medium=web
+  wwwHelp: help.cybergrandpa.top
+  save: 저장
+  saveAndClose: 저장하고 닫기
+  close: 닫기
+  cancel: 취소
+  reset: 재설정
+  yes: 예
+  no: 아니오
+  scanning: 스캔 중
+popup:
+  latestUpdate: 최신 업데이트
+  protectionStatus: 보호 상태
+  realTimeProtection: 극한 보호
+  tools: 도구
+  scanPage: 페이지 스캔
+  scan: 스캔
+  settings: 설정
+  wizard: 마법사
+  package: 패키지
+  upgrade: 업그레이드
+  packageFree: 무료
+  packagePaid: 유료
+  help: 도움말
+  billing: 결제
+options:
+  title: 옵션
+wizard:
+  title: 설정 마법사
+  userWelcomeMessage: 친구여, 환영합니다!
+  userWelcomeMessage2: $1 $2을 설치해 주셔서 감사합니다.
+  userWelcomeMessage3: 시작하려면 아래 설정 마법사를 완료하세요.
+  userWelcomeMessage4: 더 많은 정보를 위해 <a href="$1" target="_blank">웹사이트</a>를 방문할 수도 있습니다.
+  userModalMessage: 브라우저 창의 오른쪽 상단을 클릭하여 확장 프로그램을 도구 모음에 고정할 수 있습니다.
+  suggested: 권장
+  optional: 선택사항
+  question1: 사이버할아버지 확장 프로그램을 도구 모음에 고정하시겠습니까?
+  question2: 중요한 보안 경고를 받으시겠습니까?
+  question3: 사이버 보안의 최신 업데이트를 받으시겠습니까?
+overlay:
+  title: 페이지 분석 결과
+  falsyMessage: 문제가 감지되지 않았습니다.
+  truthyMessage: 일부 문제가 감지되었습니다.

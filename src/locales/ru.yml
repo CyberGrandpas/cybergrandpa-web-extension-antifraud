@@ -1,0 +1,55 @@
+extension:
+  name: КиберДедушка
+  subname: АнтиМошенник
+  description: Расширение браузера для безопасности и защиты от мошенничества в интернете.
+  slogan: Защищаем вас онлайн, как заботливый дедушка!
+global:
+  logo: логотип
+  visit: Посетите наш сайт $1!
+  options: Настройки
+  enabled: Включено
+  disabled: Отключено
+  support: Поддержка
+  wwwMain: cybergrandpa.top/?utm_source=webext&utm_medium=web
+  wwwHelp: help.cybergrandpa.top
+  save: Сохранить
+  saveAndClose: Сохранить и закрыть
+  close: Закрыть
+  cancel: Отмена
+  reset: Сброс
+  yes: Да
+  no: Нет
+  scanning: Сканирование
+popup:
+  latestUpdate: Последнее обновление
+  protectionStatus: Статус защиты
+  realTimeProtection: Экстремальная защита
+  tools: Инструменты
+  scanPage: Сканировать страницу
+  scan: Сканировать
+  settings: Настройки
+  wizard: Мастер
+  package: Пакет
+  upgrade: Обновить
+  packageFree: Бесплатный
+  packagePaid: Платный
+  help: Помощь
+  billing: Биллинг
+options:
+  title: Настройки
+wizard:
+  title: Мастер настройки
+  userWelcomeMessage: Добро пожаловать, друг!
+  userWelcomeMessage2: Спасибо за установку $1 $2.
+  userWelcomeMessage3: Завершите мастер настройки ниже, чтобы начать.
+  userWelcomeMessage4: Вы также можете посетить наш <a href="$1" target="_blank">сайт</a> для получения дополнительной информации.
+  userModalMessage: Вы можете щелкнуть в правом верхнем углу окна браузера и закрепить расширение на панели инструментов.
+  suggested: Рекомендуется
+  optional: Опционально
+  question1: Хотите закрепить расширение КиберДедушка на панели инструментов?
+  question2: Хотите получать важные оповещения безопасности?
+  question3: Хотите получать последние обновления по кибербезопасности?
+overlay:
+  title: Результаты анализа страницы
+  falsyMessage: Проблем не обнаружено.
+  truthyMessage: Обнаружены некоторые проблемы.

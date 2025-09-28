@@ -1,0 +1,55 @@
+extension:
+  name: CyberFarfar
+  subname: AntiBedragare
+  description: Webbbläsarextension för säkerhet och bedrägeriförebyggande i onlineaktiviteter.
+  slogan: Skyddar dig online, som en omtänksam farfar!
+global:
+  logo: logo
+  visit: Besök vår webbplats $1!
+  options: Alternativ
+  enabled: Aktiverad
+  disabled: Inaktiverad
+  support: Support
+  wwwMain: cybergrandpa.top/?utm_source=webext&utm_medium=web
+  wwwHelp: help.cybergrandpa.top
+  save: Spara
+  saveAndClose: Spara och stäng
+  close: Stäng
+  cancel: Avbryt
+  reset: Återställ
+  yes: Ja
+  no: Nej
+  scanning: Skannar
+popup:
+  latestUpdate: Senaste uppdatering
+  protectionStatus: Skyddsstatus
+  realTimeProtection: Extremt skydd
+  tools: Verktyg
+  scanPage: Skanna sida
+  scan: Skanna
+  settings: Inställningar
+  wizard: Guide
+  package: Paket
+  upgrade: Uppgradera
+  packageFree: Gratis
+  packagePaid: Betald
+  help: Hjälp
+  billing: Fakturering
+options:
+  title: Alternativ
+wizard:
+  title: Inställningsguide
+  userWelcomeMessage: Välkommen, vän!
+  userWelcomeMessage2: Tack för att du installerade $1 $2.
+  userWelcomeMessage3: Slutför installationsguiden nedan för att komma igång.
+  userWelcomeMessage4: Du kan också besöka vår <a href="$1" target="_blank">webbplats</a> för mer information.
+  userModalMessage: Du kan klicka i övre högra hörnet av webbläsarfönstret och fästa tillägget i verktygsfältet.
+  suggested: Föreslaget
+  optional: Valfritt
+  question1: Vill du fästa CyberFarfar-tillägget i verktygsfältet?
+  question2: Vill du ta emot viktiga säkerhetsvarningar?
+  question3: Vill du ta emot de senaste uppdateringarna om cybersäkerhet?
+overlay:
+  title: Resultat av sidanalys
+  falsyMessage: Inga problem upptäcktes.
+  truthyMessage: Vissa problem upptäcktes.

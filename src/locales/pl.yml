@@ -1,0 +1,55 @@
+extension:
+  name: CyberDziadek
+  subname: AntyOszust
+  description: Rozszerzenie przeglądarki do bezpieczeństwa i zapobiegania oszustwom w aktywnościach online.
+  slogan: Chronimy Cię online, jak troskliwy dziadek!
+global:
+  logo: logo
+  visit: Odwiedź naszą stronę $1!
+  options: Opcje
+  enabled: Włączone
+  disabled: Wyłączone
+  support: Wsparcie
+  wwwMain: cybergrandpa.top/?utm_source=webext&utm_medium=web
+  wwwHelp: help.cybergrandpa.top
+  save: Zapisz
+  saveAndClose: Zapisz i zamknij
+  close: Zamknij
+  cancel: Anuluj
+  reset: Resetuj
+  yes: Tak
+  no: Nie
+  scanning: Skanowanie
+popup:
+  latestUpdate: Najnowsza aktualizacja
+  protectionStatus: Status ochrony
+  realTimeProtection: Ekstremalna ochrona
+  tools: Narzędzia
+  scanPage: Skanuj stronę
+  scan: Skanuj
+  settings: Ustawienia
+  wizard: Kreator
+  package: Pakiet
+  upgrade: Aktualizuj
+  packageFree: Darmowy
+  packagePaid: Płatny
+  help: Pomoc
+  billing: Rozliczenia
+options:
+  title: Opcje
+wizard:
+  title: Kreator ustawień
+  userWelcomeMessage: Witaj, przyjacielu!
+  userWelcomeMessage2: Dziękujemy za zainstalowanie $1 $2.
+  userWelcomeMessage3: Ukończ kreator ustawień poniżej, aby rozpocząć.
+  userWelcomeMessage4: Możesz również odwiedzić naszą <a href="$1" target="_blank">stronę internetową</a> po więcej informacji.
+  userModalMessage: Możesz kliknąć w prawym górnym rogu okna przeglądarki i przypiąć rozszerzenie do paska narzędzi.
+  suggested: Sugerowane
+  optional: Opcjonalne
+  question1: Czy chcesz przypiąć rozszerzenie CyberDziadek do paska narzędzi?
+  question2: Czy chcesz otrzymywać ważne alerty bezpieczeństwa?
+  question3: Czy chcesz otrzymywać najnowsze aktualizacje dotyczące cyberbezpieczeństwa?
+overlay:
+  title: Wyniki analizy strony
+  falsyMessage: Nie wykryto problemów.
+  truthyMessage: Wykryto niektóre problemy.

@@ -1,0 +1,55 @@
+extension:
+  name: SiberDede
+  subname: AntiDolandırıcı
+  description: Çevrimiçi aktiviteler için güvenlik ve dolandırıcılık önleme tarayıcı uzantısı.
+  slogan: Çevrimiçi sizi koruyor, tıpkı şefkatli bir dede gibi!
+global:
+  logo: logo
+  visit: Web sitemizi ziyaret edin $1!
+  options: Seçenekler
+  enabled: Etkin
+  disabled: Devre dışı
+  support: Destek
+  wwwMain: cybergrandpa.top/?utm_source=webext&utm_medium=web
+  wwwHelp: help.cybergrandpa.top
+  save: Kaydet
+  saveAndClose: Kaydet ve Kapat
+  close: Kapat
+  cancel: İptal
+  reset: Sıfırla
+  yes: Evet
+  no: Hayır
+  scanning: Tara
+popup:
+  latestUpdate: Son Güncelleme
+  protectionStatus: Koruma Durumu
+  realTimeProtection: Aşırı Koruma
+  tools: Araçlar
+  scanPage: Sayfayı tara
+  scan: Tara
+  settings: Ayarlar
+  wizard: Sihirbaz
+  package: Paket
+  upgrade: Yükselt
+  packageFree: Ücretsiz
+  packagePaid: Ücretli
+  help: Yardım
+  billing: Faturalandırma
+options:
+  title: Seçenekler
+wizard:
+  title: Ayarlar Sihirbazı
+  userWelcomeMessage: Hoş geldin, arkadaşım!
+  userWelcomeMessage2: $1 $2 kurduğun için teşekkürler.
+  userWelcomeMessage3: Başlamak için aşağıdaki ayarlar sihirbazını tamamlayın.
+  userWelcomeMessage4: Daha fazla bilgi için <a href="$1" target="_blank">web sitemizi</a> de ziyaret edebilirsiniz.
+  userModalMessage: Tarayıcı pencerenizin sağ üst köşesine tıklayarak uzantıyı araç çubuğuna sabitleyebilirsiniz.
+  suggested: Önerilen
+  optional: İsteğe bağlı
+  question1: SiberDede uzantısını araç çubuğuna sabitlemek istiyor musunuz?
+  question2: Önemli güvenlik uyarıları almak istiyor musunuz?
+  question3: Siber güvenlik konusundaki son güncellemeleri almak istiyor musunuz?
+overlay:
+  title: Sayfa analiz sonuçları
+  falsyMessage: Hiçbir sorun tespit edilmedi.
+  truthyMessage: Bazı sorunlar tespit edildi.
