@@ -1,8 +1,12 @@
 // Utility to compress a ReadableStream to base64String
 export const compressReadableStream = async (readableStream: ReadableStream<Uint8Array>) => {
   try {
-    // Create a compression stream
-    const compressedStream = readableStream.pipeThrough(new CompressionStream('gzip'));
+    // Create a compression stream (ensure correct type handling for cross-browser compatibility)
+    const compressionStream = new CompressionStream('gzip');
+    const compressedStream = readableStream.pipeThrough<Uint8Array>({
+      writable: compressionStream.writable as WritableStream<Uint8Array>,
+      readable: compressionStream.readable,
+    });
 
     // Convert the compressed stream to a Uint8Array
     const reader = compressedStream.getReader();
