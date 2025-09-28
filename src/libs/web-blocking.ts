@@ -1,5 +1,5 @@
 import { CONFIG_LOCAL_URL_PATTERN } from '@/config';
-import { browser } from 'wxt/browser/chrome';
+import { browser } from 'wxt/browser';
 import { getUrlService } from './urls-service';
 
 export const initWebBlocking = () => {
