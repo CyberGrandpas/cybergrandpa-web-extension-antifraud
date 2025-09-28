@@ -66,7 +66,7 @@ export const decompressReadableStream = (base64String: string) => {
   }
 };
 
-export const convertReadableStreamToString = async (readableStream: ReadableStream<string>) => {
+export const convertReadableStreamToString = async (readableStream: ReadableStream<Uint8Array>) => {
   try {
     // Read the decompressed data
     const reader = readableStream.getReader();

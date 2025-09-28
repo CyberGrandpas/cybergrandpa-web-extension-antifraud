@@ -1,5 +1,3 @@
-import { type StorageItemKey } from 'wxt/storage';
-
 const defaultAlarmInterval = 11 * 60 * 60 * 1000; // 11 hours
 
 const checkAlarmState = async (storageKey: StorageItemKey, milliseconds: number = defaultAlarmInterval) => {
