@@ -133,3 +133,149 @@ When making changes:
 5. Use the correct development commands with `bun`
 6. Consider internationalization for user-facing text
 7. Test both Chrome and Firefox builds when applicable
+
+## Detailed Component Patterns
+
+### Svelte 5 Component Structure
+
+```svelte
+<script lang="ts">
+  import type { ComponentProps } from '@/utils';
+  
+  // Props with $props() rune
+  let { prop1, prop2 = 'default' }: ComponentProps = $props();
+  
+  // State with $state() rune
+  let localState = $state(initialValue);
+  
+  // Derived values with $derived() rune
+  let computed = $derived(localState * 2);
+  
+  // Effects with $effect() rune
+  $effect(() => {
+    // Side effects here
+    return () => {
+      // Cleanup here
+    };
+  });
+</script>
+
+<!-- Template with Svelte 5 syntax -->
+<div class="component">
+  {@render children()}
+</div>
+
+<style lang="scss">
+  .component {
+    // SCSS styles with CSS variables
+    color: var(--text-color-light);
+  }
+</style>
+```
+
+### Component Props Interface Pattern
+
+Always define TypeScript interfaces for component props in `src/utils/types.ts`:
+
+```typescript
+export interface ComponentProps {
+  prop1: string;
+  prop2?: boolean;
+  children?: Snippet;
+  onClick?: () => void;
+}
+```
+
+### Store Pattern
+
+Use the custom `createStore` utility for persistent state:
+
+```typescript
+export const storeName = createStore<Type>(defaultValue, 'storage:key');
+```
+
+### Message Passing Pattern
+
+Use the established message passing system:
+
+```typescript
+// Send messages
+await sendMessage({ type: 'messageType', tabId: id });
+
+// Handle messages in background/content scripts
+browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
+  if (request.type === 'messageType') {
+    // Handle message
+    return true; // For async responses
+  }
+});
+```
+
+### URL Blocking Pattern
+
+The extension uses a sophisticated URL blocking system:
+
+1. **Background Script**: Monitors `webNavigation.onBeforeNavigate`
+2. **URL Service**: Checks URLs against compressed blocklist
+3. **Content Scripts**: Handle page blocking and user interaction
+4. **Storage**: Compressed base64-encoded blocklist from external source
+
+### Styling Guidelines
+
+- Use CSS custom properties (variables) defined in `src/styles/style.scss`
+- Follow the modular SCSS architecture with numbered files
+- Use `rem` units with PostCSS conversion to pixels
+- Maintain consistent spacing and color schemes
+- Support both light and dark themes
+
+### Internationalization Pattern
+
+```typescript
+// In components
+let t = i18n.t;
+
+// Usage
+{t('key.subkey')}
+{t('key.withParams', [param1, param2])}
+```
+
+### Error Handling
+
+- Use try-catch blocks for async operations
+- Log errors with `console.error()` for debugging
+- Gracefully handle storage and network failures
+- Provide user feedback for critical operations
+
+### Performance Considerations
+
+- Use compressed data for large datasets (URL blocklist)
+- Implement efficient filtering and searching algorithms
+- Minimize content script injection overhead
+- Use proper cleanup in effects and event listeners
+
+### Security Guidelines
+
+- Validate all external data sources
+- Use Content Security Policy appropriately
+- Sanitize user inputs and external URLs
+- Follow browser extension security best practices
+- Implement proper permission scoping
+
+### Testing Strategy
+
+- Test both Chrome and Firefox builds
+- Verify cross-context communication
+- Test URL blocking functionality
+- Validate internationalization
+- Check storage persistence
+- Test onboarding flow
+
+### Common Patterns to Follow
+
+1. **Component Composition**: Use slots/children for flexible component design
+2. **State Management**: Prefer reactive stores over local state when data needs persistence
+3. **Event Handling**: Use proper cleanup in effects and event listeners
+4. **Type Safety**: Always define interfaces for complex data structures
+5. **Error Boundaries**: Implement proper error handling for async operations
+6. **Accessibility**: Use proper ARIA labels and semantic HTML
+7. **Performance**: Minimize re-renders and optimize bundle size
