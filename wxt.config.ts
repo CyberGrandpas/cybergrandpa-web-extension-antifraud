@@ -5,7 +5,6 @@ export default defineConfig({
   srcDir: 'src',
   outDir: 'dist',
   modules: ['@wxt-dev/module-svelte', '@wxt-dev/i18n/module'],
-  extensionApi: 'chrome',
   manifest: {
     manifest_version: 3,
     name: '__MSG_extension_name__' + ' ' + '__MSG_extension_subname__',

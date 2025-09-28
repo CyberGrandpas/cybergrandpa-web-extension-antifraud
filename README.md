@@ -20,9 +20,9 @@ Use `web-ext.config.ts` on the root of the project to customize the browser laun
 ### Launcher configuration example
 
 ```ts
-import { defineRunnerConfig } from 'wxt';
+import { defineWebExtConfig } from 'wxt';
 
-export default defineRunnerConfig({
+export default defineWebExtConfig({
   binaries: {
     chrome: '/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary',
     // firefox: 'firefoxdeveloperedition', // Use Firefox Developer Edition instead of regular Firefox
