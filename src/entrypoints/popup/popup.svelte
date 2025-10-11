@@ -29,15 +29,15 @@
       return activateTab(Number(scanning));
     }
 
-    const { id, url } = await getActiveTab();
+    const tab = await getActiveTab();
 
-    if (!url || isIgnoreUrlMatch(url)) {
+    if (!tab?.id || !tab?.url || isIgnoreUrlMatch(tab.url)) {
       return;
     }
 
-    await sendMessage({ type: 'loadContentScript', tabId: id });
+    await sendMessage({ type: 'loadContentScript', tabId: tab.id });
 
-    storeScanning.set(String(id));
+    storeScanning.set(String(tab.id));
   };
 
   let t = i18n.t;
@@ -48,8 +48,8 @@
     return () => {
       storeRealtimeEnabled.unwatch();
       storeScanning.unwatch();
-      unsubscribeRealtime();
-      unsubscribeScanning();
+      unsubscribeRealtime?.();
+      unsubscribeScanning?.();
     };
   });
 </script>

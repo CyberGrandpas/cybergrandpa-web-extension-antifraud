@@ -1,5 +1,5 @@
 import '@/styles/style.scss';
-import { ENV_APP_VERSION, SendMessageParams, getLog } from '@/utils';
+import { ENV_APP_VERSION, type SendMessageParams, getLog } from '@/utils';
 import { createUi } from '@/utils/create-ui';
 import { ContentScriptContext } from 'wxt/utils/content-script-context';
 
