@@ -23,7 +23,7 @@ export default defineConfig({
     web_accessible_resources: [
       {
         matches: ['<all_urls>'],
-        resources: ['/icon/*.png', '/content-scripts/*.js'],
+        resources: ['/icon/*.png', '/images/**/*.png', '/images/**/*.svg', '/content-scripts/*.js'],
       },
     ],
     content_security_policy: {
