@@ -48,5 +48,5 @@
     "webext-base-css": "^2.1.0",
     "wxt": "^0.20.11"
   },
-  "packageManager": "bun@1.1.0"
+  "packageManager": "bun@1.2.15"
 }
