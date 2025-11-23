@@ -17,7 +17,7 @@ This is an anti-fraud and safety web extension that blocks malicious URLs using 
 - **Framework**: WXT (Web Extension Framework) with TypeScript
 - **Frontend**: Svelte 5 with runes syntax
 - **Styling**: SASS/SCSS with modular architecture
-- **Database**: LokiJS for in-memory URL storage
+- **Storage**: WXT storage API with compressed in-memory URL data
 - **Communication**: @webext-core/proxy-service for cross-context messaging
 - **Internationalization**: @wxt-dev/i18n with YAML locale files
 
@@ -82,7 +82,7 @@ This is an anti-fraud and safety web extension that blocks malicious URLs using 
 - **URL Blocking**: Uses compressed blocklist from hblock.molinero.dev/hosts
 - **Real-time Scanning**: Monitors navigation and blocks malicious URLs
 - **Cross-browser Support**: Manifest V3 compatible with Chrome and Firefox
-- **Internationalization**: Multi-language support (EN, DE, ES, FR, IT, NL, PT)
+- **Internationalization**: Multi-language support (28 languages)
 - **Onboarding**: Wizard-based setup for new users
 
 ## Browser Permissions
@@ -103,7 +103,7 @@ Required permissions:
 ## Internationalization
 
 - YAML locale files in `src/locales/`
-- Supports: English, German, Spanish, French, Italian, Dutch, Portuguese
+- Supports 28 languages including: English, German, Spanish, French, Italian, Dutch, Portuguese, Arabic, Bulgarian, Czech, Danish, Finnish, Hindi, Croatian, Hungarian, Japanese, Korean, Norwegian, Polish, Romanian, Russian, Slovak, Swedish, Turkish, Ukrainian, Chinese (Simplified & Traditional)
 - Messages accessed via `i18n.t()` function
 - Manifest uses `__MSG_*__` format for localized strings
 
