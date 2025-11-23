@@ -3,7 +3,7 @@ import { APP_NAME } from '@/config';
 import { storeScanning } from '@/libs/store';
 import { pascalCase } from 'change-case';
 import { unmount } from 'svelte';
-import { ContentScriptContext } from 'wxt/client';
+import { ContentScriptContext } from 'wxt/utils/content-script-context';
 import { bootstrapApp } from './bootstrap-app';
 
 export const createUi = (name: string, ctx: ContentScriptContext) => {

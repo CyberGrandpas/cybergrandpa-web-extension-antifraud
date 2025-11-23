@@ -1,5 +1,4 @@
 import { writable } from 'svelte/store';
-import { type StorageItemKey, storage } from 'wxt/storage';
 
 export function createStore<T>(value: T, storageKey: StorageItemKey) {
   const { subscribe, set } = writable(value);

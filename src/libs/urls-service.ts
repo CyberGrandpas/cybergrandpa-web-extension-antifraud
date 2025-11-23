@@ -1,7 +1,7 @@
 import { convertReadableStreamToString, createStore, decompressReadableStream, getArrayFromString } from '@/utils';
+import { logger } from '@/utils/logger';
 import type { UrlService } from '@/utils/types';
 import { defineProxyService } from '@webext-core/proxy-service';
-import { StorageItemKey } from 'wxt/storage';
 
 const createUrlService = (storageKey: StorageItemKey): UrlService => {
   const urlsDb = createStore<string | null>(null, storageKey);
@@ -21,7 +21,7 @@ const createUrlService = (storageKey: StorageItemKey): UrlService => {
     return getArrayFromString(streamToText, (x) => x.startsWith('0.0.0.0'), '0.0.0.0');
   };
 
-  urlsDb.ready().then(async (value) => {
+  urlsDb.ready().then(async (value: string | null) => {
     if (value) {
       arr = await v(value);
     }
@@ -47,7 +47,7 @@ const createUrlService = (storageKey: StorageItemKey): UrlService => {
       try {
         await urlsDb.set(base64string);
       } catch (error) {
-        console.error(error);
+        logger.error('Failed to upsert URL data:', error);
 
         return false;
       }

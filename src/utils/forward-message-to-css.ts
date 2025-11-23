@@ -1,5 +1,5 @@
 import { isIgnoreUrlMatch } from './is-ignore-url-match';
-import { SendMessageParams } from './types';
+import type { SendMessageParams } from './types';
 
 // MESSAGES FORWARDED TO CONTENT SCRIPTS and ALL TABS
 export const forwardMessageToCss = async (request: SendMessageParams) => {

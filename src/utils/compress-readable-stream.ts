@@ -1,21 +1,27 @@
+import { logger } from './logger';
+
 // Utility to compress a ReadableStream to base64String
-export const compressReadableStream = async (readableStream: ReadableStream<string>) => {
+export const compressReadableStream = async (readableStream: ReadableStream<Uint8Array>) => {
   try {
-    // Create a compression stream
-    const compressedStream = readableStream.pipeThrough(new CompressionStream('gzip'));
+    // Create a compression stream (ensure correct type handling for cross-browser compatibility)
+    const compressionStream = new CompressionStream('gzip');
+    const compressedStream = readableStream.pipeThrough<Uint8Array>({
+      writable: compressionStream.writable as WritableStream<Uint8Array>,
+      readable: compressionStream.readable,
+    });
 
     // Convert the compressed stream to a Uint8Array
     const reader = compressedStream.getReader();
-    const chunks = [];
+    const chunks: Uint8Array[] = [];
 
     while (true) {
       const { done, value } = await reader.read();
       if (done) break;
-      chunks.push(value);
+      chunks.push(value as Uint8Array);
     }
 
     // Create a Blob from the chunks
-    const blob = new Blob(chunks);
+    const blob = new Blob(chunks as BlobPart[]);
 
     // Convert Blob to base64 using FileReader
     const base64String = await new Promise((resolve, reject) => {
@@ -37,7 +43,7 @@ export const compressReadableStream = async (readableStream: ReadableStream<stri
 
     return base64String ? String(base64String) : '';
   } catch (error) {
-    console.error('Error compressing stream:', error);
+    logger.error('Error compressing stream:', error);
     throw error;
   }
 };
@@ -61,12 +67,12 @@ export const decompressReadableStream = (base64String: string) => {
     // Decompress the stream
     return compressedStream.pipeThrough(new DecompressionStream('gzip'));
   } catch (error) {
-    console.error('Error retrieving compressed stream:', error);
+    logger.error('Error retrieving compressed stream:', error);
     throw error;
   }
 };
 
-export const convertReadableStreamToString = async (readableStream: ReadableStream<string>) => {
+export const convertReadableStreamToString = async (readableStream: ReadableStream<Uint8Array>) => {
   try {
     // Read the decompressed data
     const reader = readableStream.getReader();
@@ -84,7 +90,7 @@ export const convertReadableStreamToString = async (readableStream: ReadableStre
 
     return result;
   } catch (error) {
-    console.error('Error converting readable stream to string:', error);
+    logger.error('Error converting readable stream to string:', error);
     throw error;
   }
 };
