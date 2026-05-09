@@ -11,8 +11,7 @@ Cross-browser anti-fraud web extension that blocks malicious URLs using a distri
 - **Framework**: WXT 0.20.15 (Web Extension Framework)
 - **Frontend**: Svelte 5.50.1 with runes (`$state`, `$derived`, `$effect`)
 - **Styling**: SASS/SCSS, PostCSS with rem-to-px
-- **Database**: LokiJS (in-memory)
-- **Communication**: @webext-core/proxy-service
+- **Communication**: @webext-core/proxy-service 2.0.0
 - **i18n**: @wxt-dev/i18n (28 languages)
 - **Package Manager**: Bun (never use npm or yarn)
 
@@ -50,6 +49,7 @@ src/
 │   ├── options/           # Settings page (HTML + Svelte)
 │   └── wizard/            # Onboarding wizard (HTML + Svelte)
 ├── libs/                  # Core services
+│   ├── fraud-detector/    # Modular fraud detection (tiered scanning)
 │   ├── urls-service.ts    # Blocklist management (proxy-service)
 │   ├── init-db.ts         # Blocklist sync from hblock.molinero.dev
 │   ├── web-blocking.ts    # Real-time URL interception
@@ -173,14 +173,16 @@ const result = await urlService.seek('https://example.com');
 
 ## AI Instructions Files
 
-This project uses the latest Windsurf documentation structure:
+This project uses directory-scoped AGENTS.md files and `.windsurf/rules/` for cross-cutting rules:
 
-- **`AGENTS.md`**: Root fallback instructions for all AI assistants
-- **`.cursorrules`**: Cursor IDE specific rules with detailed patterns
-- **`CLAUDE.md`**: Claude Code comprehensive guidance
+- **`AGENTS.md`** (this file): Root-level universal AI agent instructions
+- **`CLAUDE.md`**: Claude Code guidance (references this file)
+- **`.windsurf/AGENTS.md`**: Windsurf root fallback
+- **`.windsurf/rules/`**: Cross-cutting rules with frontmatter
   - `global.md` - Development commands and workflows (always on)
   - `security.md` - Security best practices
   - `performance.md` - Performance guidelines
+  - `plan.md` - Project roadmap and priorities
 - **Directory-specific AGENTS.md**: Location-based instructions
   - `src/AGENTS.md` - Core development directives
   - `src/entrypoints/AGENTS.md` - WXT entrypoint patterns
@@ -237,12 +239,12 @@ await urlService.count();
 
 ## When in Doubt
 
-1. Check `CLAUDE.md` for detailed architecture documentation
-2. Review `.cursorrules` for component patterns
+1. Check the relevant directory AGENTS.md file
+2. Check `.windsurf/rules/plan.md` for roadmap priorities
 3. Look at existing similar files before creating new ones
 4. Ask before making architectural changes
 5. Test both browsers before submitting changes
 
 ---
 
-**Note**: This file follows the AGENTS.md standard stewarded by the Agentic AI Foundation under the Linux Foundation. Keep it ≤ 150 lines when possible. For detailed architecture, see `CLAUDE.md`.
+**Note**: This file follows the AGENTS.md standard. For detailed architecture, see directory-specific AGENTS.md files. For roadmap, see `.windsurf/rules/plan.md`.

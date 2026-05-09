@@ -1,12 +1,15 @@
-# CyberGrandpa Anti-Fraud Extension - Project Plan
+---
+title: Project Roadmap
+description: Development roadmap and priorities for the CyberGrandpa extension
+always: true
+trigger: model_decision
+---
 
-**Version:** 0.0.3
+## CyberGrandpa Anti-Fraud Extension - Project Plan
+
+**Version:** 0.0.4
 **Status:** Beta Development
-**Last Updated:** 2025-11-23
-
-## Executive Summary
-
-This document outlines the development roadmap for the CyberGrandpa Anti-Fraud web extension. The project has a solid foundation with working URL blocking, comprehensive i18n support (28 languages), and a clean Svelte 5 architecture. However, several critical features need completion before production release.
+**Last Updated:** 2026-05-09
 
 ## Current State Assessment
 
@@ -39,6 +42,18 @@ This document outlines the development roadmap for the CyberGrandpa Anti-Fraud w
    - 8 persistent storage items
    - Svelte store bindings
 
+6. **Developer Tooling** *(new)*
+   - Logger utility with dev/prod environment check
+   - CHANGELOG.md tracking project changes
+   - CLAUDE.md updated (LokiJS references removed)
+   - AGENTS.md documentation structure (Windsurf + directory-specific)
+
+7. **Fraud Detection Library** *(new)*
+   - Modular `src/libs/fraud-detector/` with 7 files
+   - Tiered scanning: `scanLight()` (inline-only) and `scanDeep()` (full)
+   - Weighted patterns with threat categories and scan level tags
+   - Entropy analysis and obfuscation detection
+
 ### ⚠️ Incomplete/Problematic Features
 
 1. **Close Content Script** (`src/entrypoints/close.content.ts`)
@@ -49,17 +64,22 @@ This document outlines the development roadmap for the CyberGrandpa Anti-Fraud w
 2. **Page Scanning Overlay** (`src/components/apps/overlay-loading-app.svelte`)
    - **Status:** Placeholder/fake implementation
    - **Issue:** Shows hardcoded "no issues" after 3-second delay
-   - **Action Required:** Implement real scanning or remove feature
+   - **Action Required:** Wire to fraud-detector library
 
 3. **Real-time Protection Toggle**
    - **Status:** UI exists but functionality unclear
    - **Issue:** Web blocking runs regardless of toggle state
-   - **Action Required:** Clarify purpose or remove as premium placeholder
+   - **Action Required:** Wire `storeRealtimeEnabled` to control scanning tier
 
 4. **Tab Blocking Mechanism** (`src/libs/web-blocking.ts`)
    - **Status:** Working but potentially unreliable
    - **Issue:** Uses scripting.executeScript which may have timing issues
    - **Action Required:** Consider declarativeNetRequest API for more reliable blocking
+
+5. **Fraud Detector Integration** *(new)*
+   - **Status:** Library built but not wired to entrypoints
+   - **Issue:** `scanLight()`/`scanDeep()` not called from content.ts or background.ts
+   - **Action Required:** Integrate with content script and connect to overlay UI
 
 ### ❌ Missing Features
 
@@ -69,58 +89,50 @@ This document outlines the development roadmap for the CyberGrandpa Anti-Fraud w
    - No automated quality checks
 
 2. **Production Code Quality**
-   - Console.log statements in 9 production files
    - No error tracking/reporting
    - No performance monitoring
-
-3. **Documentation**
-   - No API documentation
-   - No contribution guidelines
-   - No changelog
-   - CLAUDE.md mentions LokiJS but project uses WXT storage
 
 ## Priority Roadmap
 
 ### Phase 1: Critical Fixes (Must Complete Before v0.1.0)
 
 **Priority: CRITICAL**
-**Timeline:** Immediate
 
-1. **Fix or Remove Close Content Script**
+1. **Wire Fraud Detector to Scanning Overlay**
+   - [ ] Replace fake 3s delay with real `scanLight()` call
+   - [ ] Display actual results from `FraudReport`
+   - [ ] Show risk level and threat details in overlay UI
+   - **Files:** `overlay-loading-app.svelte`, `fraud-detector/scanner.ts`
+
+2. **Fix Close Content Script**
    - [ ] Decide: Complete implementation or remove feature
    - [ ] If keeping: Implement reliable tab closing mechanism
    - [ ] If removing: Remove file and update manifest
    - **Files:** `src/entrypoints/close.content.ts`
 
-2. **Fix or Remove Page Scanning**
-   - [ ] Decide: Implement real scanning or remove feature
-   - [ ] If keeping: Scan actual page URLs against blocklist
-   - [ ] If removing: Remove overlay component and popup integration
-   - **Files:** `src/components/apps/overlay-loading-app.svelte`, `src/entrypoints/popup/popup.svelte`
+3. **Wire Real-time Protection Toggle**
+   - [ ] Make `storeRealtimeEnabled` control fraud scanning tier
+   - [ ] Premium users: auto light scan on navigation, deep on idle
+   - [ ] Basic users: manual scan only
+   - [ ] Wire `storePackageType` to determine available features
+   - **Files:** `content.ts`, `background.ts`, `store.ts`
 
-3. **Improve Tab Blocking Reliability**
+4. **Improve Tab Blocking Reliability**
    - [ ] Research declarativeNetRequest API for URL blocking
    - [ ] Implement fallback mechanism if current approach fails
    - [ ] Add error handling for blocked navigation
    - **Files:** `src/libs/web-blocking.ts`
 
-4. **Remove Debug Code**
-   - [ ] Replace console.log with proper logging utility
-   - [ ] Add development/production environment check
-   - [ ] Implement error reporting service (optional)
-   - **Files:** All 9 files with console.log statements
-
 ### Phase 2: Testing & Quality (Required for v0.1.0)
 
 **Priority: HIGH**
-**Timeline:** Before production release
 
 1. **Testing Infrastructure Setup**
-   - [ ] Add Vitest or Jest testing framework
+   - [ ] Add Vitest testing framework
    - [ ] Write unit tests for core services:
      - [ ] `urls-service.ts` - URL matching and storage
      - [ ] `web-blocking.ts` - Blocking logic
-     - [ ] `init-db.ts` - Database initialization
+     - [ ] `fraud-detector/` - Scanner, analyzer, patterns
    - [ ] Write integration tests for:
      - [ ] Background service worker
      - [ ] Storage synchronization
@@ -138,7 +150,7 @@ This document outlines the development roadmap for the CyberGrandpa Anti-Fraud w
      - [ ] Modal interactions
 
 3. **End-to-End Testing**
-   - [ ] Add Playwright or Puppeteer for E2E tests
+   - [ ] Add Playwright for E2E tests
    - [ ] Test extension installation flow
    - [ ] Test URL blocking in real browsers
    - [ ] Test cross-browser compatibility (Chrome & Firefox)
@@ -146,16 +158,15 @@ This document outlines the development roadmap for the CyberGrandpa Anti-Fraud w
 ### Phase 3: Production Readiness (Required for v1.0.0)
 
 **Priority: MEDIUM**
-**Timeline:** After v0.1.0 release
 
 1. **Documentation**
+   - [x] Add CHANGELOG.md
+   - [x] Update CLAUDE.md to remove LokiJS references
    - [ ] Create comprehensive README with:
      - [ ] Installation instructions
      - [ ] Feature documentation
      - [ ] Troubleshooting guide
    - [ ] Add CONTRIBUTING.md
-   - [ ] Add CHANGELOG.md
-   - [ ] Update CLAUDE.md to remove LokiJS references
    - [ ] Add JSDoc comments to all public APIs
    - [ ] Create user manual for extension features
 
@@ -172,19 +183,18 @@ This document outlines the development roadmap for the CyberGrandpa Anti-Fraud w
    - [ ] Implement retry logic for network failures
 
 4. **Code Quality**
+   - [x] Replace console.log with proper logging utility
    - [ ] Run ESLint and fix all warnings
-   - [ ] Run Prettier on entire codebase
    - [ ] Add pre-commit hooks for linting
    - [ ] Set up GitHub Actions for CI/CD
 
 ### Phase 4: Feature Enhancements (Post v1.0.0)
 
 **Priority: LOW**
-**Timeline:** Future releases
 
 1. **Premium Features Implementation**
    - [ ] Define premium vs. free feature set
-   - [ ] Implement real-time protection (if not placeholder)
+   - [ ] Wire tiered scanning (light/deep) to package type
    - [ ] Add billing/subscription integration
    - [ ] Implement license validation
 
@@ -215,10 +225,8 @@ This document outlines the development roadmap for the CyberGrandpa Anti-Fraud w
 
 ### High Priority
 
-1. **Architecture Mismatch:** Documentation mentions LokiJS but code uses WXT storage
-2. **Commented Code:** close.content.ts has 90% of code commented out
-3. **Fake Features:** Page scanning overlay doesn't actually scan
-4. **Console Logs:** 9 files have debug console.log statements
+1. **Commented Code:** close.content.ts has 90% of code commented out
+2. **Fake Features:** Page scanning overlay doesn't actually scan (needs fraud-detector wiring)
 
 ### Medium Priority
 
@@ -237,8 +245,8 @@ This document outlines the development roadmap for the CyberGrandpa Anti-Fraud w
 ### v0.1.0 Release Criteria
 
 - [ ] All Phase 1 critical fixes completed
+- [ ] Fraud detector wired to overlay UI
 - [ ] Test coverage ≥ 70%
-- [ ] No console.log in production code
 - [ ] All ESLint errors resolved
 - [ ] Extension tested in Chrome and Firefox
 - [ ] Documentation updated
@@ -253,55 +261,13 @@ This document outlines the development roadmap for the CyberGrandpa Anti-Fraud w
 - [ ] User manual completed
 - [ ] Beta testing with 50+ users
 
-## Risk Assessment
-
-### High Risk
-
-- **Tab Blocking Reliability:** Current implementation may fail in edge cases
-- **Page Scanning Feature:** Non-functional feature may confuse users
-- **No Testing:** High bug risk without automated tests
-
-### Medium Risk
-
-- **Premium Features Confusion:** UI exists but features not implemented
-- **Blocklist Sync Failure:** No retry mechanism for failed syncs
-- **Memory Usage:** Compressed blocklist in memory may cause issues on low-end devices
-
-### Low Risk
-
-- **Browser API Changes:** Manifest V3 is stable but may evolve
-- **Internationalization:** Over-engineered with 28 languages (low usage for some)
-- **Build Tool Updates:** WXT framework is actively maintained
-
 ## Next Immediate Steps
 
-1. **Decision Points Required:**
-   - Keep or remove close.content.ts feature?
-   - Keep or remove page scanning feature?
-   - Premium features: placeholder or implement?
-
-2. **Quick Wins (Can be done now):**
-   - Remove all console.log statements
-   - Run ESLint and fix warnings
-   - Update CLAUDE.md to remove LokiJS mention
-   - Add CHANGELOG.md
-
-3. **Foundation Work:**
-   - Set up Vitest testing framework
-   - Write first unit tests for urls-service.ts
-   - Implement proper logging utility
-   - Add CI/CD with GitHub Actions
-
-## Notes
-
-- Project follows Svelte 5 best practices throughout
-- Cross-browser architecture is solid foundation
-- Internationalization exceeds requirements (28 vs. 7 languages)
-- Core URL blocking functionality works well
-- Main blocker to production: testing and incomplete features
+1. **Wire fraud-detector to overlay-loading-app.svelte** (Phase 1, item 1)
+2. **Fix or remove close.content.ts** (Phase 1, item 2)
+3. **Wire real-time protection toggle to scanning tiers** (Phase 1, item 3)
 
 ---
 
-**Contributors:** Review this plan and provide feedback on priorities and timelines.
-**Last Review:** 2025-11-23
+**Last Review:** 2026-05-09
 **Next Review:** After Phase 1 completion
