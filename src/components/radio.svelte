@@ -1,11 +1,11 @@
 <script lang="ts">
-  import { nanoid } from 'nanoid';
-  import { camelCase } from 'change-case';
   import { type RadioProps } from '@/utils';
+  import { camelCase } from 'change-case';
+  import { nanoid } from 'nanoid';
 
   let { label, group = $bindable(), checked, value }: RadioProps = $props();
 
-  const id = camelCase(['radio', label, group, value, '_', nanoid(4)].join(' '));
+  let id = $derived(camelCase(['radio', label, group, value, '_', nanoid(4)].join(' ')));
 </script>
 
 <input {id} type="radio" class="css-radio" {checked} bind:group {value} />

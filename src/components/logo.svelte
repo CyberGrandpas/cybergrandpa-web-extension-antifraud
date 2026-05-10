@@ -3,7 +3,7 @@
 
   let { size = 128, alt = '' }: LogoProps = $props();
 
-  const src = browser.runtime.getURL(`/icon/${size}.png` as never);
+  let src = $derived(browser.runtime.getURL(`/icon/${size}.png` as never));
 </script>
 
 <div class="logo">
