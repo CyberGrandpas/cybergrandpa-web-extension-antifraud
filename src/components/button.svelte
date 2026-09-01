@@ -1,24 +1,28 @@
 <script lang="ts">
-  import { browser } from 'wxt/browser';
-  import { logger } from '@/utils/logger';
   import type { ButtonProps } from '@/utils';
+  import { logger } from '@/utils/logger';
+  import { browser } from 'wxt/browser';
 
   let { children, url, onClick, size, disabled, loading = false }: ButtonProps = $props();
 
-  if (!!url && !!onClick) {
-    logger.error('Button: Either url or onClick should be defined, not both');
-  } else if (!url && !onClick) {
-    logger.error('Button: Either only url or only onClick should be defined');
-  } else {
-    if (!!url && !onClick) {
-      onClick = () => browser.tabs.create({ url, active: true });
+  $effect(() => {
+    if (!!url && !!onClick) {
+      logger.error('Button: Either url or onClick should be defined, not both');
+    } else if (!url && !onClick) {
+      logger.error('Button: Either only url or only onClick should be defined');
+    } else {
+      if (!!url && !onClick) {
+        onClick = () => browser.tabs.create({ url, active: true });
+      }
     }
-  }
+  });
 
-  let style = [
-    `--font-size: ${size === 'small' ? '0.8rem' : size === 'large' ? '1.3rem' : '1rem'}`,
-    `--padding-size: ${size === 'small' ? '.3rem .6rem' : size === 'large' ? '.25rem .8125rem' : '0.3rem 0.5rem'}`,
-  ].join(';');
+  let style = $derived(
+    [
+      `--font-size: ${size === 'small' ? '0.8rem' : size === 'large' ? '1.3rem' : '1rem'}`,
+      `--padding-size: ${size === 'small' ? '.3rem .6rem' : size === 'large' ? '.25rem .8125rem' : '0.3rem 0.5rem'}`,
+    ].join(';')
+  );
 </script>
 
 <button class="button {loading && 'running'}" onclick={onClick} {style} {disabled}>
